@@ -1,0 +1,585 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title></title>  
+    <link href="../../css/bootstrap.css" rel="stylesheet" />
+    <link href="../../css/animate.min.css" rel="stylesheet" /> 
+    <link href="../../dist/css/swiper.css" rel="stylesheet" />
+
+    <link href="../../css/common.css" rel="stylesheet" />
+    <script src="../../js/jquery-1.8.3-min.js"></script> 
+    <script src="../../js/common.js"></script> 
+    <script src="../../js/jquery.jsonp-2.1.4.min.js"></script>
+    <script src="../../dist/js/swiper.min.js"></script> 
+    
+     
+ <style type="text/css">
+      body {   color: #3B3646;  }  
+
+      #loading {
+        background:#fff;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        padding-left:30%;
+        padding-top:3em;
+        left: 0px;
+        bottom: 0%;
+        z-index: 400;
+        border: 0;
+    }
+
+     div#bgdiv {
+        position: fixed;
+        width: 100%;
+        top: 0px;
+        left: 0px;
+        bottom: 0%;
+        z-index: -1;
+        border: 0;
+    }
+    div#bgdiv > img {
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+    .con {
+        font-family: fzxk;
+        position: fixed; 
+        font-weight: 100;
+        font-size: 2em;
+    }
+    .main {
+        font-family: fzxk;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width:100%;
+        font-weight: 100;
+        font-size: 2em;
+    }
+</style>
+ <style> 
+ 
+    .modal-dialog { 
+        margin: 5% auto;
+    }
+    .swiper-container {
+        width: 100%;
+        height: 100%; 
+    }
+   .swiper-container  .swiper-slide {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 40px 60px;
+        overflow: auto;
+    } 
+
+    .parallax-bg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 130%;
+        height: 100%;
+        -webkit-background-size: cover;
+        background-size: cover;
+        background-position: center;
+    }
+     .imgdiv {
+        width: 90%;
+        padding: 5%;
+     }
+     .imgdiv div {
+        width: 20%;
+        height: 180px;
+        text-align: center;
+        float: left;  
+        padding-top:25px;
+        font-size: 1em;
+
+     }
+     .imgdiv img { 
+        width: 80%;
+        height:120px;
+     }
+    
+     .grade_nav {
+        width:100%; 
+        padding-left:12%;    
+    }
+
+    .grade_nav div{
+        float: left;
+        list-style: none;
+        width: 11%;
+        margin: 0.2em 0.1em;
+        border: 2px solid #B36767;
+        background-color: #CA9A88;
+        border-radius: 0.5em;
+        text-align: center;
+        font-family: hwkt;
+        font-size: 1.5em;
+    }
+
+    .grade_div {
+        position: fixed;
+        text-align: center;
+        width: 100%;
+        background:#808080; 
+        bottom: 3em;
+    }
+
+   .footer {
+        position: fixed;
+        text-align: center;
+        width: 100%;
+        bottom: 0.3em;
+        font-size: 1.2em;
+        font-family: hwkt;
+    }
+
+   .main {
+        font-family: fzxk;
+        position: fixed;
+        top: 0px;
+        bottom: 7em;
+        left: 0px;
+        /*background-color: #333;*/
+        width: 100%;
+        font-weight: 100;
+        font-size: 1em;
+    }
+    .class_left {
+        height: 100%;
+    }
+
+    .class_name_ch {
+       font-size: 2.5em;
+    }
+    .class_name_en {
+        font-size: 1em;
+        font-family: hwkt;
+    }
+    .class_info { 
+        font-size: 1.5em; 
+        font-family: hwkt;
+    }
+    .class_info td {
+        text-align:left;
+    }
+    .class_info th {
+        height:1.6em; 
+        width:15%;
+        text-align:right;
+    }
+    .class_bjhd {
+        width:100%;padding:2em;
+    }
+    .class_bjhd li{
+        line-height: 1.4em;
+        font-size: 1.3em;
+        font-family: hwkt;
+        height: 1.4em;
+        list-style: none;   
+        width: 100%;
+        white-space: nowrap; 
+        text-overflow: ellipsis;  
+        -o-text-overflow: ellipsis;
+        overflow: hidden; 
+    }
+    .class_title_div {
+        width:100%;height: 2.1em;border-bottom: 2px #BD7B2A solid;
+    }
+    .class_bjhd_title {
+        width: 5em;
+        font-size: 1.8em;
+        float: left;
+        height: 1.2em;     
+        color: #1323DA;  
+        line-height: 1.5em;
+        padding-left: 1em;
+        background: #BD7B2A;
+        border-top-left-radius: 0.5em;
+        border-top-right-radius: 0.5em;
+    
+    }
+    .class_bjhd_more {
+        width:4em; font-size: 1.4em;float:right;padding-right:1em;
+    }
+    .modal-header { 
+            background-color: #E1F6F1; 
+        }
+    .modal-body { 
+        /*background-color: #DCE8E5;*/ 
+    }
+
+     
+    .swiper-pagination-bullet {     
+        text-align: center;
+        line-height: 1.5em;
+        font-size: 12px;
+        color: #000;
+        opacity: 1;
+        background: rgba(0,0,0,0.2);
+ 
+        min-width: 5em;
+        height: 1.5em;
+        display: inline-block;
+        border-radius: 10%;
+    }
+    .swiper-pagination-bullet-active {
+        color:#fff;
+        background: #007aff;
+    }
+    </style> 
+</head>
+<body>
+    
+    <div id="loading">
+        <img style="width:40%;" src="../../images/loading.gif" />
+    </div> 
+
+    <div id="bgdiv"><img src="../../images/qingming2.jpg" alt=""/> </div> 
+      
+   <div id="main" class="main">   
+    <div class="class_left"> 
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="parallax-bg"  data-swiper-parallax="-23%"></div>
+        <div class="swiper-wrapper"> 
+            <div class="swiper-slide">
+                <div class="class_header">
+                    <span class="class_name_ch">二年级一班</span>
+                    <span class="class_name_en">GradeTwoClassOne</span>
+                </div>
+                <hr />
+                <table class="class_info" style="width:100%;">
+                    <tr><th >班主任：</th>
+                        <td style="width:20%;">刘建明</td>
+                        <th >电话：</th>
+                        <td style="width:20%;">13336186318</td>
+                        <td rowspan="4" style="width:30%;">
+                            <img style="width:90%;height: 6em;" src="../../images/jtz.jpg" />
+                         </td> 
+                    </tr>
+                    <tr><th>副班主任：</th><td>刘建明</td><th>电话：</th><td>13336186318</td></tr>
+                    <tr><th>班级口号：</th><td colspan="3">以德育人，安河以至</td></tr>
+                    <tr><th>班级特色：</th><td colspan="3">活泼是学生的天性，爱动是生命的色彩</td></tr> 
+                </table>  
+                 
+                <div style="height:3em;width:100%;">&nbsp;</div> 
+                <div style="clear:both;"></div>
+                <div class="class_title_div">
+                    <div class="class_bjhd_title">班级活动</div>
+                    <div class="class_bjhd_more"><a href="#">更多</a></div>
+                </div>
+                <div style="clear:both;"></div>
+                <div style="width:100%;">
+                   <div style="width:50%;float:left;">
+                   <ul class="class_bjhd"> 
+                        <li onclick="JavaScript:modalShow('#bigModal', '', modalDataInit(''));">1、习近平与一带一路 欢迎越南国家主席访华               </li>
+                        <li>2、在这间简陋会场 李克强敲定了关乎200万人的事(图)      </li> 
+                    </ul>  
+                    </div>
+                   <div style="width:45%;float:left;padding:1.5em;text-align:center;">
+                        <img style="width:85%;height:15em;" src="../../images/jtz.jpg" onclick="ECPJS.playaudio('http://ivi.bupt.edu.cn/hls/cctv5hd.m3u8');"/>
+                   </div>
+                </div> 
+                 
+                <div style="height:0.1em;width:100%;">&nbsp;</div> 
+                <div style="clear:both;"></div>
+                <div class="class_title_div">
+                    <div class="class_bjhd_title">班级荣誉</div>
+                    <div class="class_bjhd_more"><a href="#">更多</a></div>
+                </div>
+                <div style="clear:both;"></div>
+                <div>
+                   <ul class="class_bjhd"> 
+                        <li>1、习近平与一带一路 欢迎越南国家主席访华               </li> 
+                   </ul> 
+                </div> 
+                 
+                <div style="height:0.1em;width:100%;">&nbsp;</div> 
+                <div style="clear:both;"></div>
+                <div class="class_title_div">
+                    <div class="class_bjhd_title">学生成果</div>
+                    <div class="class_bjhd_more"><a href="#">更多</a></div>
+                </div>
+                <div style="clear:both;"></div>
+                <div>
+                   <ul class="class_bjhd"> 
+                        <li>1、习近平与一带一路 欢迎越南国家主席访华               </li> 
+                   </ul> 
+                </div> 
+
+            </div> 
+            <div class="swiper-slide">
+                <div class="class_header">
+                    <span class="class_name_ch">二年级一班</span>
+                    <span class="class_name_en">GradeTwoClassOne</span>
+                </div>
+                <hr />
+                <table class="class_info" style="width:100%;">
+                    <tr><th >班主任：</th>
+                        <td style="width:20%;">刘建明</td>
+                        <th >电话：</th>
+                        <td style="width:20%;">13336186318</td>
+                        <td rowspan="4" style="width:30%;">
+                            <img style="width:90%;height: 6em;" src="../../images/jtz.jpg" />
+                         </td> 
+                    </tr>
+                    <tr><th>副班主任：</th><td>刘建明</td><th>电话：</th><td>13336186318</td></tr>
+                    <tr><th>班级口号：</th><td colspan="3">以德育人，安河以至</td></tr>
+                    <tr><th>班级特色：</th><td colspan="3">活泼是学生的天性，爱动是生命的色彩</td></tr> 
+                </table>  
+                 
+                <div style="height:3em;width:100%;">&nbsp;</div> 
+                <div style="clear:both;"></div>
+                <div class="class_title_div">
+                    <div class="class_bjhd_title">班级活动</div>
+                    <div class="class_bjhd_more"><a href="#">更多</a></div>
+                </div>
+                <div style="clear:both;"></div>
+                <div>
+                   <ul class="class_bjhd"> 
+                        <li>1、班级活动               </li> 
+                   </ul> 
+                </div> 
+                 
+                <div style="height:0.1em;width:100%;">&nbsp;</div> 
+                <div style="clear:both;"></div>
+                <div class="class_title_div">
+                    <div class="class_bjhd_title">班级荣誉</div>
+                    <div class="class_bjhd_more"><a href="#">更多</a></div>
+                </div>
+                <div style="clear:both;"></div>
+                <div>
+                   <ul class="class_bjhd"> 
+                        <li>1、班级荣誉               </li> 
+                   </ul> 
+                </div> 
+                 
+                <div style="height:0.1em;width:100%;">&nbsp;</div> 
+                <div style="clear:both;"></div>
+                <div class="class_title_div">
+                    <div class="class_bjhd_title">学生成果</div>
+                    <div class="class_bjhd_more"><a href="#">更多</a></div>
+                </div>
+                <div style="clear:both;"></div>
+                <div>
+                   <ul class="class_bjhd"> 
+                        <li>1、学生陈果               </li> 
+                   </ul> 
+                </div> 
+
+            </div>
+           
+        </div>
+        <!-- Add Pagination -->
+        <!--<div class="swiper-pagination"></div>-->
+
+        <div class="swiper-pagination swiper-pagination-black"></div>
+        <!-- Add Navigation -->
+        <div class="swiper-button-prev swiper-button-black"></div>
+        <div class="swiper-button-next swiper-button-black"></div>
+       <!-- <div class="swiper-scrollbar"></div>-->
+
+
+        <div style="display:none;">
+            <span id="pnspan0">周次</span> 
+        </div>
+    </div>
+      
+     </div>
+      
+    <div  class="grade_div">
+    <div  class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="grade_nav">
+                <div>201班</div>
+                <div>201班</div>
+                <div>201班</div>
+                <div>201班</div>
+                <div>201班</div>
+                <div>201班</div> 
+            </div> 
+        </div>
+        <div class="swiper-slide">
+            <div class="grade_nav">
+                <div>201班</div>
+                <div>201班</div>
+                <div>201班</div>
+                <div>201班</div>
+                <div>201班</div>
+                <div>201班</div> 
+            </div> 
+        </div>
+        <div class="swiper-slide">
+            <div class="grade_nav">
+                <div>201班</div>
+                <div>201班</div>
+                <div>201班</div>
+                <div>201班</div>
+                <div>201班</div>
+                <div>201班</div> 
+            </div> 
+        </div>
+    </div> 
+        </div>
+
+       
+
+    </div>
+      
+    <div id="footer" class="footer">
+        中国电信 
+    </div>
+     
+
+    <div class="modal bs-example-modal-lg"  onclick="modalHide('#bigModal', '');" id="bigModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" onclick="modalHide('#bigModal', '');" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span><span  class="sr-only">Close</span></button>
+                <h4 class="modal-title">详细信息</h4>
+            </div>
+            <div class="modal-body" id="content">
+                 
+              <center><h1 id="main_title"> 标题</h1></center>
+              <p id="main_subtitle" style="width:100%;text-align:center;">
+                  副标题
+              </p>
+
+              <p id="main_content" style="margin: 0 0 10px;
+                        text-indent: 2em;
+                        padding: 0.5em 02em 0em 2em;font-size: 1.5em;
+                        line-height: 1.5em;"> 
+                内容
+              </p>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+    <script>
+        //animate.css动画触动一次方法
+        $.fn.extend({
+            animateCss: function (animationName) {
+                var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+                this.addClass('animated ' + animationName).one(animationEnd, function () {
+                    $(this).removeClass('animated ' + animationName);
+                });
+            }
+        });
+        /**
+         * 显示模态框方法
+         * @param targetModel 模态框选择器，jquery选择器
+         * @param animateName 弹出动作
+         * @ callback 回调方法
+         */
+        var modalShow = function (targetModel, animateName, callback) {
+            var animationIn = ["fadeInLeft"];
+            if (!animateName || animationIn.indexOf(animateName) == -1) {
+                console.log(animationIn.length);
+                var intRandom = Math.floor(Math.random() * animationIn.length);
+                animateName = animationIn[intRandom];
+            }
+            console.log(targetModel + " " + animateName);
+            $(targetModel).show().animateCss(animateName);
+            callback.call(this);
+        }
+        /**
+         * 隐藏模态框方法
+         * @param targetModel 模态框选择器，jquery选择器
+         * @param animateName 隐藏动作
+         * @ callback 回调方法
+         */
+        var modalHide = function (targetModel, animateName, callback) {
+            var animationOut = ["fadeOutRight"];
+            if (!animateName || animationOut.indexOf(animateName) == -1) {
+                console.log(animationOut.length);
+                var intRandom = Math.floor(Math.random() * animationOut.length);
+                animateName = animationOut[intRandom];
+            }
+            $(targetModel).children().click(function (e) { e.stopPropagation() });
+            $(targetModel).animateCss(animateName);
+            $(targetModel).delay(900).hide(1, function () {
+                $(this).removeClass('animated ' + animateName);
+            });
+            callback.call(this);
+        }
+
+        var modalDataInit = function (info) {
+
+        }
+    </script>
+    <script>
+        $(document).ready(function () { 
+            //ChangeClass(bjid);
+            setTimeout(function () { $("#loading").hide(); }, 1000);
+        });
+
+        function ChangeClass(bjid)
+        {
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/Get_Index_view",
+                callback: "callback", data: { njid: njid, bjid: bjid, schoolid: schoolid },
+                success: function (data) {
+                    $("#main").html(data);
+                    var swiper = new Swiper('.swiper-container', {
+                        pagination: '.swiper-pagination',
+                        paginationClickable: true,
+                        loop: true,
+                        nextButton: '.swiper-button-next',
+                        prevButton: '.swiper-button-prev',
+                        parallax: true,
+                        speed: 600,
+                        paginationBulletRender: function (swiper, index, className) {
+                            return '<span class="' + className + '">' + $("#pnspan" + index).text() + '</span>';
+                        }
+                    });
+                    var swiper1 = new Swiper('.grade_div', {});
+                    setTimeout(function () { $("#loading").hide(); }, 1000);
+
+                },
+                complete: function (xOptions, textStatus) { $("#msg").main("服务器连接失败！"); },
+                error: function (xOptions, textStatus) { $("#msg").main("服务器连接失败！"); }
+            });
+        }
+
+        function Showdetails(id)
+        {
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/Get_HD_Details",
+                callback: "callback", data: { id: id, schoolid: schoolid },
+                success: function (data) {
+                    $("#content").html(data);
+                    $("#content img").each(function () {
+                        imgurl = $(this).attr("src");
+                        if (imgurl.indexOf("http:") == -1) {
+                          
+                            $(this).attr("src", serverip + imgurl);
+                           // $(this).attr("style", "width:100%;");
+                        }
+                    });
+                    $("#content").height(window.innerHeight - 300);
+                    modalShow('#bigModal', '', modalDataInit(''));
+                },
+                complete: function (xOptions, textStatus) { $("#content").text("服务器连接失败！"); },
+                error: function (xOptions, textStatus) { $("#content").text("服务器连接失败！"); }
+            });
+        }
+    </script>
+
+</body>
+</html>
+
+ 

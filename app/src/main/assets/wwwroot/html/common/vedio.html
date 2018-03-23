@@ -1,0 +1,343 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <link href="../../css/jplayerstyles.css" rel="stylesheet" />
+    <link href="../../css/bootstrap.css" rel="stylesheet" />
+    <link href="../../css/animate.min.css" rel="stylesheet" />
+    <link href="../../dist/css/swiper.css" rel="stylesheet" />
+    <link href="../../css/blue.css" rel="stylesheet" />
+
+
+
+    <script src="../../js/jquery-1.8.3-min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="../../js/jquery.jsonp-2.1.4.min.js"></script>
+
+
+    <!--<script src="../../js/html5media.min.js"></script>--> 
+    <script src="../../js/jquery.jplayer.js"></script>
+    <style>
+        #main {
+            margin-top: 0px;
+            font-size: 1.5em;
+            font-family: hwkt;
+            height: 32em;
+        }
+
+         
+
+    </style>
+    <style type="text/css">
+        /* main_img */
+        .main_img {
+            font-family: "微软雅黑";
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+            .main_img img {
+                height: 100%;
+                width: 100%;
+                overflow-x: hidden;
+                overflow-y: hidden;
+                position: relative;
+                z-index: 1;
+                transition-delay: 0s;
+                transition-duration: 1s;
+                transition-property: all;
+                transition-timing-function: ease;
+                /* Firefox 4 */
+                -moz-transition-delay: 0s;
+                -moz-transition-duration: 1s;
+                -moz-transition-property: all;
+                -moz-transition-timing-function: ease;
+                /* Safari 和 Chrome */
+                -webkit-transition-delay: 0s;
+                -webkit-transition-duration: 1s;
+                -webkit-transition-property: all;
+                -webkit-transition-timing-function: ease;
+                /* Opera */
+                -o-transition-delay: 0s;
+                -o-transition-duration: 1s;
+                -o-transition-property: all;
+                -o-transition-timing-function: ease;
+            }
+
+            .main_img .show {
+                background: rgba(0, 0, 0, 0.4);
+                height: 100%;
+                left: 0;
+                opacity: 1;
+                filter: alpha(opacity=1);
+                position: absolute;
+                top: 0;
+                transition-delay: 0s;
+                transition-duration: 0.3s;
+                transition-property: opacity;
+                transition-timing-function: ease-in;
+                /* Firefox 4 */
+                -moz-transition-delay: 0s;
+                -moz-transition-duration: 0.3s;
+                -moz-transition-property: opacity;
+                -moz-transition-timing-function: ease-in;
+                /* Safari 和 Chrome */
+                -webkit-transition-delay: 0s;
+                -webkit-transition-duration: 0.3s;
+                -webkit-transition-property: opacity;
+                -webkit-transition-timing-function: ease-in;
+                /* Opera */
+                -o-transition-delay: 0s;
+                -o-transition-duration: 0.3s;
+                -o-transition-property: opacity;
+                -o-transition-timing-function: ease-in;
+                width: 100%;
+                z-index: 200;
+            }
+
+                .main_img .show .imgArea {
+                    left: 47%;
+                    bottom: 45%;
+                    margin: -15px 0px 0px -40px;
+                    opacity: 1;
+                    position: absolute;
+                    transition-delay: 0s;
+                    transition-duration: 0.4s;
+                    transition-property: all;
+                    transition-timing-function: ease;
+                    /* Firefox 4 */
+                    -moz-transition-delay: 0s;
+                    -moz-transition-duration: 0.4s;
+                    -moz-transition-property: all;
+                    -moz-transition-timing-function: ease;
+                    /* Safari 和 Chrome */
+                    -webkit-transition-delay: 0s;
+                    -webkit-transition-duration: 0.4s;
+                    -webkit-transition-property: all;
+                    -webkit-transition-timing-function: ease;
+                    /* Opera */
+                    -o-transition-delay: 0s;
+                    -o-transition-duration: 0.4s;
+                    -o-transition-property: all;
+                    -o-transition-timing-function: ease;
+                }
+
+                    .main_img .show .imgArea a {
+                        color: rgba(255,255,255, 0.8);
+                        display: block;
+                        padding: 5px 12px;
+                        border: rgba(255,255,255, 0.6) 1px solid;
+                        border-radius: 1em;
+                        font-size: 2em;
+                    }
+
+                        .main_img .show .imgArea a:hover {
+                            background: rgba(255,255,255, 0.7);
+                            color: rgba(0,0,0, 0.6);
+                        }
+
+            .main_img:hover .show {
+                opacity: 1;
+                filter: alpha(opacity=100);
+            }
+
+                .main_img:hover .show .imgArea {
+                    opacity: 1;
+                    filter: alpha(opacity=100);
+                    bottom: 40%;
+                }
+
+            .main_img:hover img {
+                transform: scale(1.2, 1.2);
+                -ms-transform: scale(1.2, 1.2); /* IE 9 */
+                -moz-transform: scale(1.2, 1.2); /* Firefox */
+                -webkit-transform: scale(1.2, 1.2); /* Safari 和 Chrome */
+                -o-transform: scale(1.2, 1.2); /* Opera */
+            }
+        .jp-jplayer {
+            height:32em; 
+        }
+    </style>
+</head>
+<body>
+    <!-- 网页预加载图 网页背景图 -->
+    <div id="bgdiv">
+        <img src="../../images/fgbg.jpg" alt="" />
+    </div>
+    <!-- 网页预加载图 网页背景图 -->
+
+    <div id="header" class="header" style="    color: #57308C;">
+        <table style="width: 100%;">
+            <tr>
+                <td class="header_title" id="header_title">电子班牌系统--视频广播
+                </td>
+                <td class="header_date">
+                    <span id="date_day" class="datafont">2017年12月13日</span><br />
+                    <span id="date_clock" class="datafont">14:45 </span>
+                    <span id="date_week" class="datafont" onclick="DoClock()">星期一</span>
+                </td>
+                <td class="header_weather">
+                    <table class="class_rs">
+                        <tr>
+                            <td>
+                                <span id="weather_current"></span>
+                            </td>
+                            <td>
+                                <img id="weather_icon" src="../../images/days/qing.png" style="width: 60px; height: 60px;" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <hr style="margin-top: 5em; margin-bottom: 1.5em;   border-top: 2px solid #916CC5; " />  
+
+    <div id="main" class="main">
+ 
+        <div id="jp_container_1" class="jp-video jp-video-360p"> 
+            <div id="jquery_jplayer_1" class="jp-jplayer"></div> 
+            <div class="jp-gui">
+                <div class="jp-interface">
+                    <div class="jp-controls-holder"> 
+                        <a href="javascript:;" class="jp-play" tabindex="1">play</a>
+                        <a href="javascript:;" class="jp-pause" tabindex="1">pause</a>
+                        <span class="separator sep-1"></span> 
+                        <div class="jp-progress">
+                            <div class="jp-seek-bar">
+                                <div class="jp-play-bar"><span></span></div>
+                            </div>
+                        </div> 
+                        <div class="jp-current-time"></div>
+                        <span class="time-sep">/</span>
+                        <div class="jp-duration"></div>
+                        <span class="separator sep-2"></span>
+                
+                        <a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a>
+                        <a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a>
+                   
+                        <div class="jp-volume-bar">
+                            <div class="jp-volume-bar-value"><span class="handle"></span></div>
+                        </div>
+                        <span class="separator sep-2"></span>
+                   
+                        <a href="javascript:;" class="jp-full-screen" tabindex="1" title="full screen">full screen</a>
+                        <a href="javascript:;" class="jp-restore-screen" tabindex="1" title="restore screen">restore screen</a>
+                    </div>
+               
+                </div>
+               
+            </div>
+           
+
+            <div class="jp-no-solution">
+                 
+            </div>
+
+
+
+        </div> 
+        <div id="jplayer_inspector"></div>
+    
+
+
+
+        <!--<video id="videoID" src="http://192.168.1.100/APPWeb/audio/003.mp4" 
+             poster="../../images/vediobg.png"
+             preload = "auto"
+             style="background:#233948;width:100%;height:100%;"  controls autobuffer></video>-->
+
+         <!--<div class="main_img"> 
+		        <img id="backb" onerror="javascript:this.src='../../images/vediobg.png'" style="background: #233948;width:100%;height:100%;" src="../../images/vediobg.png">
+		        <div class="show">
+		        <span class="imgArea">
+			        <a title="观看视频"   onclick="PlayVedio()">观看视频</a>
+		        </span>
+		        </div>
+        </div> -->
+    </div>
+      
+    <script>
+        var vediourl = "";
+        var flag = false;
+
+        function autoplay() { 
+             window.setTimeout("PlayVedio()", 1000);
+        }
+
+        function stopplay() {
+            $("#jquery_jplayer_1").jPlayer("stop"); 
+        }
+
+        $(document).ready(function () {
+              
+            setInterval("DoClock()", 1000);
+            get_weather();
+            var objurl = searchToObject();
+
+            if (objurl.schoolid > 0) { schoolid = objurl.schoolid; }
+            if (objurl.schoolmc != null) { $(".header_title").html(objurl.schoolmc + "--视频广播"); }
+            else { $(".header_title").html(schoolmc + "--视频广播"); }
+
+            getJMinfo(objurl.id, objurl.tid);
+        });
+
+        function getJMinfo(id, t) {
+             
+            var strurl = "";
+            if (t == 1) { strurl = serverip + "/bpxt/bpxt/bpxtapi/GetDSPlay_json"; }
+            else { strurl = serverip + "/bpxt/bpxt/bpxtapi/GetLSPlay_json"; }
+
+            $.jsonp({
+                url: strurl,
+                callback: "callback", data: { id: id, schoolid: schoolid },
+                success: function (data) {
+                    $("#header_title").text(data.Title);
+                    vediourl = serverip + data.NRLJ;
+                    $("#backb").attr("src", serverip + data.ZP);
+                     
+                    try {
+                        vediourl = ECPJS.CheckLocalFile(serverip + data.NRLJ);
+                        if (!(vediourl.length > 0)) {
+                            vediourl = serverip + data.NRLJ;
+                        }
+                    } catch (e) { }
+
+                    $("#jquery_jplayer_1").jPlayer({
+                        ready: function () {
+                           
+                        },
+                        swfPath: "js",
+                        supplied: "webmv, ogv, m4v",
+                        size: {
+                            width: "100%",
+                            height: "100%",
+                            cssClass: "jp-video-360p"
+                        }
+                    });
+                    $("#jquery_jplayer_1").jPlayer("clearMedia"); 
+                    $("#jquery_jplayer_1").jPlayer("setMedia", {
+                        title: "bubble",
+                        webmv: vediourl,
+                        poster: serverip + data.ZP,
+                    }); 
+                    flag = true;
+                },
+                complete: function (xOptions, textStatus) { },
+                error: function (xOptions, textStatus) { }
+            }); 
+        }
+
+        function PlayVedio() {   
+            $("#jquery_jplayer_1").jPlayer("play");
+            // ECPJS.playaudio(vediourl);
+        }
+    </script>
+
+</body>
+</html>

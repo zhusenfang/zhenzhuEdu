@@ -1,0 +1,860 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title></title>  
+    <link href="../../css/bootstrap.css" rel="stylesheet" />
+    <link href="../../css/animate.min.css" rel="stylesheet" /> 
+    <link href="../../dist/css/swiper.css" rel="stylesheet" />
+    <link href="../../css/blue.css" rel="stylesheet" />
+     
+    <script src="../../js/jquery-1.8.3-min.js"></script> 
+    <script src="../../js/common.js"></script> 
+    <script src="../../dist/js/swiper.min.js"></script> 
+    <script src="../../js/jquery.jsonp-2.1.4.min.js"></script> 
+    <style> 
+     #main { margin-top: 5em; }
+        
+    .swiper-container-v {
+        width: 100%; 
+        padding-top: 0; 
+        padding-bottom: 0; 
+        margin: 0; 
+        height: 42em; 
+        overflow:hidden; 
+    }
+    .swiper-wrapper {width:100%;}
+    .swiper-container-h
+    ,.swiper-container-r
+    ,.swiper-container-ry
+    ,.swiper-container-hd
+    ,.swiper-container-cg
+    ,.swiper-container-qd
+    {
+        width: 100%; 
+        max-width:80em;
+        padding-top: 0; 
+        padding-bottom: 0; 
+        margin: 0; 
+        height: 42em; 
+        overflow:hidden; 
+    } 
+
+    .swiper-container2 .swiper-slide {
+        border-radius: 0em;
+        padding: 1em;
+        overflow: hidden;
+        background: none;
+        text-align: left; 
+        width: 100%; 
+        height: 35em; 
+    }
+
+    .swiper-slide {
+        border-radius: 0em; 
+        overflow: hidden;
+        background: none;
+        text-align: left; 
+        width: 100%; 
+        height: 42em;  
+    }
+
+   .swiper-pagination-custom {
+        bottom: 10px;
+        left: 0;
+        width: 100%;
+        background-color: #E0DCDC;
+        height: 2em;
+        line-height: 2em;
+        text-align: left;
+        padding-left: 1em;
+        }
+
+   .swiper-pagination {
+        position: relative; 
+    }
+
+    #swiper-pagination-h {   bottom: 2em;
+    }
+
+    #swiper-pagination-h 
+    .swiper-pagination-bullet {  
+        width: 20px;
+        height: 20px; 
+        text-align: center;
+        line-height: 20px;
+        font-size: 12px;
+        color:#000;
+        opacity: 1;
+        background: rgba(0,0,0,0.2);
+    } 
+    #swiper-pagination-h
+    .swiper-pagination-bullet-active {
+        color:#fff;
+        background: #007aff;
+    }
+
+    .swiper-pagination-bullet {  
+        width: 100%; 
+        height: 2em;
+        border-radius: 0;
+        display: inline-block;
+        text-align: left;
+        line-height: 2em;
+        font-size: 2em;
+        color: #FFF;
+        opacity: 1;
+        font-family: hwkt;
+        background: none;
+    } 
+
+    .swiper-pagination-bullet-active {
+        color:#C3D82E;
+        background: #496974;
+    }
+
+        .leimg {
+            width:1em;
+            height:1em;
+            vertical-align: middle;
+            margin-right:0.5em;
+            margin-left:1em;
+        }
+
+
+        .class_jj {     width: 98%; }  
+        .jj_title {
+            width: 15%;
+            text-align:center;
+            background:red; 
+            font-family: hwkt;       
+            font-size: 2.5em;
+             font-weight: 700;
+            height: 3.6em; 
+            margin-bottom: 0.5em;
+            vertical-align: middle;   
+            background:url('../../images/lebg03.jpg')
+        }
+        .jj_content {  
+            width: 80%;  
+            font-size:2em;
+            padding-left:1em;
+            font-family: hwkt;      
+            height: 4.5em; 
+            margin-bottom: 0.5em; 
+            vertical-align: middle;   
+            background-color: rgba(193, 180, 180, 0.1); 
+        }
+
+
+        .class_cy { width: 100%;   } 
+        .class_cy li{
+            width: 6em;
+            height: 6em;
+            margin:1em; 
+            list-style:none;
+            text-align:center;
+            font-size: 1em;
+            font-family: hwkt;
+            float:left;
+        } 
+        .class_cy img{
+            border-radius: 100%;
+            width: 5em;
+            height: 5em; 
+        }
+
+
+        
+        .class_ry { width:100%;   }  
+        .ry_title {
+            width: 15%; 
+            height: 7.5em;
+            margin-bottom: 0.5em;
+            vertical-align: middle;    
+        }
+        .ry_content {  
+            width: 80%;  
+            font-size:1.5em;
+            padding-left:1em;
+            font-family: hwkt;  
+            vertical-align: top;  
+            color:#F7EAFF;
+            background-color: rgba(193, 180, 180, 0.1); 
+        }
+        .ry_t {    font-size: 1.3em;
+            color:#fff;
+        }
+         
+        table.hovertable {width: 98%; margin-top:2em;
+	        font-size:11px;
+	        color:#fff;
+            font-size: 1.4em;
+	        border-width: 1px;
+	        border-color: #fff;
+	        border-collapse: collapse;
+        }
+        table.hovertable th {
+            width: 11%;
+            height: 2em; 
+	        background-color:#2E5B6E;
+	        border-width: 1px;
+	        padding: 8px;
+            text-align:center;
+	        border-style: solid;
+	        border-color: #fff;
+        }
+        table.hovertable tr {
+	        background-color:none;
+        }
+        table.hovertable td {
+	        border-width: 1px;
+            text-align:center;
+	        padding: 8px;
+	        border-style: solid;
+	        border-color: #a9c6c9;
+        }
+</style> 
+</head>
+<body> 
+    <!-- 网页预加载图 网页背景图 -->
+    <div id="loading"><img style="width:40%;" src="../../images/loading.gif" /></div>  
+    <div id="bgdiv"><img src="../../images/class_bg.jpg" alt=""/> </div> 
+    <!-- 网页预加载图 网页背景图 -->
+
+    <div id="header" class="header"> 
+        <table style="width:100%;">
+            <tr> 
+                <td class="header_title" id="header_title" > 
+                    电子班牌系统
+                </td>
+                <td class="header_date">
+                    <span id="date_day" class="datafont">2017年12月13日</span><br />
+                    <span id="date_clock" class="datafont">14:45 </span>
+                    <span id="date_week" class="datafont" onclick="DoClock()"> 星期一</span> 
+                </td>
+                <td class="header_weather">
+                    <table class="class_rs">
+                        <tr>
+                            <td> 
+                                <span id="weather_current"></span> 
+                            </td>
+                            <td>
+                                <img id="weather_icon" src="../../images/days/qing.png" style="width:60px;height:60px;"/>  
+                            </td>
+                        </tr>
+                    </table>  
+                </td>
+            </tr>
+        </table> 
+    </div>
+
+    <div id="main">       
+      <table  style="width:100%;vertical-align:top;">
+        <tr>
+            <td style="width:20%;vertical-align:top;padding: 1em;background:url('../../images/lebg01.jpg')">
+                <div id="swiper-pagination" class="swiper-pagination"></div> 
+            </td>
+            <td style=" vertical-align:top;    padding: 2em;background:url('../../images/lebg02.jpg')"> 
+                <div class="swiper-container swiper-container-v">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" title="班级简介">
+                            <table class="class_jj"  style="border-collapse:separate; border-spacing:0 1.1em;">
+                                <tr>
+                                    <td class="jj_title">班级</td>
+                                    <td class="jj_content">二年级    104班（45人） </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="jj_title">负责人</td>
+                                    <td class="jj_content">班主任：尼古拉斯赵四    副班主任：东北F4</td>
+                                </tr>
+                                <tr>
+                                    <td class="jj_title">班级口号</td>
+                                    <td class="jj_content">学技以致用，习德以成人</td>
+                                </tr>
+                                <tr>
+                                    <td class="jj_title">班级特色</td>
+                                    <td class="jj_content">学技以致用，习德以成人学技以致用，习德以成人学技以致用，习德以成人学技以致用，习德以成人学技以致用，</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="swiper-slide" title="班级成员">
+                            <div class="swiper-container swiper-container-r">    
+                               <div class="swiper-wrapper">    
+                                   <div class="swiper-slide">
+                                     <div style="height:2.5em;line-height:2.5em; width:100%;font-size:2em;border-bottom:1px #333 solid;">成员列表(45人)</div>
+                                     <ul class="class_cy">
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li> 
+
+                                </ul>
+                                   </div>    
+                                   <div class="swiper-slide"> 
+                                     <div style="height:2.5em;line-height:2.5em; width:100%;font-size:2em;border-bottom:1px #333 solid;">成员列表(45人)</div>
+                                     <ul class="class_cy">
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li>
+                                     <li> <img src="../../images/b2.jpg" /> <br /> 王忠利 </li> 
+                                </ul>
+                                   </div>     
+                               </div>     
+                               <div class="swiper-button-prev"></div>
+                               <div class="swiper-button-next"></div> 
+                           </div> 
+                        </div>
+                        <div class="swiper-slide" title="班级相册"> 
+                           <div class="swiper-container swiper-container-h">    
+                               <div class="swiper-wrapper">    
+                                   <div class="swiper-slide"><img style="width:100%; height:100%;" src="../../images/b2.jpg" /></div>    
+                                   <div class="swiper-slide"><img style="width:100%; height:100%;" src="../../images/b2.jpg" /></div>    
+                                   <div class="swiper-slide"><img style="width:100%; height:100%;" src="../../images/b2.jpg" /></div>    
+                                   <div class="swiper-slide"><img style="width:100%; height:100%;" src="../../images/b2.jpg" /></div>    
+                                   <div class="swiper-slide"><img style="width:100%; height:100%;" src="../../images/b2.jpg" /></div>    
+                               </div>    
+                                <div id="swiper-pagination-h" class="swiper-pagination"></div>   
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div> 
+                           </div>    
+                        </div>
+                        <div class="swiper-slide" title="班级荣誉">
+                            <div class="swiper-container swiper-container-ry">    
+                               <div class="swiper-wrapper">    
+                                    <div class="swiper-slide">
+                                        <div style="height:2.5em;line-height:2.5em; width:100%;font-size:2em;border-bottom:1px #333 solid;">班级荣誉(1/45)</div> 
+                                        <table class="class_ry"  style="border-collapse:separate; border-spacing:0 1.1em;">
+                                            <tr onclick="OpenModel(1)">
+                                                <td class="ry_title"><img src="../../images/b2.jpg" style="width:100%;height:100%;"/></td>
+                                                <td class="ry_content">
+                                                    <div class="ry_t">学技以致用，习德以成人学技以致用</div>
+                                                    学技以致用，习德以成人学技以致用，习德以成人学技以致用，
+                                                    习德以成人学技以致用，习德以成人学技 
+                                                </td>
+                                            </tr> 
+                                            <tr>
+                                                <td class="ry_title"><img src="../../images/b2.jpg" style="width:100%;height:100%;"/></td>
+                                                <td class="ry_content">
+                                                    <div class="ry_t">学技以致用，习德以成人学技以致用</div>
+                                                    学技以致用，习德以成人学技以致用，习德以成人学技以致用，
+                                                    习德以成人学技以致用，习德以成人学技 
+                                                </td>
+                                            </tr> 
+                                            <tr>
+                                                <td class="ry_title"><img src="../../images/b2.jpg" style="width:100%;height:100%;"/></td>
+                                                <td class="ry_content">
+                                                    <div class="ry_t">学技以致用，习德以成人学技以致用</div>
+                                                    学技以致用，习德以成人学技以致用，习德以成人学技以致用，
+                                                    习德以成人学技以致用，习德以成人学技 
+                                                </td>
+                                            </tr> 
+                                            <tr>
+                                                <td class="ry_title"><img src="../../images/b2.jpg" style="width:100%;height:100%;"/></td>
+                                                <td class="ry_content">
+                                                    <div class="ry_t">学技以致用，习德以成人学技以致用</div>
+                                                    学技以致用，习德以成人学技以致用，习德以成人学技以致用，
+                                                    习德以成人学技以致用，习德以成人学技 
+                                                </td>
+                                            </tr>
+                                        </table>   
+                                    
+                                </div>    
+                                <div class="swiper-slide"> 
+                                    <div style="height:2.5em;line-height:2.5em; width:100%;font-size:2em;border-bottom:1px #333 solid;">班级荣誉(2/45)</div>
+                                    <table class="class_ry"  style="border-collapse:separate; border-spacing:0 1.1em;">
+                                            <tr>
+                                                <td class="ry_title"><img src="../../images/b2.jpg" style="width:100%;height:100%;"/></td>
+                                                <td class="ry_content">
+                                                    <div class="ry_t">学技以致用，习德以成人学技以致用</div>
+                                                    学技以致用，习德以成人学技以致用，习德以成人学技以致用，
+                                                    习德以成人学技以致用，习德以成人学技 
+                                                </td>
+                                            </tr> 
+                                            <tr>
+                                                <td class="ry_title"><img src="../../images/b2.jpg" style="width:100%;height:100%;"/></td>
+                                                <td class="ry_content">
+                                                    <div class="ry_t">学技以致用，习德以成人学技以致用</div>
+                                                    学技以致用，习德以成人学技以致用，习德以成人学技以致用，
+                                                    习德以成人学技以致用，习德以成人学技 
+                                                </td>
+                                            </tr> 
+                                            <tr>
+                                                <td class="ry_title"><img src="../../images/b2.jpg" style="width:100%;height:100%;"/></td>
+                                                <td class="ry_content">
+                                                    <div class="ry_t">学技以致用，习德以成人学技以致用</div>
+                                                    学技以致用，习德以成人学技以致用，习德以成人学技以致用，
+                                                    习德以成人学技以致用，习德以成人学技 
+                                                </td>
+                                            </tr> 
+                                            <tr>
+                                                <td class="ry_title"><img src="../../images/b2.jpg" style="width:100%;height:100%;"/></td>
+                                                <td class="ry_content">
+                                                    <div class="ry_t">学技以致用，习德以成人学技以致用</div>
+                                                    学技以致用，习德以成人学技以致用，习德以成人学技以致用，
+                                                    习德以成人学技以致用，习德以成人学技 
+                                                </td>
+                                            </tr>
+                                        </table>
+                                   </div>     
+                               </div>    
+                                
+                               <div class="swiper-button-prev"></div>
+                               <div class="swiper-button-next"></div>  
+                           </div>  
+                        </div>
+                        <div class="swiper-slide" title="班级活动">
+                            <div class="swiper-container swiper-container-hd">    
+                               <div class="swiper-wrapper">    
+                                    <div class="swiper-slide">
+                                        <div style="height:2.5em;line-height:2.5em; width:100%;font-size:2em;border-bottom:1px #333 solid;">班级活动(1/2)</div> 
+                                        <table class="class_ry"  style="border-collapse:separate; border-spacing:0 1.1em;">
+                                            <tr onclick="OpenModel(1)">
+                                                <td class="ry_title"><img src="../../images/b2.jpg" style="width:100%;height:100%;"/></td>
+                                                <td class="ry_content">
+                                                    <div class="ry_t">学技以致用，习德以成人学技以致用</div>
+                                                    学技以致用，习德以成人学技以致用，习德以成人学技以致用，
+                                                    习德以成人学技以致用，习德以成人学技 
+                                                </td>
+                                            </tr> 
+                                            <tr onclick="OpenModel(1)">
+                                                <td class="ry_title"><img src="../../images/b2.jpg" style="width:100%;height:100%;"/></td>
+                                                <td class="ry_content">
+                                                    <div class="ry_t">学技以致用，习德以成人学技以致用</div>
+                                                    学技以致用，习德以成人学技以致用，习德以成人学技以致用，
+                                                    习德以成人学技以致用，习德以成人学技 
+                                                </td>
+                                            </tr> 
+                                            <tr>
+                                                <td class="ry_title"><img src="../../images/b2.jpg" style="width:100%;height:100%;"/></td>
+                                                <td class="ry_content">
+                                                    <div class="ry_t">学技以致用，习德以成人学技以致用</div>
+                                                    学技以致用，习德以成人学技以致用，习德以成人学技以致用，
+                                                    习德以成人学技以致用，习德以成人学技 
+                                                </td>
+                                            </tr> 
+                                            <tr>
+                                                <td class="ry_title"><img src="../../images/b2.jpg" style="width:100%;height:100%;"/></td>
+                                                <td class="ry_content">
+                                                    <div class="ry_t">学技以致用，习德以成人学技以致用</div>
+                                                    学技以致用，习德以成人学技以致用，习德以成人学技以致用，
+                                                    习德以成人学技以致用，习德以成人学技 
+                                                </td>
+                                            </tr>
+                                        </table>   
+                                    
+                                </div>    
+                                    <div class="swiper-slide"> 
+                                    <div style="height:2.5em;line-height:2.5em; width:100%;font-size:2em;border-bottom:1px #333 solid;">班级活动(2/2)</div>
+                                    <table class="class_ry"  style="border-collapse:separate; border-spacing:0 1.1em;">
+                                            <tr>
+                                                <td class="ry_title"><img src="../../images/b2.jpg" style="width:100%;height:100%;"/></td>
+                                                <td class="ry_content">
+                                                    <div class="ry_t">学技以致用，习德以成人学技以致用</div>
+                                                    学技以致用，习德以成人学技以致用，习德以成人学技以致用，
+                                                    习德以成人学技以致用，习德以成人学技 
+                                                </td>
+                                            </tr> 
+                                            <tr>
+                                                <td class="ry_title"><img src="../../images/b2.jpg" style="width:100%;height:100%;"/></td>
+                                                <td class="ry_content">
+                                                    <div class="ry_t">学技以致用，习德以成人学技以致用</div>
+                                                    学技以致用，习德以成人学技以致用，习德以成人学技以致用，
+                                                    习德以成人学技以致用，习德以成人学技 
+                                                </td>
+                                            </tr> 
+                                            <tr>
+                                                <td class="ry_title"><img src="../../images/b2.jpg" style="width:100%;height:100%;"/></td>
+                                                <td class="ry_content">
+                                                    <div class="ry_t">学技以致用，习德以成人学技以致用</div>
+                                                    学技以致用，习德以成人学技以致用，习德以成人学技以致用，
+                                                    习德以成人学技以致用，习德以成人学技 
+                                                </td>
+                                            </tr> 
+                                            <tr>
+                                                <td class="ry_title"><img src="../../images/b2.jpg" style="width:100%;height:100%;"/></td>
+                                                <td class="ry_content">
+                                                    <div class="ry_t">学技以致用，习德以成人学技以致用</div>
+                                                    学技以致用，习德以成人学技以致用，习德以成人学技以致用，
+                                                    习德以成人学技以致用，习德以成人学技 
+                                                </td>
+                                            </tr>
+                                        </table>
+                                   </div>     
+                               </div>    
+                                
+                               <div class="swiper-button-prev"></div>
+                               <div class="swiper-button-next"></div>  
+                           </div>
+                        </div>
+                        <div class="swiper-slide" title="学生成果"> 
+                            <div class="swiper-container swiper-container-cg">    
+                               <div class="swiper-wrapper">    
+                                    <div class="swiper-slide">
+                                        <div style="height:2.5em;line-height:2.5em; width:100%;font-size:2em;border-bottom:1px #333 solid;">学生成果(1/2)</div> 
+                                        <table class="class_ry"  style="border-collapse:separate; border-spacing:0 1.1em;">
+                                            <tr onclick="OpenModel(1)">
+                                                <td class="ry_title"><img src="../../images/b2.jpg" style="width:100%;height:100%;"/></td>
+                                                <td class="ry_content">
+                                                    <div class="ry_t">学技以致用，习德以成人学技以致用</div>
+                                                    学技以致用，习德以成人学技以致用，习德以成人学技以致用，
+                                                    习德以成人学技以致用，习德以成人学技 
+                                                </td>
+                                            </tr> 
+                                            <tr onclick="OpenModel(1)">
+                                                <td class="ry_title"><img src="../../images/b2.jpg" style="width:100%;height:100%;"/></td>
+                                                <td class="ry_content">
+                                                    <div class="ry_t">学技以致用，习德以成人学技以致用</div>
+                                                    学技以致用，习德以成人学技以致用，习德以成人学技以致用，
+                                                    习德以成人学技以致用，习德以成人学技 
+                                                </td>
+                                            </tr> 
+                                            <tr onclick="OpenModel(1)">
+                                                <td class="ry_title"><img src="../../images/b2.jpg" style="width:100%;height:100%;"/></td>
+                                                <td class="ry_content">
+                                                    <div class="ry_t">学技以致用，习德以成人学技以致用</div>
+                                                    学技以致用，习德以成人学技以致用，习德以成人学技以致用，
+                                                    习德以成人学技以致用，习德以成人学技 
+                                                </td>
+                                            </tr> 
+                                            <tr onclick="OpenModel(1)">
+                                                <td class="ry_title"><img src="../../images/b2.jpg" style="width:100%;height:100%;"/></td>
+                                                <td class="ry_content">
+                                                    <div class="ry_t">学技以致用，习德以成人学技以致用</div>
+                                                    学技以致用，习德以成人学技以致用，习德以成人学技以致用，
+                                                    习德以成人学技以致用，习德以成人学技 
+                                                </td>
+                                            </tr>
+                                        </table>   
+                                    
+                                </div>    
+                                    <div class="swiper-slide"> 
+                                    <div style="height:2.5em;line-height:2.5em; width:100%;font-size:2em;border-bottom:1px #333 solid;">学生成果(2/2)</div>
+                                    <table class="class_ry"  style="border-collapse:separate; border-spacing:0 1.1em;">
+                                            <tr onclick="OpenModel(1)">
+                                                <td class="ry_title"><img src="../../images/b2.jpg" style="width:100%;height:100%;"/></td>
+                                                <td class="ry_content">
+                                                    <div class="ry_t">学技以致用，习德以成人学技以致用</div>
+                                                    学技以致用，习德以成人学技以致用，习德以成人学技以致用，
+                                                    习德以成人学技以致用，习德以成人学技 
+                                                </td>
+                                            </tr> 
+                                            <tr onclick="OpenModel(1)">
+                                                <td class="ry_title"><img src="../../images/b2.jpg" style="width:100%;height:100%;"/></td>
+                                                <td class="ry_content">
+                                                    <div class="ry_t">学技以致用，习德以成人学技以致用</div>
+                                                    学技以致用，习德以成人学技以致用，习德以成人学技以致用，
+                                                    习德以成人学技以致用，习德以成人学技 
+                                                </td>
+                                            </tr> 
+                                            <tr onclick="OpenModel(1)">
+                                                <td class="ry_title"><img src="../../images/b2.jpg" style="width:100%;height:100%;"/></td>
+                                                <td class="ry_content">
+                                                    <div class="ry_t">学技以致用，习德以成人学技以致用</div>
+                                                    学技以致用，习德以成人学技以致用，习德以成人学技以致用，
+                                                    习德以成人学技以致用，习德以成人学技 
+                                                </td>
+                                            </tr> 
+                                            <tr onclick="OpenModel(1)">
+                                                <td class="ry_title"><img src="../../images/b2.jpg" style="width:100%;height:100%;"/></td>
+                                                <td class="ry_content">
+                                                    <div class="ry_t">学技以致用，习德以成人学技以致用</div>
+                                                    学技以致用，习德以成人学技以致用，习德以成人学技以致用，
+                                                    习德以成人学技以致用，习德以成人学技 
+                                                </td>
+                                            </tr>
+                                        </table>
+                                   </div>     
+                               </div>    
+                                
+                               <div class="swiper-button-prev"></div>
+                               <div class="swiper-button-next"></div>  
+                           </div>
+                        </div>
+                        <div class="swiper-slide" title="班级课表"> 
+                            <div style="height:2.5em;line-height:2.5em; width:100%;font-size:2em;border-bottom:1px #333 solid;">班级课表</div>  
+
+
+
+<!-- Table goes in the document BODY -->
+                            <table class="hovertable">
+                                <tr><th>节次  </th><th>周一</th><th>周二</th><th>周三</th><th>周四</th><th>周五</th></tr>
+                                <tr><th>第一节</th><td>语文</td><td>数学</td><td>化学</td><td>英语</td><td>物理</td></tr>
+                                <tr><th>第二节</th><td>语文</td><td>数学</td><td>化学</td><td>英语</td><td>物理</td></tr>
+                                <tr><th>第三节</th><td>语文</td><td>数学</td><td>化学</td><td>英语</td><td>物理</td></tr>
+                                <tr><th>第四节</th><td>语文</td><td>数学</td><td>化学</td><td>英语</td><td>物理</td></tr> 
+                                <tr><th>第一节</th><td>语文</td><td>数学</td><td>化学</td><td>英语</td><td>物理</td></tr>
+                                <tr><th>第二节</th><td>语文</td><td>数学</td><td>化学</td><td>英语</td><td>物理</td></tr>
+                                <tr><th>第三节</th><td>语文</td><td>数学</td><td>化学</td><td>英语</td><td>物理</td></tr>
+                            </table>
+                             
+                        </div> 
+                    </div> 
+                    <div class="swiper-scrollbar"></div> 
+                </div>
+
+            </td>
+        </tr>
+    </table>
+    </div>
+
+    <div id="footer" class="footer">
+     <ul class="leader">
+          <li><a href="blue_index.html">首页</a></li>
+          <li class="lactive">班级</li>
+          <li><a href="blue_home.html">学校</a></li>
+          <li><a href="blue_kq.html">签到</a></li>
+          <li><a href="blue_stu.html">我的</a></li>
+          <li><a href="blue_set.html">设置</a></li>
+     </ul>
+    </div>
+     
+    <div class="modal bs-example-modal-lg"  onclick="modalHide('#bigModal', '');" id="bigModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" onclick="modalHide('#bigModal', '');" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span><span  class="sr-only">Close</span></button>
+                <h4 class="modal-title">详细信息</h4>
+            </div>
+            <div class="modal-body" id="content">
+                 
+              <center><h1 id="main_title"> 标题</h1></center>
+              <p id="main_subtitle" style="width:100%;text-align:center;">
+                  副标题
+              </p>
+
+              <p id="main_content" style="margin: 0 0 10px;
+                        text-indent: 2em;
+                        padding: 0.5em 02em 0em 2em;font-size: 1.5em;
+                        line-height: 1.5em;"> 
+                 经国务院批准，现将2017年元旦、春节、清明节、劳动节、端午节、中秋节和国庆节放假调休日期的具体安排通知如下。
+　　                        一、元旦：1月1日放假，1月2日(星期一)补休。
+　　                        二、春节：1月27日至2月2日放假调休，共7天。1月22日(星期日)、2月4日(星期六)上班。
+　　                        三、清明节：4月2日至4日放假调休，共3天。4月1日(星期六)上班。
+　　                        四、劳动节：5月1日放假，与周末连休。
+　　                        五、端午节：5月28日至30日放假调休，共3天。5月27日(星期六)上班。
+　　                        六、中秋节、国庆节：10月1日至8日放假调休，共8天。9月30日(星期六)上班。
+　　                        节假日期间，各地区、各部门要妥善安排好值班和安全、保卫等工作，遇有重大突发事件，
+                         要按规定及时报告并妥善处置，确保人民群众祥和平安度过节日假期
+              </p>
+
+            </div>
+        </div>
+    </div>
+    </div>
+     
+    <script>
+        //animate.css动画触动一次方法
+        $.fn.extend({
+            animateCss: function (animationName) {
+                var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+                this.addClass('animated ' + animationName).one(animationEnd, function () {
+                    $(this).removeClass('animated ' + animationName);
+                });
+            }
+        });
+        /**
+         * 显示模态框方法
+         * @param targetModel 模态框选择器，jquery选择器
+         * @param animateName 弹出动作
+         * @ callback 回调方法
+         */
+        var modalShow = function (targetModel, animateName, callback) {
+            var animationIn = ["fadeInLeft"];
+            if (!animateName || animationIn.indexOf(animateName) == -1) {
+                console.log(animationIn.length);
+                var intRandom = Math.floor(Math.random() * animationIn.length);
+                animateName = animationIn[intRandom];
+            }
+            console.log(targetModel + " " + animateName);
+            $(targetModel).show().animateCss(animateName);
+            callback.call(this);
+        }
+        /**
+         * 隐藏模态框方法
+         * @param targetModel 模态框选择器，jquery选择器
+         * @param animateName 隐藏动作
+         * @ callback 回调方法
+         */
+        var modalHide = function (targetModel, animateName, callback) {
+            var animationOut = ["fadeOutRight"];
+            if (!animateName || animationOut.indexOf(animateName) == -1) {
+                console.log(animationOut.length);
+                var intRandom = Math.floor(Math.random() * animationOut.length);
+                animateName = animationOut[intRandom];
+            }
+            $(targetModel).children().click(function (e) { e.stopPropagation() });
+            $(targetModel).animateCss(animateName);
+            $(targetModel).delay(900).hide(1, function () {
+                $(this).removeClass('animated ' + animateName);
+            });
+            callback.call(this);
+        }
+
+        var modalDataInit = function (info) {
+
+        }
+
+
+    </script>
+
+    <script>
+        var ylfalg = 0;
+        $(document).ready(function () {
+            $(".header_title").html(schoolmc);
+            setInterval("DoClock()", 1000);
+            get_weather();
+
+            var objurl = searchToObject();
+
+            if (objurl.schoolid > 0) { schoolid = objurl.schoolid; }
+            if (objurl.bjid > 0) { bjid = objurl.bjid; ylfalg = 1; }
+            alert(bjid);
+            ChangeClass(bjid);
+        });
+         
+        function ChangeClass(bjid) {
+            $.jsonp({
+                url:  serverip + "/bpxt/bpxt/bpxtapi/Get_blue_class",
+                callback: "callback", data: { bjid: bjid, schoolid: schoolid },
+                success: function (data) {
+                    $("#main").html(data);
+
+                    var swiper = new Swiper('.swiper-container-v', {
+                        direction: 'vertical', 
+                        scrollbar: '.swiper-scrollbar',
+                        scrollbarHide: false,
+                        scrollbarDraggable: true, 
+                        pagination: '#swiper-pagination',
+                        uniqueNavElements: false,
+                        paginationClickable: true, 
+                        paginationBulletRender: function (swiper, index, className) {
+                            return '<li id="le_' + index + '" class="' + className + '">'
+                                + '<img class="leimg" src="../../images/cindex/a' + index + '.png">'
+                                + swiper.slides[index].title + '</li>';
+                        } 
+                    });
+
+
+                    var swiperH = new Swiper('.swiper-container-h', {
+                        Loop: true,
+                        paginationClickable: true,
+                        spaceBetween: 50,
+                        nextButton: '.swiper-button-next',
+                        prevButton: '.swiper-button-prev',
+                        pagination: '#swiper-pagination-h',
+                        paginationBulletRender: function (swiper, index, className) {
+                            return '<span class="' + className + '">' + (index + 1) + '</span>';
+                        }
+                    });
+
+
+                    var swiperR = new Swiper('.swiper-container-r', {
+                        Loop: true,
+                        nextButton: '.swiper-button-next',
+                        prevButton: '.swiper-button-prev',
+                    });
+                    var swiperRY = new Swiper('.swiper-container-ry', {
+                        Loop: true,
+                        nextButton: '.swiper-button-next',
+                        prevButton: '.swiper-button-prev',
+                    });
+                    var swiperHD = new Swiper('.swiper-container-hd', {
+                        Loop: true,
+                        nextButton: '.swiper-button-next',
+                        prevButton: '.swiper-button-prev',
+                    });
+                    var swiperCG = new Swiper('.swiper-container-cg', {
+                        Loop: true,
+                        nextButton: '.swiper-button-next',
+                        prevButton: '.swiper-button-prev',
+                    });
+
+
+                    setTimeout(function () { $("#loading").hide(); }, 1000);
+
+                },
+                complete: function (xOptions, textStatus) { $("#msg").main("服务器连接失败！"); },
+                error: function (xOptions, textStatus) { $("#msg").main("服务器连接失败！"); }
+            });
+        }
+
+        function OpenModel(id) { 
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/Get_HD_Details",
+                callback: "callback", data: { id: id, schoolid: schoolid },
+                success: function (data) {
+                    $("#content").html(data);
+                    $("#content img").each(function () {
+                        imgurl = $(this).attr("src");
+                        if (imgurl.indexOf("http:") == -1) {
+
+                            $(this).attr("src", serverip + imgurl);
+                            // $(this).attr("style", "width:100%;");
+                        }
+                    });
+                    $("#content").height(window.innerHeight - 300);
+                    modalShow('#bigModal', '', modalDataInit(''));
+                },
+                complete: function (xOptions, textStatus) { $("#content").text("服务器连接失败！"); },
+                error: function (xOptions, textStatus) { $("#content").text("服务器连接失败！"); }
+
+            });
+        }
+
+    </script> 
+
+</body>
+</html>
+
+ 

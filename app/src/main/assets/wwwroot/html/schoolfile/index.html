@@ -1,0 +1,806 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title></title>  
+    <link href="../../css/bootstrap.css" rel="stylesheet" />
+    <link href="../../css/animate.min.css" rel="stylesheet" /> 
+    <link href="../../dist/css/swiper.css" rel="stylesheet" />
+
+    <link href="../../css/common.css" rel="stylesheet" />
+    <script src="../../js/jquery-1.8.3-min.js"></script> 
+    <script src="../../js/common.js"></script> 
+    <script src="../../js/jquery.jsonp-2.1.4.min.js"></script>
+    <script src="../../dist/js/swiper.min.js"></script> 
+    
+     
+ <style type="text/css">
+     html {font-size: 140%;overflow:hidden;}
+     a,a:hover{ text-decoration: none;   } 
+     *{ padding:0px; margin:0px; color: #fff; font-family:hwkt;}
+     html,body,div,table { height:100%;width:100%; }
+     
+     #loading { 
+         background: #fff;
+         position: fixed;
+         text-align: center;
+         z-index: 400;
+     }
+
+      #loading table td {
+         width: 100%;
+         height: 100%;
+         vertical-align:middle;
+         text-align:center;
+     }
+
+     #bgdiv2{ position: fixed;  z-index: -1; }
+      
+     div#bgdiv2 > img { width: 100%;  height: 100%; }
+
+     .bj_mc { text-align:left;  font-size: 2em; vertical-align: middle; font-family: fzxk; }
+     .bj_tq { text-align:right;}
+     .bj_mc span {  font-size: 0.6em; }
+     
+       
+     .main_header {  height:10%; width:94%; border-bottom: 2px #7096A5  solid;  padding-left: 2em;  margin: auto; } 
+     .main_center {  height:80%; width:96%; margin:auto;  } 
+     .main_footer {  height:10%;  padding:0; margin:0;margin-top: 1.5%;border-top: 2px #232D31 solid; }
+
+
+     
+    .swiper-container-v {
+        width: 100%;  
+        height: 100%; 
+        overflow:hidden; 
+    } 
+     
+     #leader { text-align: center; width: 100%;  height: 50%; margin: 0 auto;   margin-top: 1.5em;  margin: 0px auto; } 
+     #leader
+     .swiper-pagination-bullet {  
+        width: auto; 
+        text-align: center;   
+        opacity: 1;
+        background: none;
+        border-radius: 0px;  
+        list-style:none; 
+	    display:inline;   
+        margin: 0 0;
+        padding: 0 0.5em; 
+	    white-space:nowrap; 
+	    height:2em;
+	    line-height:2em;
+	    font-size:1.3em;
+	    font-family:"hwkt";
+    } 
+    #leader
+    .swiper-pagination-bullet-active { 
+        background: none;
+        border-bottom: 2px  solid;
+	    font-family:"hwkt";
+    }
+
+
+     .weather_box {
+        width: 18em;
+        height: 10%;
+        position: fixed;
+        right: 0px; 
+     }
+</style>
+   
+ <style type="text/css">
+ 
+
+
+/* main_img */
+.main_img{
+	font-family:"微软雅黑";
+    height: 100%;
+    width: 100%;
+	overflow:hidden;
+	position: relative;
+}
+.main_img img{
+	height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: relative;
+	z-index:1;
+	transition-delay: 0s;
+    transition-duration: 1s;
+    transition-property: all;
+    transition-timing-function: ease;
+	/* Firefox 4 */
+	-moz-transition-delay: 0s;
+    -moz-transition-duration: 1s;
+    -moz-transition-property: all;
+    -moz-transition-timing-function: ease;
+	/* Safari 和 Chrome */
+	-webkit-transition-delay: 0s;
+    -webkit-transition-duration: 1s;
+    -webkit-transition-property: all;
+    -webkit-transition-timing-function: ease;
+	/* Opera */
+	-o-transition-delay: 0s;
+    -o-transition-duration: 1s;
+    -o-transition-property: all;
+    -o-transition-timing-function: ease;
+	}
+.main_img .show {
+    background: rgba(0, 0, 0, 0.4);
+    height:100%;
+    left: 0;
+    opacity: 1;
+	filter:alpha(opacity=1);
+    position: absolute;
+    top: 0;
+    transition-delay: 0s;
+    transition-duration: 0.3s;
+    transition-property: opacity;
+    transition-timing-function: ease-in;
+	/* Firefox 4 */
+	-moz-transition-delay: 0s;
+    -moz-transition-duration: 0.3s;
+    -moz-transition-property: opacity;
+    -moz-transition-timing-function: ease-in;
+	/* Safari 和 Chrome */
+	-webkit-transition-delay:0s;
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-property: opacity;
+    -webkit-transition-timing-function: ease-in;
+	/* Opera */
+	-o-transition-delay:0s;
+    -o-transition-duration: 0.3s;
+    -o-transition-property: opacity;
+    -o-transition-timing-function: ease-in;
+    width:100%;
+    z-index: 200;
+}
+.main_img .show .imgArea {
+    left: 40%;
+    bottom: 40%;
+    margin:-15px 0px 0px -40px;
+    opacity: 1;
+    position: absolute;
+    transition-delay: 0s;
+    transition-duration: 0.4s;
+    transition-property: all;
+    transition-timing-function: ease;
+	/* Firefox 4 */
+	-moz-transition-delay: 0s;
+    -moz-transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-timing-function: ease;
+	/* Safari 和 Chrome */
+	-webkit-transition-delay:0s;
+    -webkit-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-transition-timing-function: ease;
+	/* Opera */
+	-o-transition-delay:0s;
+    -o-transition-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-timing-function: ease;
+}
+.main_img .show .imgArea a{ 
+	display:block;
+	padding:5px 12px;
+	border:rgba(255,255,255, 0.6) 1px solid;
+	border-radius:1em;
+	font-size: 2em;
+}
+.main_img .show .imgArea a:hover{
+	background: rgba(255,255,255, 0.7); 
+}
+.main_img:hover  .show {opacity: 1;filter:alpha(opacity=100);}
+.main_img:hover .show .imgArea{opacity:1;filter:alpha(opacity=100);bottom:40%;}
+.main_img:hover img {
+	transform: scale(1.2, 1.2);
+	
+	-ms-transform:scale(1.2, 1.2); 	/* IE 9 */
+	-moz-transform:scale(1.2, 1.2); 	/* Firefox */
+	-webkit-transform:scale(1.2, 1.2); /* Safari 和 Chrome */
+	-o-transform:scale(1.2, 1.2); 	/* Opera */
+}
+</style>
+
+ <style>
+    .modal-dialog {
+        width: 80%;
+        margin: 5% auto; 
+        height: 80%;
+    }
+    .modal-dialog div { 
+            height:auto; 
+    }
+     .modal-content {  background: #274D5E; height:100%;}
+    .modal-dialog div,
+    .modal-dialog p,
+    .modal-dialog span,
+    .modal-dialog h1,
+    .modal-dialog a,
+    .modal-dialog li { 
+        width:auto;
+    }
+
+     #content {
+        background: #6EBBDA;
+        height: 89%;
+        overflow: auto;
+     }
+    .modal-header { 
+        background: -moz-linear-gradient(top, #214251 0%, #407992 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#214251), color-stop(100%,#407992));
+        background: -webkit-linear-gradient(top, #214251 0%,#407992 100%);
+        background: -o-linear-gradient(top, #214251 0%,#407992 100%);
+        background: -ms-linear-gradient(top, #214251 0%,#407992 100%);
+        background: linear-gradient(to bottom, #214251 0%,#407992 100%);
+    }
+
+     .schoool_js {  
+        width: 95%;
+        height: 90%;
+        margin: 5% auto;  
+     }
+    .schoool_js li {
+        width:100%;    
+        min-height: 2em;
+        font-size:1em;
+        list-style:none;
+    }
+     .schoool_js li span {
+     font-weight:700;
+     }
+
+
+
+     .school_xc {    
+         width: 98%;
+        height: 100%;
+        margin: auto;
+     }
+     .school_xc li {
+         height: 25%;
+        margin: 1% 1% 2% 1%;
+        width: 23%;
+        float: left;
+        list-style: none;
+      }
+      .school_xc li img { 
+       height:100%;width:100%;
+      }
+      
+     .school_xw {
+        width:100%;
+        height:100%;
+     }
+     .school_xw li {
+            padding-left: 1em;
+            width: 95%;
+            margin: auto;
+            height: 20%;
+            padding-top: 2%;
+            padding-bottom: 2%;
+            overflow: hidden;
+            border-bottom:solid 2px #677F88;
+            list-style: none;
+      }
+      .school_xw li img {  height:100%;width:100%;  }
+     .tlle { font-size:1.5em;margin-bottom: 0.6em; } 
+     .imgt{float:left;width:15%;height:100%;}
+     .cont{float:left;width:80%;height:100%;padding-left:1em;  }
+  </style>
+</head>
+<body> 
+    <div id="loading"> <table><tr><td><img style="width:30%;" src="../../images/loading.gif" /></td></tr> </table>  </div>  
+    <div id="bgdiv2"><img src="../../images/class_bg.jpg" alt=""/> </div> 
+    <div class="weather_box">
+         <table>
+            <tr>
+                <td style="text-align:center;width:9em;">
+                    <span id="date_day"  >2017年12月13日</span> <br />
+                    <span id="date_week" > 星期一</span>  
+                    <span id="date_clock" >14:45 </span> 
+                </td>
+                <td style="text-align:center;width:5em;"><span id="weather_current">28℃</span> </td>
+                <td style="text-align:center;width:4em;">
+                    <img id="weather_icon" src="../../images/days/qing.png" style="width:3em;height:3em;"/>   
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="contain"> 
+        <div class="main_header">
+            <table>
+                <tr>
+                    <td class="bj_mc">杭州萧山第十一高级中学</td>
+                    <td class="bj_tq"> </td>
+                </tr> 
+            </table>
+            </div> 
+        <div class="main_center"> 
+            <div style="float:left;width:70%; height: 98%;  margin-top: 1%; overflow:auto;">
+                <div id="swiper_nj"  class="swiper-container-v">
+                <div class="swiper-wrapper"> 
+                    <div class="swiper-slide" title="介绍"> 
+                        <div style="overflow:auto;">
+                        <div clsss="jieshao" style="height: 100%;width:90%;margin:auto;">
+                            <center><h1>学校概况</h1></center>
+                            浙江省丽水市实验学校是丽水市教育局直属的九年一贯制实验学校，座落于美丽的瓯江中下游沿畔，位于素有“浙江绿谷”之称的丽水市区。
+                            学校创办于1915年，前身是“浙江省立第十一师范学校附属小学”。目前，学校形成“一校两区”的办学格局，小学校区校园占地面积9350.49平方米，
+                            有25个走读式教学班，在校生1365人；初中校区校园占地面积30000平方米，有18个寄宿式教学班，在校生835人。
+                            <br />
+        学校以“健康”、“诚信”、“博雅”为校训；以“创造适合学生的教育，为学生终身发展和幸福人生奠基”为办学理念；以“自主发展的乐园，高质轻负的示范，
+                            教育科研的基地”为办学目标；以施行“五个喜欢”为治校总方略（ 回归学生视野，让学生喜欢学校；提升教师水平，让学生喜欢老师；
+                            改变竞争机制，让学生喜欢同学；搭建广阔平台，让学生喜欢活动；建立质量标准，让学生喜欢学习）。坚定不移地贯彻“五个着力”
+                            方针（着力营造适合学生的教育环境，文化育人；着力确立适合人的发展的学校管理，规范育人；着力建立适合学生发展的课程体系，
+                            学科育人；着力开展丰富多彩的活动平台，活动育人；着力形成适合学生发展的品牌，特色育人），全面构筑“公民本色、精英气质”
+                            的人才培养目标；最终实现“三个愿景”（让学校每一个角落都能充满人性的关爱和教育的智慧，让学生每一个时刻都能收获学习的成就和成长的乐趣，让教师每一天工作都能体会专业的尊严和职业的幸福），将学校打造成师生成长的乐园，让师生享受成长的快乐。
+                            <br />
+        悠悠岁月,回眸学校近百年的发展史，丽水市实验学校一直站在教育的最前沿，是丽水教育改革的示范校和窗口校，是浙江省义务教育高质量的学校。学校先后荣获教育
+                            部首批授牌的全国现代教育技术实验学校，全国中小学公民道德教育实验学校、省文明单位、省先进学校、全国群众体育先进集体、
+                            全国优秀家长学校、省教育科研先进集体、省首批体育特色学校、省首批艺术特色学校、省绿色学校等多项荣誉。
+                            <br />
+        学校坚持人才强校策略，注重分层培养，精心打造“三大工程”，即领雁教师提升工程，普通教师提效工程，青年教师成长工程，培养一批学有专长、业有专精、教
+                            有特色的市级乃至省级的骨干教师。学校现有教职工136人，中学高级教师59人，中级职称教师48人。有全国模范教师1人，全国
+                            优秀教师4人，省功勋教师1人，省特级教师1人，省优秀教师、教坛新秀7人，省名校长、名师培养对象9人，省教改之星1名，市教学
+                            （德育）名师9人，市教学（德育）学科带头人10人，市教坛（德育）新秀18人。
+                            <br />
+        学校坚持教学工作的中心地位不动摇，改进常规管理，狠抓教学环节监督与管理；坚持“学为中心”“以生为本”理念，从课程建设、课堂教学改革、作业改革
+                            、技术应用学习、教学德育相融合等角度聚焦中小学课堂变革，探索教学改革多样路径，深化体现学科特点的局部性教学改革，
+                            推出一批典型学科和个人，充分发挥其引领示范作用；树立“问题即课题”的观念，发挥科研引领，坚持科学提质，走学校内涵发展
+                            之路。学校积极推进课程建设，着力构建“适性教育”的课程体系，校本化的学科课程，夯实学生素质之根基；特色化的校本课程，
+                            铸就学生能力之特长；个性化的活动课程，助推学生自主之发展。
+                            <br />
+        学校一直践行“高质轻负”的教学理念，为学生创造更多自主发展的空间。学生素质全面发展，进省级重点高中正取生上线率列全市前茅，毕业生以“基础实、
+                            素质高、思维活、能力强、后劲足” 而为人称道。
+                            <br />
+        丽水市实验学校不愧为绿谷教育的一朵奇葩，吐蕊绽放，做现代教育的弄潮儿，勇于探索，敢于创新，弹奏出一曲曲百年名校的绿谷神韵。
+                        </div> 
+                        </div>
+                    </div>  
+                    <div class="swiper-slide" title="历史"> 
+                           <div style="overflow:auto;">
+                        <div clsss="jieshao" style="height: 100%;width:90%;margin:auto;">
+                            <center><h1>学校历史</h1></center>
+                            浙江省丽水市实验学校是丽水市教育局直属的九年一贯制实验学校，座落于美丽的瓯江中下游沿畔，位于素有“浙江绿谷”之称的丽水市区。
+                            学校创办于1915年，前身是“浙江省立第十一师范学校附属小学”。目前，学校形成“一校两区”的办学格局，小学校区校园占地面积9350.49平方米，
+                            有25个走读式教学班，在校生1365人；初中校区校园占地面积30000平方米，有18个寄宿式教学班，在校生835人。
+                            <br />
+        学校以“健康”、“诚信”、“博雅”为校训；以“创造适合学生的教育，为学生终身发展和幸福人生奠基”为办学理念；以“自主发展的乐园，高质轻负的示范，
+                            教育科研的基地”为办学目标；以施行“五个喜欢”为治校总方略（ 回归学生视野，让学生喜欢学校；提升教师水平，让学生喜欢老师；
+                            改变竞争机制，让学生喜欢同学；搭建广阔平台，让学生喜欢活动；建立质量标准，让学生喜欢学习）。坚定不移地贯彻“五个着力”
+                            方针（着力营造适合学生的教育环境，文化育人；着力确立适合人的发展的学校管理，规范育人；着力建立适合学生发展的课程体系，
+                            学科育人；着力开展丰富多彩的活动平台，活动育人；着力形成适合学生发展的品牌，特色育人），全面构筑“公民本色、精英气质”
+                            的人才培养目标；最终实现“三个愿景”（让学校每一个角落都能充满人性的关爱和教育的智慧，让学生每一个时刻都能收获学习的成就和成长的乐趣，让教师每一天工作都能体会专业的尊严和职业的幸福），将学校打造成师生成长的乐园，让师生享受成长的快乐。
+                            <br />
+        悠悠岁月,回眸学校近百年的发展史，丽水市实验学校一直站在教育的最前沿，是丽水教育改革的示范校和窗口校，是浙江省义务教育高质量的学校。学校先后荣获教育
+                            部首批授牌的全国现代教育技术实验学校，全国中小学公民道德教育实验学校、省文明单位、省先进学校、全国群众体育先进集体、
+                            全国优秀家长学校、省教育科研先进集体、省首批体育特色学校、省首批艺术特色学校、省绿色学校等多项荣誉。
+                            <br />
+        学校坚持人才强校策略，注重分层培养，精心打造“三大工程”，即领雁教师提升工程，普通教师提效工程，青年教师成长工程，培养一批学有专长、业有专精、教
+                            有特色的市级乃至省级的骨干教师。学校现有教职工136人，中学高级教师59人，中级职称教师48人。有全国模范教师1人，全国
+                            优秀教师4人，省功勋教师1人，省特级教师1人，省优秀教师、教坛新秀7人，省名校长、名师培养对象9人，省教改之星1名，市教学
+                            （德育）名师9人，市教学（德育）学科带头人10人，市教坛（德育）新秀18人。
+                            <br />
+        学校坚持教学工作的中心地位不动摇，改进常规管理，狠抓教学环节监督与管理；坚持“学为中心”“以生为本”理念，从课程建设、课堂教学改革、作业改革
+                            、技术应用学习、教学德育相融合等角度聚焦中小学课堂变革，探索教学改革多样路径，深化体现学科特点的局部性教学改革，
+                            推出一批典型学科和个人，充分发挥其引领示范作用；树立“问题即课题”的观念，发挥科研引领，坚持科学提质，走学校内涵发展
+                            之路。学校积极推进课程建设，着力构建“适性教育”的课程体系，校本化的学科课程，夯实学生素质之根基；特色化的校本课程，
+                            铸就学生能力之特长；个性化的活动课程，助推学生自主之发展。
+                            <br />
+        学校一直践行“高质轻负”的教学理念，为学生创造更多自主发展的空间。学生素质全面发展，进省级重点高中正取生上线率列全市前茅，毕业生以“基础实、
+                            素质高、思维活、能力强、后劲足” 而为人称道。
+                            <br />
+        丽水市实验学校不愧为绿谷教育的一朵奇葩，吐蕊绽放，做现代教育的弄潮儿，勇于探索，敢于创新，弹奏出一曲曲百年名校的绿谷神韵。
+                        </div> 
+                        </div>
+                    </div>  
+                    <div class="swiper-slide" title="大事记"> 
+                         <div style="overflow:auto;">
+                        <div clsss="jieshao" style="height: 100%;width:90%;margin:auto;">
+                            <center><h1>学校大事记</h1></center>
+                            浙江省丽水市实验学校是丽水市教育局直属的九年一贯制实验学校，座落于美丽的瓯江中下游沿畔，位于素有“浙江绿谷”之称的丽水市区。
+                            学校创办于1915年，前身是“浙江省立第十一师范学校附属小学”。目前，学校形成“一校两区”的办学格局，小学校区校园占地面积9350.49平方米，
+                            有25个走读式教学班，在校生1365人；初中校区校园占地面积30000平方米，有18个寄宿式教学班，在校生835人。
+                            <br />
+        学校以“健康”、“诚信”、“博雅”为校训；以“创造适合学生的教育，为学生终身发展和幸福人生奠基”为办学理念；以“自主发展的乐园，高质轻负的示范，
+                            教育科研的基地”为办学目标；以施行“五个喜欢”为治校总方略（ 回归学生视野，让学生喜欢学校；提升教师水平，让学生喜欢老师；
+                            改变竞争机制，让学生喜欢同学；搭建广阔平台，让学生喜欢活动；建立质量标准，让学生喜欢学习）。坚定不移地贯彻“五个着力”
+                            方针（着力营造适合学生的教育环境，文化育人；着力确立适合人的发展的学校管理，规范育人；着力建立适合学生发展的课程体系，
+                            学科育人；着力开展丰富多彩的活动平台，活动育人；着力形成适合学生发展的品牌，特色育人），全面构筑“公民本色、精英气质”
+                            的人才培养目标；最终实现“三个愿景”（让学校每一个角落都能充满人性的关爱和教育的智慧，让学生每一个时刻都能收获学习的成就和成长的乐趣，让教师每一天工作都能体会专业的尊严和职业的幸福），将学校打造成师生成长的乐园，让师生享受成长的快乐。
+                            <br />
+        悠悠岁月,回眸学校近百年的发展史，丽水市实验学校一直站在教育的最前沿，是丽水教育改革的示范校和窗口校，是浙江省义务教育高质量的学校。学校先后荣获教育
+                            部首批授牌的全国现代教育技术实验学校，全国中小学公民道德教育实验学校、省文明单位、省先进学校、全国群众体育先进集体、
+                            全国优秀家长学校、省教育科研先进集体、省首批体育特色学校、省首批艺术特色学校、省绿色学校等多项荣誉。
+                            <br />
+        学校坚持人才强校策略，注重分层培养，精心打造“三大工程”，即领雁教师提升工程，普通教师提效工程，青年教师成长工程，培养一批学有专长、业有专精、教
+                            有特色的市级乃至省级的骨干教师。学校现有教职工136人，中学高级教师59人，中级职称教师48人。有全国模范教师1人，全国
+                            优秀教师4人，省功勋教师1人，省特级教师1人，省优秀教师、教坛新秀7人，省名校长、名师培养对象9人，省教改之星1名，市教学
+                            （德育）名师9人，市教学（德育）学科带头人10人，市教坛（德育）新秀18人。
+                            <br />
+        学校坚持教学工作的中心地位不动摇，改进常规管理，狠抓教学环节监督与管理；坚持“学为中心”“以生为本”理念，从课程建设、课堂教学改革、作业改革
+                            、技术应用学习、教学德育相融合等角度聚焦中小学课堂变革，探索教学改革多样路径，深化体现学科特点的局部性教学改革，
+                            推出一批典型学科和个人，充分发挥其引领示范作用；树立“问题即课题”的观念，发挥科研引领，坚持科学提质，走学校内涵发展
+                            之路。学校积极推进课程建设，着力构建“适性教育”的课程体系，校本化的学科课程，夯实学生素质之根基；特色化的校本课程，
+                            铸就学生能力之特长；个性化的活动课程，助推学生自主之发展。
+                            <br />
+        学校一直践行“高质轻负”的教学理念，为学生创造更多自主发展的空间。学生素质全面发展，进省级重点高中正取生上线率列全市前茅，毕业生以“基础实、
+                            素质高、思维活、能力强、后劲足” 而为人称道。
+                            <br />
+        丽水市实验学校不愧为绿谷教育的一朵奇葩，吐蕊绽放，做现代教育的弄潮儿，勇于探索，敢于创新，弹奏出一曲曲百年名校的绿谷神韵。
+                        </div> 
+                        </div>
+                    </div>  
+                    <div class="swiper-slide" title="荣誉"> 
+                        <div style="overflow:auto;">
+                        <div clsss="jieshao" style="height: 100%;width:90%;margin:auto;">
+                            <center><h1>学校荣誉</h1></center>
+                            浙江省丽水市实验学校是丽水市教育局直属的九年一贯制实验学校，座落于美丽的瓯江中下游沿畔，位于素有“浙江绿谷”之称的丽水市区。
+                            学校创办于1915年，前身是“浙江省立第十一师范学校附属小学”。目前，学校形成“一校两区”的办学格局，小学校区校园占地面积9350.49平方米，
+                            有25个走读式教学班，在校生1365人；初中校区校园占地面积30000平方米，有18个寄宿式教学班，在校生835人。
+                            <br />
+        学校以“健康”、“诚信”、“博雅”为校训；以“创造适合学生的教育，为学生终身发展和幸福人生奠基”为办学理念；以“自主发展的乐园，高质轻负的示范，
+                            教育科研的基地”为办学目标；以施行“五个喜欢”为治校总方略（ 回归学生视野，让学生喜欢学校；提升教师水平，让学生喜欢老师；
+                            改变竞争机制，让学生喜欢同学；搭建广阔平台，让学生喜欢活动；建立质量标准，让学生喜欢学习）。坚定不移地贯彻“五个着力”
+                            方针（着力营造适合学生的教育环境，文化育人；着力确立适合人的发展的学校管理，规范育人；着力建立适合学生发展的课程体系，
+                            学科育人；着力开展丰富多彩的活动平台，活动育人；着力形成适合学生发展的品牌，特色育人），全面构筑“公民本色、精英气质”
+                            的人才培养目标；最终实现“三个愿景”（让学校每一个角落都能充满人性的关爱和教育的智慧，让学生每一个时刻都能收获学习的成就和成长的乐趣，让教师每一天工作都能体会专业的尊严和职业的幸福），将学校打造成师生成长的乐园，让师生享受成长的快乐。
+                            <br />
+        悠悠岁月,回眸学校近百年的发展史，丽水市实验学校一直站在教育的最前沿，是丽水教育改革的示范校和窗口校，是浙江省义务教育高质量的学校。学校先后荣获教育
+                            部首批授牌的全国现代教育技术实验学校，全国中小学公民道德教育实验学校、省文明单位、省先进学校、全国群众体育先进集体、
+                            全国优秀家长学校、省教育科研先进集体、省首批体育特色学校、省首批艺术特色学校、省绿色学校等多项荣誉。
+                            <br />
+        学校坚持人才强校策略，注重分层培养，精心打造“三大工程”，即领雁教师提升工程，普通教师提效工程，青年教师成长工程，培养一批学有专长、业有专精、教
+                            有特色的市级乃至省级的骨干教师。学校现有教职工136人，中学高级教师59人，中级职称教师48人。有全国模范教师1人，全国
+                            优秀教师4人，省功勋教师1人，省特级教师1人，省优秀教师、教坛新秀7人，省名校长、名师培养对象9人，省教改之星1名，市教学
+                            （德育）名师9人，市教学（德育）学科带头人10人，市教坛（德育）新秀18人。
+                            <br />
+        学校坚持教学工作的中心地位不动摇，改进常规管理，狠抓教学环节监督与管理；坚持“学为中心”“以生为本”理念，从课程建设、课堂教学改革、作业改革
+                            、技术应用学习、教学德育相融合等角度聚焦中小学课堂变革，探索教学改革多样路径，深化体现学科特点的局部性教学改革，
+                            推出一批典型学科和个人，充分发挥其引领示范作用；树立“问题即课题”的观念，发挥科研引领，坚持科学提质，走学校内涵发展
+                            之路。学校积极推进课程建设，着力构建“适性教育”的课程体系，校本化的学科课程，夯实学生素质之根基；特色化的校本课程，
+                            铸就学生能力之特长；个性化的活动课程，助推学生自主之发展。
+                            <br />
+        学校一直践行“高质轻负”的教学理念，为学生创造更多自主发展的空间。学生素质全面发展，进省级重点高中正取生上线率列全市前茅，毕业生以“基础实、
+                            素质高、思维活、能力强、后劲足” 而为人称道。
+                            <br />
+        丽水市实验学校不愧为绿谷教育的一朵奇葩，吐蕊绽放，做现代教育的弄潮儿，勇于探索，敢于创新，弹奏出一曲曲百年名校的绿谷神韵。
+                        </div> 
+                        </div>
+                    </div>  
+                    
+                    <div class="swiper-slide" title="相册"> 
+                       <div style="overflow:auto;">  
+                            <center><h1>学校相册</h1></center>
+                            <ul class="school_xc">
+                                <li><img src="../../images/a1.jpg" /></li>
+                                <li><img src="../../images/a2.jpg" /></li>
+                                <li><img src="../../images/a3.jpg" /></li>
+                                <li><img src="../../images/b1.jpg" /></li>
+                                <li><img src="../../images/b2.jpg" /></li>
+                                <li><img src="../../images/b3.jpg" /></li>
+                                <li><img src="../../images/a3.jpg" /></li>
+                                <li><img src="../../images/a3.jpg" /></li>
+                                <li><img src="../../images/a3.jpg" /></li>
+                                <li><img src="../../images/a3.jpg" /></li>
+                                <li><img src="../../images/a3.jpg" /></li>
+                                <li><img src="../../images/a3.jpg" /></li>
+                                <li><img src="../../images/a3.jpg" /></li>
+                                <li><img src="../../images/a3.jpg" /></li>
+                                <li><img src="../../images/a3.jpg" /></li>
+                                <li><img src="../../images/a3.jpg" /></li>
+                                <li><img src="../../images/a3.jpg" /></li>
+                                <li><img src="../../images/a3.jpg" /></li> 
+                            </ul> 
+                        </div>
+                    </div>  
+                    <div class="swiper-slide" title="新闻"> 
+                         <div style="overflow:auto;">  
+                            <center><h1>学校新闻</h1></center>
+                            <ul class="school_xw"> 
+                                <li onclick="Showdetails(1)">
+                                    <div class="imgt" ><img src="../../images/a1.jpg" /></div>
+                                    <div class="cont" >  
+                                        <p class="tlle">杭州萧山第十一高级中学</p>
+                                        <p style="text-indent:1em;">
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。 
+                                        </p>
+                                    </div> 
+                                </li>
+                                <li onclick="Showdetails(1)">
+                                    <div class="imgt" ><img src="../../images/a1.jpg" /></div>
+                                    <div class="cont" >  
+                                        <p class="tlle">杭州萧山第十一高级中学</p>
+                                        <p style="text-indent:1em;">
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。 
+                                        </p>
+                                    </div> 
+                                </li>
+                                <li onclick="Showdetails(1)">
+                                    <div class="imgt" ><img src="../../images/a1.jpg" /></div>
+                                    <div class="cont" >  
+                                        <p class="tlle">杭州萧山第十一高级中学</p>
+                                        <p style="text-indent:1em;">
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。 
+                                        </p>
+                                    </div> 
+                                </li>
+                                <li>
+                                    <div class="imgt" ><img src="../../images/a1.jpg" /></div>
+                                    <div class="cont" >  
+                                        <p class="tlle">杭州萧山第十一高级中学</p>
+                                        <p style="text-indent:1em;">
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。 
+                                        </p>
+                                    </div> 
+                                </li>
+                                <li>
+                                    <div class="imgt" ><img src="../../images/a1.jpg" /></div>
+                                    <div class="cont" >  
+                                        <p class="tlle">杭州萧山第十一高级中学</p>
+                                        <p style="text-indent:1em;">
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。 
+                                        </p>
+                                    </div> 
+                                </li>
+                                <li>
+                                    <div class="imgt" ><img src="../../images/a1.jpg" /></div>
+                                    <div class="cont" >  
+                                        <p class="tlle">杭州萧山第十一高级中学</p>
+                                        <p style="text-indent:1em;">
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。 
+                                        </p>
+                                    </div> 
+                                </li>
+                            </ul> 
+                        </div>
+                    </div>  
+                    <div class="swiper-slide" title="活动"> 
+                        <div style="overflow:auto;">  
+                            <center><h1>学校活动</h1></center>
+                            <ul class="school_xw"> 
+                                <li onclick="Showdetails(1)">
+                                    <div class="imgt" ><img src="../../images/a1.jpg" /></div>
+                                    <div class="cont" >  
+                                        <p class="tlle">杭州萧山第十一高级中学</p>
+                                        <p style="text-indent:1em;">
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。 
+                                        </p>
+                                    </div> 
+                                </li>
+                                <li onclick="Showdetails(1)">
+                                    <div class="imgt" ><img src="../../images/a1.jpg" /></div>
+                                    <div class="cont" >  
+                                        <p class="tlle">杭州萧山第十一高级中学</p>
+                                        <p style="text-indent:1em;">
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。 
+                                        </p>
+                                    </div> 
+                                </li> 
+                            </ul> 
+                        </div>
+                    </div>  
+                    <div class="swiper-slide" title="明星"> 
+                        <div style="overflow:auto;">  
+                            <center><h1>学校明星</h1></center>
+                            <ul class="school_xw"> 
+                                <li>
+                                    <div class="imgt" ><img src="../../images/a1.jpg" /></div>
+                                    <div class="cont" >  
+                                        <p class="tlle">杭州萧山第十一高级中学</p>
+                                        <p style="text-indent:1em;">
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。 
+                                        </p>
+                                    </div> 
+                                </li>
+                                <li>
+                                    <div class="imgt" ><img src="../../images/a1.jpg" /></div>
+                                    <div class="cont" >  
+                                        <p class="tlle">杭州萧山第十一高级中学</p>
+                                        <p style="text-indent:1em;">
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。
+                                            据悉，该国规定，自2017年7月1日起 029年，澳大利亚居民退休年龄每年延迟半岁，直至达到70岁。 
+                                        </p>
+                                    </div> 
+                                </li> 
+                            </ul> 
+                        </div>
+                    </div>  
+                </div>   
+            </div> 
+            </div>
+            <div style="float:right;width:28%; overflow:hidden;">
+                <div style="    height: 50%;
+                                width: 95%;
+                                margin: auto;
+                                padding-top: 4%;padding-bottom: 4%;">
+                    <div class="main_img">
+		                    <img src="../../images/medish.jpg">
+		                    <div class="show">
+			                <span class="imgArea">
+				                <a title="观看视频"  onclick="ECPJS.playaudio('http://ivi.bupt.edu.cn/hls/cctv5hd.m3u8');">观看视频</a>
+			                </span>
+		                    </div>
+	                </div> 
+                </div> 
+                <div style="height:42%;">
+                    <ul class="schoool_js"> 
+                        <li><span>校长：</span>王洪波 &nbsp;&nbsp;&nbsp;<span>面积：</span>960亩 </li>
+                        <li><span>邮箱：</span>xiaozhang@163.com</li>
+                        <li><span>电话：</span>13336186318 0578-87847541</li>
+                        <li><span>地址：</span>浙江省杭州市下沙经济开发区6号大街452号</li>
+                        <li><span>校训：</span>如果是打给你手机卡的运营商的客服，那就不要钱，比如用的是中国移动的手机卡，打10086是免费的</li> 
+                    </ul>
+                                 
+                </div>
+            </div>
+             
+        </div> 
+        <div class="main_footer"><ul id="leader" > </ul> </div>
+    </div> 
+
+
+
+    <div class="modal bs-example-modal-lg"  onclick="modalHide('#bigModal', '');" id="bigModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" style="height:100%;">
+            <div class="modal-header">
+                <button type="button" onclick="modalHide('#bigModal', '');" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span><span  class="sr-only">Close</span></button>
+                <h4 class="modal-title">详细信息</h4>
+            </div>
+            <div class="modal-body" id="content">
+                 
+              <center><h1 id="main_title"> 标题</h1></center>
+              <p id="main_subtitle" style="width:100%;text-align:center;">
+                  副标题
+              </p>
+
+              <p id="main_content" style="margin: 0 0 10px;
+                        text-indent: 2em;
+                        padding: 0.5em 02em 0em 2em;font-size: 1.5em;
+                        line-height: 1.5em;"> 
+                内容
+              </p>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+    
+    <script>
+        //animate.css动画触动一次方法
+        $.fn.extend({
+            animateCss: function (animationName) {
+                var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+                this.addClass('animated ' + animationName).one(animationEnd, function () {
+                    $(this).removeClass('animated ' + animationName);
+                });
+            }
+        });
+        /**
+         * 显示模态框方法
+         * @param targetModel 模态框选择器，jquery选择器
+         * @param animateName 弹出动作
+         * @ callback 回调方法
+         */
+        var modalShow = function (targetModel, animateName, callback) {
+            var animationIn = ["fadeInLeft"];
+            if (!animateName || animationIn.indexOf(animateName) == -1) {
+                console.log(animationIn.length);
+                var intRandom = Math.floor(Math.random() * animationIn.length);
+                animateName = animationIn[intRandom];
+            }
+            console.log(targetModel + " " + animateName);
+            $(targetModel).show().animateCss(animateName);
+            callback.call(this);
+        }
+        /**
+         * 隐藏模态框方法
+         * @param targetModel 模态框选择器，jquery选择器
+         * @param animateName 隐藏动作
+         * @ callback 回调方法
+         */
+        var modalHide = function (targetModel, animateName, callback) {
+            var animationOut = ["fadeOutRight"];
+            if (!animateName || animationOut.indexOf(animateName) == -1) {
+                console.log(animationOut.length);
+                var intRandom = Math.floor(Math.random() * animationOut.length);
+                animateName = animationOut[intRandom];
+            }
+            $(targetModel).children().click(function (e) { e.stopPropagation() });
+            $(targetModel).animateCss(animateName);
+            $(targetModel).delay(900).hide(1, function () {
+                $(this).removeClass('animated ' + animateName);
+            });
+            callback.call(this);
+        }
+
+        var modalDataInit = function (info) {
+
+        }
+    </script>
+    <script>
+        $(document).ready(function () {
+            setInterval("DoClock()", 1000);
+            get_weather();
+            if (!(schoolid > 0)) { schoolid = 1; }
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/Get_School_Index",
+                callback: "callback", data: { schoolid: schoolid },
+                success: function (data) {
+                    $("#contain").html(data);
+                    ChangeClass();
+                },
+                complete: function (xOptions, textStatus) { $("#msg").main("服务器连接失败！"); },
+                error: function (xOptions, textStatus) { $("#msg").main("服务器连接失败！"); }
+            });
+            
+        });
+
+        function ChangeClass() {
+            var swiper = new Swiper('.swiper-container-v', { 
+                pagination: '#leader',
+                paginationClickable: true,
+                paginationBulletRender: function (swiper, index, className) {
+                    return '<li  class="' + className + '">' + swiper.slides[index].title + '</li>';
+                }
+            });
+             
+            setTimeout(function () { $("#loading").hide(); }, 3000);
+        }
+
+
+        function Showdetails(id) {
+                  
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/Get_XYXW_Details",
+                callback: "callback", data: { id: id, schoolid: schoolid },
+                success: function (data) {
+                    $("#content").html(data);
+                    $("#content img").each(function () {
+                        imgurl = $(this).attr("src");
+                        if (imgurl.indexOf("http:") == -1) {
+                            $(this).attr("src", serverip + imgurl);
+                        }
+                    }); 
+                    modalShow('#bigModal', '', modalDataInit(''));
+                    $("#content").height(window.innerHeight - 300);
+                },
+                complete: function (xOptions, textStatus) { $("#content").text("服务器连接失败！"); },
+                error: function (xOptions, textStatus) { $("#content").text("服务器连接失败！"); }
+            });
+        }
+    </script>
+
+</body>
+</html>
+
+ 

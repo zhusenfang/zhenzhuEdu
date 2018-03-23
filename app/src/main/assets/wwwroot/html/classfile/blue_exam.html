@@ -1,0 +1,344 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title></title>  
+    <link href="../../css/bootstrap.css" rel="stylesheet" />
+    <link href="../../css/animate.min.css" rel="stylesheet" /> 
+    <link href="../../dist/css/swiper.css" rel="stylesheet" />
+    <link href="../../css/blue.css" rel="stylesheet" />
+     
+    <script src="../../js/jquery-1.8.3-min.js"></script> 
+    <script src="../../js/common.js"></script>  
+    <script src="../../js/jquery.jsonp-2.1.4.min.js"></script> 
+    <style type="text/css">
+        #main { 
+            margin-top:0px;
+            font-size: 1.5em;
+            font-family: hwkt;
+        }
+
+        .class_left {
+            width: 70%;
+            margin: 0 2% 0 2%;
+            border-radius: 10px;
+            background: #376271;
+            text-align: center;
+            height: 33em; 
+            float: left;
+        } 
+        .class_right {
+            width: 25%;
+            height: 33em;
+            float: left;
+        }
+          
+        .tzgg {
+            width: 100%;
+            height: 16em;
+            background: #48707F;
+            border-radius: 10px;
+        }
+
+        .bjxx {
+            width: 100%;
+            margin-top: 15px;
+            height: 16.3em;
+            background: #48707F;
+            border-radius: 10px;
+        }
+        
+        .gg_title {
+            width: 100%;
+            height: 1.5em;
+            text-align: center;
+            line-height: 1.5em;
+            background:#2A5265;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+            color: #fff;
+        }
+
+
+        .ulgg {
+            padding: 15px;
+        }
+
+            .ulgg li {
+                font-size: 0.8em;
+                font-family: hwkt;
+                list-style: none;
+                height: 1.2em;
+                line-height: 1.2em;
+                width: 19em;
+                overflow-x: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+
+
+        #curless {
+            padding: 10px;
+        }
+
+        #curless table {
+            width: 100%;
+        }
+
+        #curless td {
+            text-align: center;
+        }
+
+        #curless .ltd {
+            width: 40%;
+            text-align: right;
+            padding-right: 15px;
+        }
+
+        #curless .rtd {
+            width: 60%;
+            text-align: left;
+            padding-left: 15px;
+        }
+
+        .tkq {
+            text-align: center;
+            padding-bottom: 10px;
+        }
+
+
+        #stulist {
+            padding: 10px 50px 10px 50px;
+            overflow: auto;
+            height: 30em;
+        }
+
+            #stulist li {
+                width: 170px;
+                max-width: 170px;
+                text-align: left;
+                float: left;
+                font-family: serif;
+                font-size: 0.8em;
+                margin-left: 15px;
+                margin-top: 10px;
+                list-style: none;
+                vertical-align: bottom;
+            }
+
+        .wd img {
+            vertical-align: bottom;
+            width: 1.1em;
+            height: 1.1em;
+        }
+
+        .yd img {
+            vertical-align: bottom;
+            width: 1.1em;
+            height: 1.1em;
+        }
+    </style>
+
+
+</head>
+<body> 
+   <!-- 网页预加载图 网页背景图 -->
+    <div id="loading"><img style="width:40%;" src="../../images/loading.gif" /></div>  
+    <div id="bgdiv"><img src="../../images/class_bg.jpg" alt=""/> </div> 
+    <!-- 网页预加载图 网页背景图 -->
+
+    <div id="header" class="header"> 
+        <table style="width:100%;">
+            <tr> 
+                <td class="header_title" id="header_title" > 
+                    电子班牌系统--考试
+                </td>
+                <td class="header_date">
+                    <span id="date_day" class="datafont">2017年12月13日</span><br />
+                    <span id="date_clock" class="datafont">14:45 </span>
+                    <span id="date_week" class="datafont" onclick="DoClock()"> 星期一</span> 
+                </td>
+                <td class="header_weather">
+                    <table class="class_rs">
+                        <tr>
+                            <td> 
+                                <span id="weather_current"></span> 
+                            </td>
+                            <td>
+                                <img id="weather_icon" src="../../images/days/qing.png" style="width:60px;height:60px;"/>  
+                            </td>
+                        </tr>
+                    </table>  
+                </td>
+            </tr>
+        </table> 
+    </div>
+    <hr style="margin-top: 5em; margin-bottom: 2em;" />  
+     
+    <div id="main" class="main">   
+    <div class="class_left">
+            <br />刷卡考勤<span id="skh"></span> 
+            <hr />
+		    <ul id="stulist">
+                <span>暂无课程！</span>
+			 <!--   <li class="wd"><img src="../../images/checkedlate.png"/> 航航新的</li> 
+			    <li class="yd"><img src="../../images/checked.png"/> 姓名</li>  -->
+		    </ul> 
+     </div>
+     <div class="class_right">
+         <div class="tzgg">   
+             <div class="gg_title">
+                 考场信息 
+             </div> 
+             <div id="curless">
+                 <table>
+                     <tr><td class="ltd">考试课程：</td><td class="rtd" id="less_kc">暂无考试</td></tr>
+                     <tr><td class="ltd">监考教师：</td><td class="rtd" id="less_js"></td></tr>
+                     <tr><td class="ltd">考试时间：</td><td class="rtd" id="less_sk" ></td></tr> 
+                     <tr><td class="ltd">考试场地：</td><td class="rtd" id="less_cd" ></td></tr> 
+                     <tr>
+                         <td colspan="2">
+                             <hr style="border:2px solid #f00; width:99%; margin-top:15px; margin-bottom:15px;" />
+                             <table>
+                                 <tr><td class="tkq">应到</td><td class="tkq">实到</td><td class="tkq">迟到</td></tr>
+                                 <tr><td id="yd">0</td><td id="sd">0</td><td><!--1-->0</td></tr>
+                             </table> 
+                         </td> 
+                     </tr>
+
+                 </table>
+             </div>
+         </div>
+         <div class="bjxx">
+             <div class="gg_title">
+                 今日考试 
+             </div> 
+             <ul class="ulgg" id="kblist">
+                 <!--<li>sdfgfdg</li>
+                 <li>sdfgfdg</li>
+                 <li>sdfgfdg</li> -->
+             </ul> 
+
+         </div>
+     </div>
+    </div>
+
+    <div id="footer" class="footer">
+        中国电信 
+    </div> 
+
+
+    
+    <script>
+        var xnggjson = null;
+        var cur_less_id = 0; 
+
+        $(document).ready(function () {
+            $(".header_title").html(schoolmc + "--考试考勤");
+            setTimeout(function () { $("#loading").hide(); }, 1000);
+            setInterval("DoClock()", 1000);
+            get_weather(); 
+
+            Get_Room_Day_Exam();
+            Get_Room_Cur_Exam();
+            //Get_Room_Cur_Lesson_Stu();
+            try { schoolmc = ECPJS.getvalue("schoolmc"); $(".header_title").html(schoolmc); } catch (e) { }
+        });
+
+        function Get_Room_Day_Exam() {
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/Get_Room_Day_Exam",
+                callback: "callback", data: { jsid: jsid, schoolid: schoolid },
+                success: function (data) {
+                    var htmlstr = "";
+                    for (var i = 0; i < data.length; i++) {
+                        htmlstr += '<li>                ' +
+                        '<span class="class_jc">         ' +
+                        data[i].SDName + ' ' + data[i].JCName + '                          ' +
+                        '</span>                         ' +
+                        '&nbsp;&nbsp;                    ' +
+                        '<span class="class_kc">         ' +
+                        '' + data[i].KCName + '                            ' +
+                        '</span>-<span class="class_js"> ' +
+                        '' + data[i].TeacherName + '                            ' +
+                        '</span>                         ' +
+                        '</li>                           ';
+                    }
+                    $("#kblist").html(htmlstr);
+                },
+                complete: function (xOptions, textStatus) { },
+                error: function (xOptions, textStatus) { }
+            });
+        }
+        function Get_Room_Cur_Exam() {
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/Get_Room_Cur_Exam",
+                callback: "callback", data: { jsid: jsid, schoolid: schoolid },
+                success: function (data) {
+                    $("#less_kc").html(data.KCName);
+                    $("#less_js").html(data.TeacherName);
+                    $("#less_sk").html(data.KSSJ + "-" + data.JSSJ);
+                    $("#less_kq").html(data.KSSJ + "-" + data.JSSJ);
+                    if (data.ID > 0) {
+                        cur_less_id = data.ID;
+                        Get_Room_Cur_Exam_Stu();
+                    }
+                    else {
+                        cur_less_id = 0;
+                    }
+                },
+                complete: function (xOptions, textStatus) { },
+                error: function (xOptions, textStatus) { }
+            });
+        }
+
+
+        function Get_Room_Cur_Exam_Stu() {
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/Get_Room_Cur_Exam_Stu",
+                callback: "callback", data: { pkjgid: cur_less_id, token: token, schoolid: schoolid },
+                success: function (data) {
+                    var htmlstr = "";
+                    var ccind = 0;
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].XSDQZT == 1) {
+                            htmlstr += '<li class="yd"><img src="../../images/checked.png"/> ' + data[i].XM + '</li> ';
+                            ccind++;
+                        }
+                        else {
+                            htmlstr += '<li class="wd"><img src="../../images/check.png"/> ' + data[i].XM + '</li> ';
+                        }
+                    }
+                    $("#stulist").html(htmlstr);
+                    $("#yd").html(data.length);
+                    $("#sd").html(ccind);
+                },
+                complete: function (xOptions, textStatus) { },
+                error: function (xOptions, textStatus) { }
+            });
+        }
+        function ReadCard(card) { Sava_lesson_KQ(card); }
+        //保存考勤结果
+        function Sava_lesson_KQ(khstr) {  
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/Sava_Exam_KQ",
+                callback: "callback", data: { pkjgid: cur_less_id, token: khstr, schoolid: schoolid },
+                success: function (data) {
+                    if (data == "系统错误：课程未找到") { ECPJS.playmp("kcwzd"); }
+                    else if (data == "您不是该课程学生") { ECPJS.playmp("bsxs"); }
+                    else if (data == "请绑定学生卡") { ECPJS.playmp("bdxsk"); }
+                    else { ECPJS.playmp("kqok"); }
+                     
+                    Get_Room_Cur_Lesson_Stu(); 
+                },
+                complete: function (xOptions, textStatus) { },
+                error: function (xOptions, textStatus) { }
+            }); 
+        }
+
+    </script>
+     
+</body>
+</html>

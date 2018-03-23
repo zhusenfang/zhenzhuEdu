@@ -1,0 +1,648 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title></title>  
+    <link href="../../css/bootstrap.css" rel="stylesheet" />
+    <link href="../../css/animate.min.css" rel="stylesheet" /> 
+    <link href="../../dist/css/swiper.css" rel="stylesheet" />
+
+    <link href="../../css/common.css" rel="stylesheet" />
+    <script src="../../js/jquery-1.8.3-min.js"></script> 
+    <script src="../../js/common.js"></script> 
+    <script src="../../js/jquery.jsonp-2.1.4.min.js"></script>
+    <script src="../../dist/js/swiper.min.js"></script> 
+    
+     
+ <style type="text/css">
+     html {font-size: 140%;overflow:hidden;}
+      
+     *{ padding:0px; margin:0px; color: #fff; font-family:hwkt;}
+     html,body,div,table { height:100%;width:100%; }
+     
+     #loading { 
+         background: #fff;
+         position: fixed;
+         text-align: center;
+         z-index: 400;
+     }
+
+      #loading table td {
+         width: 100%;
+         height: 100%;
+         vertical-align:middle;
+         text-align:center;
+     }
+
+     #bgdiv2{ position: fixed;  z-index: -1; }
+      
+     div#bgdiv2 > img { width: 100%;  height: 100%; }
+
+     .bj_mc { text-align:left;  font-size: 1.7em; vertical-align: bottom; font-family: fzxk; }
+     .bj_tq { text-align:right;}
+     .bj_mc span {  font-size: 0.6em; }
+     .main_lt{width:45%;height:40%;float:left;}
+     .main_lt th {
+        width: 20%;
+        vertical-align: middle;
+     }
+     .main_rt{width:54%;height:50%;float:right;padding-top: 1%;}
+     .main_lb{width:45%;height:60%;float:left;text-align:center;}
+     .main_lb img { width:98%;height:100%; }
+     .main_rb{width:54%;height:50%;float:right;padding-top: 1%;}
+
+     a,a:hover{ text-decoration: none; color:#fff;  }
+     
+
+
+     .main_lt table{height:60%;margin-top: 3%;}  
+     .right_tl {width:50%;float:left; }
+     .right_tr {width:48%;float:right;}
+
+      
+     .main_center .newul {width:100%;height:100%;overflow:hidden;}
+     .main_center .newul li{
+         width:95%; 
+         padding-left:2%;
+         list-style:none; 
+         overflow:hidden;
+         height: 1.6em;
+         line-height: 1.6em; 
+         white-space:nowrap;
+         text-overflow:ellipsis; 
+         -o-text-overflow:ellipsis; 
+     }
+
+     .ultitle { 
+         height: 1.5em;
+         line-height: 1.5em; 
+         margin-bottom:0.5em;
+         border-bottom:2px solid #7096A5 ;
+         font-size: 1.5em;
+         -moz-box-shadow: 4em -0.5em 1em 0em #214251 inset;
+         -webkit-box-shadow: 4em -0.5em 1em 0em #214251 inset;
+         box-shadow: 4em -0.5em 1em 0em #214251 inset;
+         border-top-left-radius: 0.5em;
+     }
+
+     .ultitle_name {
+        width: 5em;
+        text-align: center;
+        border-top-left-radius: 0.5em;
+        border-top-right-radius: 0.5em;
+        background: #294F5D;
+     }
+
+     
+     #swiper_nj { height:93%;} 
+     .main_header {  height:10%; width:94%; border-bottom: 2px #7096A5  solid;  padding-left: 2em;  margin: auto; } 
+     .main_center {  height:90%; width:96%; margin:auto;  } 
+     .main_footer {  height:7%;  padding:0; margin:0;  }
+
+
+     
+    .swiper-container-v {
+        width: 100%;  
+        height: 100%; 
+        overflow:hidden; 
+    }
+    .swiper-container-hd{
+        width: 100%;  
+        height: 90%; 
+        overflow:hidden; 
+    }
+    
+     .bj_leader  {  text-align: center; width: 100%;height:10%; margin: 0 auto;   margin-top: 1.5em;} 
+     .bj_leader
+    .swiper-pagination-bullet {  
+        width: auto; 
+        text-align: center;  
+        color:#fff;
+        opacity: 1;
+        background: none;
+        border-radius: 0px;
+        list-style:none; 
+	    display:inline;   
+        margin: 0 0.3em;
+	    white-space:nowrap; 
+	    height:20px;
+	    line-height:20px;
+	    font-size:1em;
+	    font-family:"hwkt";
+    } 
+    .bj_leader
+    .swiper-pagination-bullet-active {
+        color:#fff;
+        background: none;
+        border-bottom: 2px #fff solid;
+	    font-family:"hwkt";
+    }
+
+    
+     #leader { text-align: center; width: 100%;  height: 50%; margin: 0 auto;   margin-top: 1.5em;  margin: 0px auto; } 
+     #leader
+     .swiper-pagination-bullet {  
+        width: auto; 
+        text-align: center;  
+        color:#fff;
+        opacity: 1;
+        background: none;
+        border-radius: 0px;  
+        list-style:none; 
+	    display:inline;   
+        margin: 0 0;
+        padding: 0 0.5em; 
+	    white-space:nowrap; 
+	    height:2em;
+	    line-height:2em;
+	    font-size:1.3em;
+	    font-family:"hwkt";
+    } 
+    #leader
+    .swiper-pagination-bullet-active {
+        color:#fff;
+        background: none;
+        border-bottom: 2px #fff solid;
+	    font-family:"hwkt";
+    }
+
+
+     .weather_box {
+        width: 18em;
+        height: 10%;
+        position: fixed;
+        right: 0px; 
+     }
+</style>
+   
+ <style type="text/css">
+ 
+
+
+/* main_img */
+.main_img{
+	font-family:"微软雅黑";
+    height: 100%;
+    width: 100%;
+	overflow:hidden;
+	position: relative;
+}
+
+     .img2 { 
+       height: 12em;
+    width: 14em;
+    float: left;
+    margin-top: 1.5em;
+    margin-left: 2.6em;
+    overflow: hidden;
+    position: relative;
+     
+     }
+.main_img img{
+	height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: relative;
+	z-index:1;
+	transition-delay: 0s;
+    transition-duration: 1s;
+    transition-property: all;
+    transition-timing-function: ease;
+	/* Firefox 4 */
+	-moz-transition-delay: 0s;
+    -moz-transition-duration: 1s;
+    -moz-transition-property: all;
+    -moz-transition-timing-function: ease;
+	/* Safari 和 Chrome */
+	-webkit-transition-delay: 0s;
+    -webkit-transition-duration: 1s;
+    -webkit-transition-property: all;
+    -webkit-transition-timing-function: ease;
+	/* Opera */
+	-o-transition-delay: 0s;
+    -o-transition-duration: 1s;
+    -o-transition-property: all;
+    -o-transition-timing-function: ease;
+	}
+.main_img .show {
+    background: rgba(0, 0, 0, 0.4);
+    height:100%; text-align: center;
+    left: 0;
+    opacity: 1;
+	filter:alpha(opacity=1);
+    position: absolute;
+    top: 0;
+    transition-delay: 0s;
+    transition-duration: 0.3s;
+    transition-property: opacity;
+    transition-timing-function: ease-in;
+	/* Firefox 4 */
+	-moz-transition-delay: 0s;
+    -moz-transition-duration: 0.3s;
+    -moz-transition-property: opacity;
+    -moz-transition-timing-function: ease-in;
+	/* Safari 和 Chrome */
+	-webkit-transition-delay:0s;
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-property: opacity;
+    -webkit-transition-timing-function: ease-in;
+	/* Opera */
+	-o-transition-delay:0s;
+    -o-transition-duration: 0.3s;
+    -o-transition-property: opacity;
+    -o-transition-timing-function: ease-in;
+    width:100%;
+    z-index: 200;
+}
+.main_img .show .imgArea {
+    left: 38%;
+    bottom: 40%;   
+    margin:-15px 0px 0px -40px;
+    opacity: 1;
+    position: absolute;
+    transition-delay: 0s;
+    transition-duration: 0.4s;
+    transition-property: all;
+    transition-timing-function: ease;
+	/* Firefox 4 */
+	-moz-transition-delay: 0s;
+    -moz-transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-timing-function: ease;
+	/* Safari 和 Chrome */
+	-webkit-transition-delay:0s;
+    -webkit-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-transition-timing-function: ease;
+	/* Opera */
+	-o-transition-delay:0s;
+    -o-transition-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-timing-function: ease;
+}
+.main_img .show .imgArea a{
+	color:rgba(255,255,255, 0.8);
+	display:block;
+	padding:5px 12px;
+	border:rgba(255,255,255, 0.6) 1px solid;
+	border-radius:1em;
+	font-size: 2em;
+}
+.main_img .show .imgArea a:hover{
+	background: rgba(255,255,255, 0.7);
+	color:rgba(0,0,0, 0.6);
+}
+.main_img:hover  .show {opacity: 1;filter:alpha(opacity=100);}
+.main_img:hover .show .imgArea{opacity:1;filter:alpha(opacity=100);bottom:40%;}
+.main_img:hover img {
+	transform: scale(1.2, 1.2);
+	
+	-ms-transform:scale(1.2, 1.2); 	/* IE 9 */
+	-moz-transform:scale(1.2, 1.2); 	/* Firefox */
+	-webkit-transform:scale(1.2, 1.2); /* Safari 和 Chrome */
+	-o-transform:scale(1.2, 1.2); 	/* Opera */
+}
+</style>
+
+ <style>
+     .bj_mc {
+        text-align: left; 
+        font-family: fzxk;
+        font-size: 2.7em;
+    }
+    .modal-dialog {
+        width: 80%;
+        margin: 5% auto;
+        color: #333;
+        height: 80%;
+    }
+    .modal-dialog div { 
+            height:auto; 
+    }
+    .modal-dialog div,
+    .modal-dialog p,
+    .modal-dialog span,
+    .modal-dialog h1,
+    .modal-dialog a,
+    .modal-dialog li {
+        color:#000;
+        width:auto;
+    }
+    .modal-header { 
+        background: -moz-linear-gradient(top, #214251 0%, #407992 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#214251), color-stop(100%,#407992));
+        background: -webkit-linear-gradient(top, #214251 0%,#407992 100%);
+        background: -o-linear-gradient(top, #214251 0%,#407992 100%);
+        background: -ms-linear-gradient(top, #214251 0%,#407992 100%);
+        background: linear-gradient(to bottom, #214251 0%,#407992 100%);
+    }
+  </style>
+</head>
+<body style="width:100%;height:100%;"> 
+    <div id="loading"> <table><tr><td><img style="width:30%;" src="../../images/loading.gif" /></td></tr> </table>  </div>  
+    <div id="bgdiv2"><img src="../../images/class_bg.jpg" alt=""/> </div> 
+    <div class="weather_box">
+         <table>
+            <tr>
+                <td style="text-align:center;width:9em;">
+                    <span id="date_day"  >2017年12月13日</span> <br />
+                    <span id="date_week" > 星期一</span>  
+                    <span id="date_clock" >14:45 </span> 
+                </td>
+                <td style="text-align:center;width:5em;"><span id="weather_current">28℃</span> </td>
+                <td style="text-align:center;width:4em;">
+                    <img id="weather_icon" src="../../images/days/qing.png" style="width:3em;height:3em;"/>   
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="contain"> 
+        <div id="swiper_nj"  class="swiper-container-v">
+            <div class="swiper-wrapper"> 
+                <div class="swiper-slide" title="206班"> 
+                    <div class="main_header">
+                        <table>
+                            <tr>
+                                <td class="bj_mc">2016届206班<span>&nbsp;&nbsp;Grade One Class Two</span></td>
+                                <td class="bj_tq">
+                                    
+                                </td>
+                            </tr> 
+                        </table>
+                        </div> 
+                    <div class="main_center">
+                        <div id="bj_swiper_01" class="swiper-container-hd">    
+                            <div class="swiper-wrapper">    
+                                <div class="swiper-slide" title="第一期">   
+                                    <div class="main_lt"> 
+                                        <div class="ultitle" style="margin-top: 2%;">
+                                            <div class="ultitle_name" >班级介绍</div>
+                                        </div>
+                                        <table> 
+                                            <tr><th>班主任：</th><td>王丽丽</td><th>联系电话：</th><td>13336186318</td></tr>
+                                            <tr><th>副班主任：</th><td>杨丽丽</td><th>联系电话：</th><td>13336186318</td></tr>
+                                            <tr><th>班级口号：</th><td colspan="3">修身齐家，治国平天下！</td></tr>
+                                            <tr><th>班级特色：</th><td colspan="3">修身齐家，治国平天下！修身齐家，治国平天下！
+                                                修身齐家，治国平天下！修身齐家修身齐家，治国平天下！
+                                                ，治国平天下！修身齐家，治国平天下！</td></tr> 
+                                        </table>
+                                    </div>
+                                    <div class="main_rt">
+                                        <div class="right_tl">
+                                            <div class="ultitle">
+                                                <div class="ultitle_name" >班级活动</div>
+                                            </div>
+                                            <ul class="newul">
+                                                <li onclick="Showdetails(1)">您好，我是在线咨询的老师，2017年有新政策出来</li> 
+                                            </ul>
+
+                                        </div>
+                                        <div class="right_tr">
+                                            <div class="main_img">
+		                                         <img src="../../images/medish.jpg">
+		                                         <div class="show">
+			                                        <span class="imgArea">
+				                                        <a title="观看视频"   onclick="ECPJS.playaudio('http://ivi.bupt.edu.cn/hls/cctv5hd.m3u8');">观看视频</a>
+			                                        </span>
+		                                         </div>
+	                                        </div> 
+                                        </div>
+                                    </div>
+                                    <div class="main_lb">
+                                        <img src="../../images/medish.jpg" style="width:100%;height:100%;" />
+                                    </div>
+                                    <div class="main_rb">
+                                        <div class="right_tl"> 
+                                            <div class="ultitle">
+                                                <div class="ultitle_name" >班级荣誉</div>
+                                            </div>
+                                            <ul class="newul">
+                                                <li onclick="Showdetails(1)">您好，我是在线咨询的老师，2017年有新政策出来</li> 
+                                            </ul>  
+                                        </div>
+                                        <div class="right_tr"> 
+                                            <div class="ultitle">
+                                                <div class="ultitle_name" >学生成果</div>
+                                            </div>
+                                            <ul class="newul">
+                                                <li onclick="Showdetails(1)">您好，我是在线咨询的老师，2017年有新政策出来</li> 
+                                            </ul>
+                                        </div>
+                                    </div>  
+                            </div>          
+                            </div>   
+                        </div>   
+                        <ul id="bj_leader_01" class="bj_leader"></ul>
+                    </div> 
+                </div>  
+            </div>   
+        </div> 
+        <div class="main_footer"><ul id="leader" > </ul> </div>
+    </div> 
+
+
+
+    <div class="modal bs-example-modal-lg"  onclick="modalHide('#bigModal', '');" id="bigModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" onclick="modalHide('#bigModal', '');" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span><span  class="sr-only">Close</span></button>
+                <h4 class="modal-title">详细信息</h4>
+            </div>
+            <div class="modal-body" id="content">
+                 
+              <center><h1 id="main_title"> 标题</h1></center>
+              <p id="main_subtitle" style="width:100%;text-align:center;">
+                  副标题
+              </p>
+
+              <p id="main_content" style="margin: 0 0 10px;
+                        text-indent: 2em;
+                        padding: 0.5em 02em 0em 2em;font-size: 1.5em;
+                        line-height: 1.5em;"> 
+                内容
+              </p>
+
+            </div>
+        </div>
+    </div>
+    </div>
+     
+    
+    <script>
+        //animate.css动画触动一次方法
+        $.fn.extend({
+            animateCss: function (animationName) {
+                var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+                this.addClass('animated ' + animationName).one(animationEnd, function () {
+                    $(this).removeClass('animated ' + animationName);
+                });
+            }
+        });
+        /**
+         * 显示模态框方法
+         * @param targetModel 模态框选择器，jquery选择器
+         * @param animateName 弹出动作
+         * @ callback 回调方法
+         */
+        var modalShow = function (targetModel, animateName, callback) {
+            var animationIn = ["fadeInLeft"];
+            if (!animateName || animationIn.indexOf(animateName) == -1) {
+                console.log(animationIn.length);
+                var intRandom = Math.floor(Math.random() * animationIn.length);
+                animateName = animationIn[intRandom];
+            }
+            console.log(targetModel + " " + animateName);
+            $(targetModel).show().animateCss(animateName);
+            callback.call(this);
+        }
+        /**
+         * 隐藏模态框方法
+         * @param targetModel 模态框选择器，jquery选择器
+         * @param animateName 隐藏动作
+         * @ callback 回调方法
+         */
+        var modalHide = function (targetModel, animateName, callback) {
+            var animationOut = ["fadeOutRight"];
+            if (!animateName || animationOut.indexOf(animateName) == -1) {
+                console.log(animationOut.length);
+                var intRandom = Math.floor(Math.random() * animationOut.length);
+                animateName = animationOut[intRandom];
+            }
+            $(targetModel).children().click(function (e) { e.stopPropagation() });
+            $(targetModel).animateCss(animateName);
+            $(targetModel).delay(900).hide(1, function () {
+                $(this).removeClass('animated ' + animateName);
+            });
+            callback.call(this);
+        }
+
+        var modalDataInit = function (info) {
+
+        }
+    </script>
+    <script>
+        var ylfalg = 0;
+        $(document).ready(function () {
+            setTimeout(function () { location.reload(); }, 1800000);
+            setInterval("DoClock()", 1000);
+            get_weather();
+
+            var objurl = searchToObject();
+
+            if (objurl.schoolid > 0) { schoolid = objurl.schoolid; } 
+            if (objurl.njid > 0) { njid = objurl.njid; ylfalg = 1; }
+             
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/Get_Index_view",
+                callback: "callback", data: { njid: njid, schoolid: schoolid, xlh: xlh, ylfalg: ylfalg },
+                success: function (data) {
+                    $("#contain").html(data);
+                    ChangeClass();
+                },
+                complete: function (xOptions, textStatus) { $("#msg").main("服务器连接失败！"); },
+                error: function (xOptions, textStatus) { $("#msg").main("服务器连接失败！"); }
+            }); 
+        });
+
+        function OpenClass(id)
+        {
+           $("#classpage" + id).show();
+           var swiperx = new Swiper('.swiper-container' + id, {
+                pagination: '.swiper-pagination',
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
+                paginationClickable: true,
+                spaceBetween: 30,
+                centeredSlides: true,
+                autoplay: 2500,
+                autoplayDisableOnInteraction: false
+            }); 
+        }
+
+        function HideClass(id) { 
+            $("#classpage" + id).hide();
+        }
+
+        function OpenVedio(url) { 
+            window.location.href = '../common/url_vedio.html?url=' + url;
+            //$("#vedioifm").attr("src", '../common/url_vedio.html?url=' + url);
+            //$("#vediopage").fadeIn();
+        }
+
+        function OpenShiPing(id) { 
+            $("#vediopage" + id).show();
+        }
+
+        function HideShiPing(id) {
+            $("#vediopage" + id).hide(); 
+        }
+
+
+
+        function ChangeClass2()
+        {
+            var swiper = new Swiper('.swiper-container-v', {
+                //loop: true, 
+                direction: 'vertical',  
+                pagination: '#leader', 
+                paginationClickable: true,
+                paginationBulletRender: function (swiper, index, className) {
+                    return '<li  class="' + className + '">'  + swiper.slides[index].title + '</li>';
+                }
+            });
+
+            var swiper_01 = new Swiper('#bj_swiper_01', {
+                //loop: true,
+                //direction: 'vertical', 
+                pagination: '#bj_leader_01', 
+                paginationClickable: true,
+                paginationBulletRender: function (swiper, index, className) {
+                    return '<li  class="' + className + '">' + swiper.slides[index].title + '</li>';
+                }
+            });
+
+            var swiper_02 = new Swiper('#bj_swiper_02', {
+                //loop: true, 
+                //direction: 'vertical',
+                pagination: '#bj_leader_02', 
+                paginationClickable: true,
+                paginationBulletRender: function (swiper, index, className) {
+                    return '<li    class="' + className + '">' + swiper.slides[index].title + '</li>';
+                }
+            });
+
+            setTimeout(function () { $("#loading").hide(); }, 3000);
+        }
+
+
+        function Showdetails(id) { 
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/Get_HD_Details",
+                callback: "callback", data: { id: id, schoolid: schoolid },
+                success: function (data) {
+                    $("#content").html(data);
+                    $("#content img").each(function () {
+                        imgurl = $(this).attr("src");
+                        if (imgurl.indexOf("http:") == -1) { 
+                            $(this).attr("src", serverip + imgurl); 
+                        }
+                    });
+                    $("#content").height(window.innerHeight - 300);
+                    modalShow('#bigModal', '', modalDataInit(''));
+                },
+                complete: function (xOptions, textStatus) { $("#content").text("服务器连接失败！"); },
+                error: function (xOptions, textStatus) { $("#content").text("服务器连接失败！"); }
+            });
+        }
+    </script>
+
+</body>
+</html>
+
+ 

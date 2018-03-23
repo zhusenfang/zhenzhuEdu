@@ -1,0 +1,515 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title></title>  
+    <link href="../../css/bootstrap.css" rel="stylesheet" />
+    <link href="../../css/animate.min.css" rel="stylesheet" /> 
+    <link href="../../dist/css/swiper.css" rel="stylesheet" />
+
+    <link href="../../css/common.css" rel="stylesheet" />
+    <script src="../../js/jquery-1.8.3-min.js"></script> 
+    <script src="../../js/common.js"></script> 
+    <script src="../../dist/js/swiper.min.js"></script> 
+    <script src="../../js/jquery.jsonp-2.1.4.min.js"></script>
+    <script>
+        var xnggjson = null;
+        function get_class_info() { 
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/GetClassInfo",
+                callback: "callback", data: { token: token, schoolid: schoolid },
+                success: function (data) { 
+                    if (data != null) {
+                        $("#header_title").text(data.NJ + " " + data.Name + " 主页");
+                        $("#info_nj").text(data.NJ);
+                        $("#info_bj").text(data.Name);
+                        $("#info_bzr").text(data.BZR);
+                        $("#info_bzrzp").attr("src", serverip + data.BZRZP);
+                        $("#info_bz").text(data.BZ);
+                        $("#info_bzzp").attr("src", serverip + data.BZZP);
+                        $("#info_rs").text(data.XSRS + "人  男生" + data.BRS + "人  女生" + data.GRS + "人 ");
+                        $("#info_kh").text(data.KH);
+                    }
+                },
+                complete: function (xOptions, textStatus) {   },
+                error: function (xOptions, textStatus) {   }
+            });
+        }
+
+
+        function get_BJKB_List() {
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/GetBJKB",
+                callback: "callback", data: { token: token, schoolid: schoolid },
+                success: function (data) {
+                    
+                    var htmlstr = "";
+                    for (var i = 0; i < data.length; i++) {
+                        htmlstr += '<li>                ' +
+                        '<span class="class_jc">         ' +
+                        data[i].SDName + ' ' + data[i].JCName + '                          ' +
+                        '</span>                         ' +
+                        '&nbsp;&nbsp;                    ' +
+                        '<span class="class_kc">         ' +
+                        '' + data[i].KCName + '                            ' +
+                        '</span>-<span class="class_js"> ' +
+                        '' + data[i].TeacherName + '                            ' +
+                        '</span>                         ' +
+                        '</li>                           ';
+
+
+                        //htmlstr += "<li onclick='showgg(" + i + ")'>" + (i + 1) + "、" + "[" + data[i].FBBM + "]" + data[i].Title + "</li>";
+                    }
+                    $("#kblist").html(htmlstr);
+                },
+                complete: function (xOptions, textStatus) { },
+                error: function (xOptions, textStatus) { }
+            });
+        }
+
+        function get_TZGG_List() {
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/GetTZGGList",
+                callback: "callback", data: { token: token, schoolid: schoolid },
+                success: function (data) { 
+                    xnggjson = data;
+                    var htmlstr = "";
+                    for (var i = 0; i < data.length; i++) {
+                        htmlstr += "<li onclick='showgg(" + i + ")'>" + (i + 1) + "、" + "[" + data[i].FBBM + "]" + data[i].Title + "</li>";
+                    }
+                    $("#xngg").html(htmlstr);
+                },
+                complete: function (xOptions, textStatus) { },
+                error: function (xOptions, textStatus) { }
+            });
+        }
+
+        function showgg(i) {
+            
+            $("#main_title").html(xnggjson[i].Title);
+            $("#main_subtitle").html(xnggjson[i].FBSJstr + " " + xnggjson[i].FBBM);
+            $("#main_content").html(xnggjson[i].Content);
+
+            modalShow('#bigModal', '', modalDataInit('test'));
+        }
+
+        $(document).ready(function () { 
+            setInterval("DoClock()", 1000);
+            get_weather();
+            get_class_info();
+            get_TZGG_List();
+            get_BJKB_List();
+            try{
+                schoolmc = ECPJS.getvalue("schoolmc");
+                $(".header_logo").html(schoolmc);}
+            catch (e) { }
+        });
+    </script>
+    <style>
+    html, body {
+        position: relative;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    } 
+    .swiper-container {
+        width: 100%;
+        height: 100%; 
+    }
+    .swiper-slide {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 40px 60px;
+    }
+    .parallax-bg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 130%;
+        height: 100%;
+        -webkit-background-size: cover;
+        background-size: cover;
+        background-position: center;
+    }
+    </style>
+    
+ <style type="text/css">  
+.header {
+    position: fixed;
+    width: 100%;
+    background: #ffffff;
+    left: 0%;
+    top: 14%;
+    z-index: 3;
+    border: 0;
+}
+ div#bgdiv{ 
+            position:fixed; 
+            width:100%;
+            /*background:#BDCAA1;*/
+            top:0%;   
+            left:0%;
+            z-index:-1; 
+            border:0; 
+            bottom:0%;
+            } 
+        div#bgdiv > img {  
+            width:100%; 
+            height: 100%;
+            border:0; 
+        }
+        .main {    
+            padding-top: 3%;
+            padding-bottom:10%;
+            /*background: #BDCAA1;*/
+            font-family: fzxk;
+            position: fixed;
+            top: 20%;
+            width: 100%;
+            left: 0%;
+            font-weight: 100;
+            font-size: 2em;
+        }
+
+     .imgdiv {
+               width: 90%;
+            padding: 5%;
+     }
+     .imgdiv div {
+            width: 20%;
+            height: 180px;
+            text-align: center;
+            float: left;  
+            padding-top:25px;
+            font-size: 1em;
+
+     }
+     .imgdiv img { 
+         width: 80%;
+        height:120px;
+     }
+
+     .class_left {    
+            width: 67%;
+            border-radius: 10px;
+            background:url("images/ggbg.png"); 
+            overflow-x: hidden;
+            margin: 0 50px;
+            text-align: center;
+            height: 700px;
+            float: left;
+     } 
+
+     .class_right { 
+            width: 25%;
+            height: 700px; 
+            float: left; 
+     }
+     .tzgg {
+         width:100%;
+         height:350px; 
+         background:url("images/ggbg.png");
+         border-radius:10px;
+     }
+
+     .bjxx {
+         width:100%;
+         margin-top:15px;
+         height:330px;
+         background:url("images/ggbg.png"); 
+         border-radius:10px;
+     }
+
+     .ulgg {
+         padding:15px; 
+     }
+     .ulgg li {   
+
+         font-size: 0.7em;
+         font-family: hwkt;
+
+         list-style:none;
+         height: 1.2em;
+         line-height: 1.2em;     
+         width: 100%;
+         overflow-x: hidden;
+         white-space: nowrap; 
+         text-overflow: ellipsis;
+     }
+     .gg_title {
+            width: 100%;
+            height: 1.5em;
+            text-align: center;
+            line-height: 1.5em; 
+            background: #E2A79A; 
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+            color: #fff;
+     }
+     .modal-body table{
+         margin-left: 15%;
+        width: 70%;
+        margin-top: 50px;
+     }
+
+     .modal-body th {     
+         font-size: 2em;
+         height: 2em;
+         width:35%;
+         text-align: right; 
+         font-weight:700;
+         font-family: hwkt; 
+     }
+
+     .modal-body td {
+         font-size: 2em;
+         text-align: left;
+         padding-left: 20px;  
+         font-family: hwkt; 
+     }
+</style>
+
+</head>
+<body> 
+    <div id="bgdiv"><img src="../../images/bg-main.jpg" alt=""/> </div> 
+    <div id="header" class="header"> 
+        <table style="width:100%;">
+            <tr>
+                <td class="header_logo"> 电子班牌系统 </td>
+                <td class="header_title" id="header_title" style=" color:#f00;"> 
+                    703班 主页 
+                </td>
+                <td class="header_date">
+                    <span id="date_day" class="datafont">2017年12月13日</span><br />
+                    <span id="date_clock" class="datafont">14:45 </span>
+                    <span id="date_week" class="datafont" onclick="DoClock()"> 星期一</span> 
+                </td>
+                <td class="header_weather">
+                    <table>
+                        <tr>
+                            <td> 
+                                <span id="weather_current"></span> 
+                            </td>
+                            <td>
+                                <img id="weather_icon" src="../../images/days/qing.png" style="width:60px;height:60px;"/>  
+                            </td>
+                        </tr>
+                    </table>  
+                </td>
+            </tr>
+        </table> 
+    </div>
+
+    <div id="main" class="main">   
+    <div class="class_left">
+        
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="parallax-bg"  data-swiper-parallax="-23%"></div>
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+               <div class="imgdiv">    
+                        <div>
+                             <a href="JavaScript:modalShow('#bjxxdiv', '', modalDataInit(''));"> <img src="../../images/bjyy/bjxx.jpg"/> </a>
+                              <br /><span>班级信息</span> </div>
+                        <div> <a href="bjxc.html"> <img src="../../images/bjyy/bjxc.jpg" /> </a>  <br /> <span>班级相册</span> </div>
+                        <div> <a href="xngg.html"> <img src="../../images/bjyy/xngg.jpg" /> </a>  <br /> <span>校内公告</span> </div>
+                        <div> <a href="bjkb.html"> <img src="../../images/bjyy/bjkb.jpg" /> </a>  <br /> <span>班级课表</span> </div>
+                        <div> <a href="bind_stu.html"> <img src="../../images/bjyy/xsk.jpg" />  </a>  <br /> <span>学生绑定</span> </div> 
+                        <div> <a href="cjcx.html"> <img src="../../images/bjyy/cjcx.jpg" /> </a>  <br /> <span>成绩查询</span> </div> 
+			    </div> 
+            </div>
+            <div class="swiper-slide">
+              fjdlsfgjkldsjglkfdsjglfd
+            </div>
+            <div class="swiper-slide">
+                <div class="title" data-swiper-parallax="-100">Slide 3</div>
+                <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
+                <div class="text" data-swiper-parallax="-300">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla laoreet justo vitae porttitor porttitor. Suspendisse in sem justo. Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod. Aliquam hendrerit lorem at elit facilisis rutrum. Ut at ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec, tincidunt ut libero. Aenean feugiat non eros quis feugiat.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination swiper-pagination-black"></div>
+        <!-- Add Navigation -->
+        <div class="swiper-button-prev swiper-button-black"></div>
+        <div class="swiper-button-next swiper-button-black"></div>
+    </div>
+     
+    <!-- Swiper JS -->
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            parallax: true,
+            speed: 600,
+        });
+    </script>
+     </div>
+     <div class="class_right">
+         <div class="tzgg"> 
+             <div class="gg_title">
+                 校内公告 
+             </div>
+             <ul class="ulgg" id="xngg">
+                 <li></li>
+             </ul> 
+         </div>
+         <div class="bjxx">
+             <div class="gg_title">
+                 班级课表 
+             </div>
+            
+             <ul class="ulgg" id="kblist">
+                 <li><span class="class_jc">第一节</span>&nbsp;&nbsp;<span class="class_kc">语文</span>-<span class="class_js">王丽</span></li>
+                 <li><span class="class_jc">第二节</span>&nbsp;&nbsp;<span class="class_kc">数学</span>-<span class="class_js">杨洪波</span></li>
+                 <li><span class="class_jc">第三节</span>&nbsp;&nbsp;<span class="class_kc">化学</span>-<span class="class_js">顺屋基</span></li>
+                 <li><span class="class_jc">第四节</span>&nbsp;&nbsp;<span class="class_kc">英语</span>-<span class="class_js">邢晓明</span></li>
+                 <li><span class="class_jc">第五节</span>&nbsp;&nbsp;<span class="class_kc">物理</span>-<span class="class_js">董凯华</span></li>
+                 <li><span class="class_jc">第六节</span>&nbsp;&nbsp;<span class="class_kc">生物</span>-<span class="class_js">姬生栋</span></li>
+                 <li><span class="class_jc">第七节</span>&nbsp;&nbsp;<span class="class_kc">体育</span>-<span class="class_js">杭吉林</span></li> 
+             </ul> 
+
+         </div>
+     </div>
+    </div>
+
+    <div id="footer" class="footer">
+        中国电信
+
+    </div>
+
+
+
+
+
+    <div class="modal bs-example-modal-lg"  onclick="modalHide('#bigModal', '');" id="bigModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" onclick="modalHide('#bigModal', '');" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span><span  class="sr-only">Close</span></button>
+                <h4 class="modal-title">详细信息</h4>
+            </div>
+            <div class="modal-body">
+              <center><h1 id="main_title"><!--佛寺的风景哦isad见佛都说--></h1></center>
+              <p id="main_subtitle" style="width:100%;text-align:center;">
+                 <!-- 2017-03-25 07:50:14 央视新闻-->
+              </p>
+
+              <p id="main_content" style="margin: 0 0 10px;
+                        text-indent: 2em;
+                        padding: 0.5em 02em 0em 2em;font-size: 1.5em;
+                        line-height: 1.5em;"> 
+                   
+              </p>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    <div class="modal bs-example-modal-lg"  onclick="modalHide('#bjxxdiv', '');" id="bjxxdiv">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" onclick="modalHide('#bjxxdiv', '');" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span><span  class="sr-only">Close</span></button>
+                <h4 class="modal-title">班级信息</h4>
+            </div>
+            <div class="modal-body">
+               <table style="margin-left: 15%;
+    width: 70%;
+    margin-top: 50px;">
+                   <tr><th>  年级:</th><td><span id="info_nj">年级</span></td></tr>
+                   <tr><th>  班级:</th><td><span id="info_bj">班级</span></td></tr>
+                   <tr><th>  班主任:</th><td>
+                       <img src="../../images/nopic.jpg" style="  
+                                height: 80px;
+                                width: 80px;
+                                border-radius: 80px;
+                                margin-top: 15px;
+                                margin-bottom: 15px; " id="info_bzrzp" onerror="javascript:this.src='images/nopic.jpg'"/>
+                       <span id="info_bzr">班主任</span> 
+                       </td>
+                   </tr>
+                   <tr><th>  班长:</th><td>
+                       <img src="../../images/nopic.jpg" style="  
+                                height: 80px;
+                                width: 80px;
+                                border-radius: 80px;
+                                margin-top: 15px;
+                                margin-bottom: 15px; " id="info_bzzp" onerror="javascript:this.src='images/nopic.jpg'"/>
+                       <span id="info_bz">班长</span>
+
+                                    </td></tr> 
+                   <tr><th>  人数:</th><td><span id="info_rs">人数</span></td></tr>
+                   <tr><th>  口号:</th><td><span id="info_kh">口号</span></td></tr>
+               </table>
+            </div>
+        </div>
+    </div>
+    </div>
+
+  <script>
+      //animate.css动画触动一次方法
+      $.fn.extend({
+          animateCss: function (animationName) {
+              var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+              this.addClass('animated ' + animationName).one(animationEnd, function () {
+                  $(this).removeClass('animated ' + animationName);
+              });
+          }
+      });
+      /**
+       * 显示模态框方法
+       * @param targetModel 模态框选择器，jquery选择器
+       * @param animateName 弹出动作
+       * @ callback 回调方法
+       */
+      var modalShow = function (targetModel, animateName, callback) {
+          var animationIn = ["fadeInLeft"];
+          if (!animateName || animationIn.indexOf(animateName) == -1) {
+              console.log(animationIn.length);
+              var intRandom = Math.floor(Math.random() * animationIn.length);
+              animateName = animationIn[intRandom];
+          }
+          console.log(targetModel + " " + animateName);
+          $(targetModel).show().animateCss(animateName);
+          callback.call(this);
+      }
+      /**
+       * 隐藏模态框方法
+       * @param targetModel 模态框选择器，jquery选择器
+       * @param animateName 隐藏动作
+       * @ callback 回调方法
+       */
+      var modalHide = function (targetModel, animateName, callback) {
+          var animationOut = ["fadeOutRight"];
+          if (!animateName || animationOut.indexOf(animateName) == -1) {
+              console.log(animationOut.length);
+              var intRandom = Math.floor(Math.random() * animationOut.length);
+              animateName = animationOut[intRandom];
+          }
+          $(targetModel).children().click(function (e) { e.stopPropagation() });
+          $(targetModel).animateCss(animateName);
+          $(targetModel).delay(900).hide(1, function () {
+              $(this).removeClass('animated ' + animateName);
+          });
+          callback.call(this);
+      }
+
+      var modalDataInit = function (info) {
+     
+      }
+    </script>
+</body>
+</html>
+
+ 

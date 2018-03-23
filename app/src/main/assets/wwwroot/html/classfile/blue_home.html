@@ -1,0 +1,349 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title></title>  
+    <link href="../../css/bootstrap.css" rel="stylesheet" />
+    <link href="../../css/animate.min.css" rel="stylesheet" /> 
+    <link href="../../dist/css/swiper.css" rel="stylesheet" />
+    <link href="../../css/blue.css" rel="stylesheet" />
+     
+    <script src="../../js/jquery-1.8.3-min.js"></script> 
+    <script src="../../js/common.js"></script> 
+    <script src="../../dist/js/swiper.min.js"></script> 
+    <script src="../../js/jquery.jsonp-2.1.4.min.js"></script> 
+</head>
+<body> 
+    <!-- 网页预加载图 网页背景图 -->
+    <div id="loading"><img style="width:40%;" src="../../images/loading.gif" /></div>  
+    <div id="bgdiv"><img src="../../images/class_bg.jpg" alt=""/> </div> 
+    <!-- 网页预加载图 网页背景图 -->
+
+    <div id="header" class="header"> 
+        <table style="width:100%;">
+            <tr> 
+                <td class="header_title" id="header_title" > 
+                    电子班牌系统
+                </td>
+                <td class="header_date">
+                    <span id="date_day" class="datafont">2017年12月13日</span><br />
+                    <span id="date_clock" class="datafont">14:45 </span>
+                    <span id="date_week" class="datafont" onclick="DoClock()"> 星期一</span> 
+                </td>
+                <td class="header_weather">
+                    <table>
+                        <tr>
+                            <td> 
+                                <span id="weather_current"></span> 
+                            </td>
+                            <td>
+                                <img id="weather_icon" src="../../images/days/qing.png" style="width:60px;height:60px;"/>  
+                            </td>
+                        </tr>
+                    </table>  
+                </td>
+            </tr>
+        </table> 
+    </div>
+
+    <div id="main">       
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" title="校园活动" style=" background:url('../../images/swider_bg1.jpg');">
+                <div style="padding:1em;"> 
+                    <ul class="hdli">
+                            <li>
+                                <table>
+                                    <tr>
+                                        <td rowspan="2"> <img src="../../images/b3.jpg" /></td>
+                                        <td class="hdli_t">中国航空工业集团公司雷达研究所（607所）日前发布消息称</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="hdli_f">教务处 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2017年7月25日</td>
+                                    </tr>
+                                </table> 
+                            </li>
+                            <li>
+                                <table>
+                                    <tr>
+                                        <td rowspan="2"> <img src="../../images/b3.jpg" /></td>
+                                        <td class="hdli_t">中国航空工业集团公司雷达研究所（607所）日前发布消息称</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="hdli_f">教务处 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2017年7月25日</td>
+                                    </tr>
+                                </table> 
+                            </li>
+                            <li>
+                                <table>
+                                    <tr>
+                                        <td rowspan="2"> <img src="../../images/b3.jpg" /></td>
+                                        <td class="hdli_t">中国航空工业集团公司雷达研究所（607所）日前发布消息称</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="hdli_f">教务处 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2017年7月25日</td>
+                                    </tr>
+                                </table> 
+                            </li>
+                            <li>
+                                <table>
+                                    <tr>
+                                        <td rowspan="2"> <img src="../../images/b3.jpg" /></td>
+                                        <td class="hdli_t">中国航空工业集团公司雷达研究所（607所）日前发布消息称</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="hdli_f">教务处 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2017年7月25日</td>
+                                    </tr>
+                                </table> 
+                            </li>
+                            <li>
+                                <table>
+                                    <tr>
+                                        <td rowspan="2"> <img src="../../images/b3.jpg" /></td>
+                                        <td class="hdli_t">中国航空工业集团公司雷达研究所（607所）日前发布消息称</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="hdli_f">教务处 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2017年7月25日</td>
+                                    </tr>
+                                </table> 
+                            </li>
+                            <li>
+                                <table>
+                                    <tr>
+                                        <td rowspan="2"> <img src="../../images/b3.jpg" /></td>
+                                        <td class="hdli_t">中国航空工业集团公司雷达研究所（607所）日前发布消息称</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="hdli_f">教务处 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2017年7月25日</td>
+                                    </tr>
+                                </table> 
+                            </li>
+                     </ul>   
+                </div>  
+            </div>
+            <div class="swiper-slide" title="通知公告" style=" background:url('../../images/swider_bg2.jpg');">
+               <div style="padding:1em;"> 
+                     <div class="gg_title" style="text-align:center;padding-left:1em;font-size:1.5em;margin-top:2em;">关于2017年端午节放假通知</div>
+                     <div class="gg_content" style="padding-left:1em;font-size:1em;margin-top:2em;">
+                         经国务院批准，现将2017年元旦、春节、清明节、劳动节、端午节、中秋节和国庆节放假调休日期的具体安排通知如下。
+　　                        一、元旦：1月1日放假，1月2日(星期一)补休。
+　　                        二、春节：1月27日至2月2日放假调休，共7天。1月22日(星期日)、2月4日(星期六)上班。
+　　                        三、清明节：4月2日至4日放假调休，共3天。4月1日(星期六)上班。
+　　                        四、劳动节：5月1日放假，与周末连休。
+　　                        五、端午节：5月28日至30日放假调休，共3天。5月27日(星期六)上班。
+　　                        六、中秋节、国庆节：10月1日至8日放假调休，共8天。9月30日(星期六)上班。
+　　                        节假日期间，各地区、各部门要妥善安排好值班和安全、保卫等工作，遇有重大突发事件，
+                         要按规定及时报告并妥善处置，确保人民群众祥和平安度过节日假期
+                     </div>
+                     <div class="gg_foot" style="text-align:right;padding-right:1em;font-size:1em;margin-top:2em;">
+                         教务处 <br />
+                         2017年7月25日
+                     </div>
+                 </div>
+            </div>
+            <div class="swiper-slide" title="校园新闻" style="background:url('../../images/swider_bg3.jpg');">
+               <div style="padding:1em;"> 
+                 <ul class="newli">
+                            <li  onclick="OpenModel();">1、中国航空工业集团公司雷达研究所（607所）日前发布消息称，该所</li>
+                            <li>2、中国航空工业集团公司雷达研究所（607所）日前发布消息称，该所</li>
+                            <li>3、中国航空工业集团公司雷达研究所（607所）日前发布消息称，该所</li> 
+                            <li>4、中国航空工业集团公司雷达研究所（607所）日前发布消息称，该所</li>
+                            <li>5、中国航空工业集团公司雷达研究所（607所）日前发布消息称，该所</li> 
+                            <li>6、中国航空工业集团公司雷达研究所（607所）日前发布消息称，该所</li>
+                            <li>7、中国航空工业集团公司雷达研究所（607所）日前发布消息称，该所</li> 
+                         </ul>  
+                </div>  
+
+            </div> 
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+          
+    <!-- Initialize Swiper -->
+   
+      
+    </div>
+
+    <div id="footer" class="footer">
+     <ul class="leader">
+          <li><a href="blue_index.html">首页</a></li>
+          <li><a href="blue_class.html">班级</a></li>
+          <li class="lactive">学校</li>
+          <li><a href="blue_kq.html">签到</a></li>
+          <li><a href="blue_stu.html">我的</a></li>
+          <li><a href="blue_set.html">设置</a></li>
+     </ul>
+    </div>
+     
+    <div class="modal bs-example-modal-lg"  onclick="modalHide('#bigModal', '');" id="bigModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" onclick="modalHide('#bigModal', '');" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span><span  class="sr-only">Close</span></button>
+                <h4 class="modal-title">详细信息</h4>
+            </div>
+            <div class="modal-body" id="content">
+                 
+              <center><h1 id="main_title"> 标题</h1></center>
+              <p id="main_subtitle" style="width:100%;text-align:center;">
+                  副标题
+              </p>
+
+              <p id="main_content" style="margin: 0 0 10px;
+                        text-indent: 2em;
+                        padding: 0.5em 02em 0em 2em;font-size: 1.5em;
+                        line-height: 1.5em;"> 
+                 经国务院批准，现将2017年元旦、春节、清明节、劳动节、端午节、中秋节和国庆节放假调休日期的具体安排通知如下。
+　　                        一、元旦：1月1日放假，1月2日(星期一)补休。
+　　                        二、春节：1月27日至2月2日放假调休，共7天。1月22日(星期日)、2月4日(星期六)上班。
+　　                        三、清明节：4月2日至4日放假调休，共3天。4月1日(星期六)上班。
+　　                        四、劳动节：5月1日放假，与周末连休。
+　　                        五、端午节：5月28日至30日放假调休，共3天。5月27日(星期六)上班。
+　　                        六、中秋节、国庆节：10月1日至8日放假调休，共8天。9月30日(星期六)上班。
+　　                        节假日期间，各地区、各部门要妥善安排好值班和安全、保卫等工作，遇有重大突发事件，
+                         要按规定及时报告并妥善处置，确保人民群众祥和平安度过节日假期
+              </p>
+
+            </div>
+        </div>
+    </div>
+    </div>
+     
+    <script>
+      //animate.css动画触动一次方法
+      $.fn.extend({
+          animateCss: function (animationName) {
+              var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+              this.addClass('animated ' + animationName).one(animationEnd, function () {
+                  $(this).removeClass('animated ' + animationName);
+              });
+          }
+      });
+      /**
+       * 显示模态框方法
+       * @param targetModel 模态框选择器，jquery选择器
+       * @param animateName 弹出动作
+       * @ callback 回调方法
+       */
+      var modalShow = function (targetModel, animateName, callback) {
+          var animationIn = ["fadeInLeft"];
+          if (!animateName || animationIn.indexOf(animateName) == -1) {
+              console.log(animationIn.length);
+              var intRandom = Math.floor(Math.random() * animationIn.length);
+              animateName = animationIn[intRandom];
+          }
+          console.log(targetModel + " " + animateName);
+          $(targetModel).show().animateCss(animateName);
+          callback.call(this);
+      }
+      /**
+       * 隐藏模态框方法
+       * @param targetModel 模态框选择器，jquery选择器
+       * @param animateName 隐藏动作
+       * @ callback 回调方法
+       */
+      var modalHide = function (targetModel, animateName, callback) {
+          var animationOut = ["fadeOutRight"];
+          if (!animateName || animationOut.indexOf(animateName) == -1) {
+              console.log(animationOut.length);
+              var intRandom = Math.floor(Math.random() * animationOut.length);
+              animateName = animationOut[intRandom];
+          }
+          $(targetModel).children().click(function (e) { e.stopPropagation() });
+          $(targetModel).animateCss(animateName);
+          $(targetModel).delay(900).hide(1, function () {
+              $(this).removeClass('animated ' + animateName);
+          });
+          callback.call(this);
+      }
+
+      var modalDataInit = function (info) {
+     
+      }
+
+
+    </script>
+
+    <script>
+        var ylfalg = 0;
+        $(document).ready(function () {
+            $(".header_title").html(schoolmc);
+              setInterval("DoClock()", 1000); 
+              get_weather();
+
+              var objurl = searchToObject();
+
+              if (objurl.schoolid > 0) { schoolid = objurl.schoolid; }
+              if (objurl.bjid > 0) { bjid = objurl.bjid; ylfalg = 1; }
+
+              ChangeClass(bjid);
+          });
+
+          function ChangeClass(bjid) { 
+              $.jsonp({
+                  url: serverip + "/bpxt/bpxt/bpxtapi/Get_blue_home",
+                  callback: "callback", data: { bjid: bjid, schoolid: schoolid },
+                  success: function (data) {
+                      $("#main").html(data);
+                      var swiper = new Swiper('.swiper-container', {
+                          autoplay: 5000,
+                          effect: 'coverflow',
+                          loop: true,
+                          slidesPerView: 3,
+                          grabCursor: true,
+                          slideToClickedSlide: true,
+                          centeredSlides: true,
+                          coverflow: {
+                              rotate: 10,
+                              stretch: 10,
+                              depth: 100,
+                              modifier: 2,
+                              slideShadows: true,
+                          },
+                          pagination: '.swiper-pagination',
+                          paginationType: 'custom',
+                          paginationCustomRender: function (swiper, current, total) { 
+                              return '<div class="cuttitle">' + swiper.slides[current - 1].title + '</div>';
+                          }
+                      });
+                      setTimeout(function () { $("#loading").hide(); }, 1000);
+
+                  },
+                  complete: function (xOptions, textStatus) { $("#msg").main("服务器连接失败！"); },
+                  error: function (xOptions, textStatus) { $("#msg").main("服务器连接失败！"); }
+              });
+          }
+
+          function OpenModel(id) {
+              $.jsonp({
+                  url: serverip + "/bpxt/bpxt/bpxtapi/Get_XYXW_Details",
+                  callback: "callback", data: { id: id, schoolid: schoolid },
+                  success: function (data) {
+                      $("#content").html(data);
+                      $("#content img").each(function () {
+                          imgurl = $(this).attr("src");
+                          if (imgurl.indexOf("http:") == -1) {
+
+                              $(this).attr("src", serverip + imgurl);
+                              // $(this).attr("style", "width:100%;");
+                          }
+                      });
+                      $("#content").height(window.innerHeight - 300);
+                      modalShow('#bigModal', '', modalDataInit(''));
+                  },
+                  complete: function (xOptions, textStatus) { $("#content").text("服务器连接失败！"); },
+                  error: function (xOptions, textStatus) { $("#content").text("服务器连接失败！"); }
+
+              });
+          }
+    </script> 
+
+</body>
+</html>
+
+ 

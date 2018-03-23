@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title></title>  
+    <link href="../../css/bootstrap.css" rel="stylesheet" />
+    <link href="../../css/animate.min.css" rel="stylesheet" /> 
+    <link href="../../dist/css/swiper.css" rel="stylesheet" />
+    <link href="../../css/blue.css" rel="stylesheet" />
+     
+    <script src="../../js/jquery-1.8.3-min.js"></script> 
+    <script src="../../js/common.js"></script>  
+    <script src="../../js/jquery.jsonp-2.1.4.min.js"></script> 
+    <style>
+       #main { 
+             margin-top: 0px;
+             padding-top: 2em;
+             font-family: hwkt;
+             height: 14em;
+             text-align: center;
+             font-size: 3em;
+             border: 2px solid #333;
+             border-radius: 2%;  
+        }
+        select ,input{
+            text-transform: none;
+            width: 5em;
+            background: #3F7286;
+        }
+        option {
+            font-size: 0.5em;   
+        }
+    </style> 
+</head>
+<body> 
+    <!-- 网页预加载图 网页背景图 -->  
+    <div id="bgdiv"><img src="../../images/class_bg.jpg" alt=""/> </div> 
+    <!-- 网页预加载图 网页背景图 -->
+
+    <div id="header" class="header"> 
+        <table style="width:100%;">
+            <tr> 
+                <td class="header_title" id="header_title" > 
+                    电子班牌系统--班牌类型设置
+                </td>
+                <td class="header_date">
+                    <span id="date_day" class="datafont">2017年12月13日</span><br />
+                    <span id="date_clock" class="datafont">14:45 </span>
+                    <span id="date_week" class="datafont" onclick="DoClock()"> 星期一</span> 
+                </td>
+                <td class="header_weather">
+                    <table class="class_rs">
+                        <tr>
+                            <td> 
+                                <span id="weather_current"></span> 
+                            </td>
+                            <td>
+                                <img id="weather_icon" src="../../images/days/qing.png" style="width:60px;height:60px;"/>  
+                            </td>
+                        </tr>
+                    </table>  
+                </td>
+            </tr>
+        </table> 
+    </div>
+    <hr style="margin-top: 5em; margin-bottom: 2em;" />  
+
+    <div id="main" class="main"> 
+            <div style="margin-top: 1%;">
+                <lable>类型：</lable>
+                <select id="bplx" > 
+                    <option value="1">班级屏</option>
+                    <option value="2">年级屏</option>
+                    <option value="3">校级屏</option>
+                </select> 
+            </div> 
+        <div style="margin-top: 4%;">
+        <input class="bluebutton" type="button" onclick="SetToken()" value="提  交"  />  
+        </div>
+    </div> 
+  
+    <script>
+        $(document).ready(function () { 
+            setInterval("DoClock()", 1000);
+            get_weather();
+        });
+
+        function SetToken() {
+            var bplx = $("#bplx").val();
+            if (!(bplx > 0)) { alert("请选择类型！"); }
+            bplx = ECPJS.setvalue("bplx", bplx);
+        }
+
+    </script>
+
+     
+</body>
+</html>

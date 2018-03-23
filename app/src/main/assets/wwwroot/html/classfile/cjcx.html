@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title></title> 
+    <link href="../../css/common.css" rel="stylesheet"/> 
+    <script src="../../js/jquery-1.8.3-min.js"></script>
+    <script src="../../js/jquery.jsonp-2.1.4.min.js"></script>
+    <script src="../../js/common.js"></script> 
+
+    <script>
+
+
+        $(document).ready(function () {
+            $("#token").val("");
+            $("#token").focus();
+            get_class_mc();
+            setInterval("DoClock()", 1000);
+            get_weather();
+        });
+
+        function focusdb() {
+            $("#token").focus();
+        }
+         
+        function Get_CJ() {
+            var kh = $("#token").val();
+            $("#tokenshow").val(kh);
+            $("#token").val("");
+            $("#token").focus();
+            $("#cjlist").html("");
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/Get_CJ_list",
+                callback: "callback", data: { token: kh, schoolid: schoolid },
+                success: function (data) { 
+                    var htmlstr = "<tr><th>学生</th><th>学期</th><th>考试</th><th>年级</th><th>班级</th><th>课程</th><th>成绩</th></tr>";
+                    for (var i = 0; i < data.length; i++) { 
+                        htmlstr += "<tr><td>" + data[i].XS
+                                + "</td><td>" + data[i].XQ
+                                + "</td><td>" + data[i].KS
+                                + "</td><td>" + data[i].NJ
+                                + "</td><td>" + data[i].BJ
+                                + "</td><td>" + data[i].KC
+                                + "</td><td>" + data[i].CJ + "</td></tr>";
+                  
+                    }
+                    $("#cjlist").html(htmlstr);
+                    //if (data != null) { $("#stuinfo").val(data.XM); }
+                    //else { alert("未安找到学生！"); }
+
+                },
+                complete: function (xOptions, textStatus) { },
+                error: function (xOptions, textStatus) { alert("服务器连接失败！"); }
+            });
+        }
+         
+    </script>
+    <style>
+        .main {
+            font-family: fzxk;
+                position: fixed;
+                top: 10%;
+                width: 86%;
+                left: 7%;
+                padding-top: 8%;
+                font-weight: 100;
+                font-size: 2em;
+                text-align:center;
+        }
+        .header_logo {
+        
+            font-family: fzxk;
+            font-size: 2em; 
+        }
+        select {
+            border: 1px solid #022A2D;
+            background-color: #51B09E;
+            color: #14646B;
+            width: 4.5em;
+        }
+    #cjlist {width:100%;border:solid 1px #cbcbcb;margin-bottom:3px; background: #FEFDDB;}
+    #cjlist  th{     
+        background: #7CBF98;
+        text-align: center;
+        font-size: 0.7em;
+        font-family:hwkt;
+        padding: 5px 0 5px 0; 
+        border-right: dotted 1px #c7c7c7;  
+        border-bottom:solid 1px #b6cad2; 
+    } 
+    #cjlist  td{      
+        height: 25px;
+        font-size: 0.6em;
+        text-align: center;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 120px;
+        overflow-x: hidden; 
+        font-family: hwkt;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        border-right: solid 1px #4D646D;
+        border-bottom: solid 1px #4D646D;
+
+    }  
+    </style>
+</head>
+<body onclick='$("#token").focus();'> 
+    <div id="bgdiv"> <img src="../../images/bg2.png" /></div> 
+    <div id="header" class="header"> 
+        <table style="width:100%;">
+            <tr>
+                <td class="header_logo">  
+                    <a href="index.html" id="bjname">  七年级一班</a> 
+                </td>
+                <td class="header_title">  成绩查询  </td>
+                <td class="header_date">
+                    <span id="date_day" class="datafont">2017年12月13日</span><br />
+                    <span id="date_clock" class="datafont">14:45 </span>
+                    <span id="date_week" class="datafont" onclick="DoClock()"> 星期一</span> 
+                </td>
+                <td class="header_weather">
+                    <table>
+                        <tr>
+                            <td> 
+                                <span id="weather_current"></span> 
+                            </td>
+                            <td>
+                                <img id="weather_icon" src="../../images/days/qing.png" style="width:60px;height:60px;"/>  
+                            </td>
+                        </tr>
+                    </table>  
+                </td>
+            </tr>
+        </table> 
+    </div>
+    <div class="kqdiv">
+        <input type="text" id="token" vlaue="" onchange="Get_CJ()" /> 
+     </div>
+
+    <div id="main" class="main">   
+            <div>
+                <lable>学生卡号：</lable>
+                <input type="text" id="tokenshow" disabled="disabled" placeholder="请刷卡" /> 
+               
+            </div>   
+            <div style="height: 550px; padding-top: 20px;">
+                <table id="cjlist">
+                    <tr><th>学生</th><th>学期</th><th>考试</th><th>年级</th><th>班级</th><th>课程</th><th>成绩</th></tr> 
+                </table>
+            </div>
+    </div> 
+    <div id="footer" class="footer">
+        中国电信 
+    </div>
+
+     
+</body>
+</html>

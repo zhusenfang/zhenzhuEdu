@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title></title>  
+    <link href="../../css/bootstrap.css" rel="stylesheet" />
+    <link href="../../css/animate.min.css" rel="stylesheet" /> 
+    <link href="../../dist/css/swiper.css" rel="stylesheet" />
+    <link href="../../css/blue.css" rel="stylesheet" />
+     
+    <script src="../../js/jquery-1.8.3-min.js"></script> 
+    <script src="../../js/common.js"></script>  
+    <script src="../../js/jquery.jsonp-2.1.4.min.js"></script> 
+    <style>
+       #main { 
+            width: 60%;
+            margin: auto;
+            margin-top:0px;
+            font-size: 1.5em;
+            font-family: hwkt;    
+            height: 32em;  
+            min-height: 11em;
+        }
+
+       #header_title {    
+           font-size: 2.5em;
+           font-family: hwkt;
+        }
+        #content_p {
+            margin: 2em 0 1.5em;
+            min-height:11em;
+            font-size: 1.5em;
+        }
+    </style>
+     
+</head>
+<body> 
+    <!-- 网页预加载图 网页背景图 -->  
+    <div id="bgdiv"><img src="../../images/class_bg.jpg" alt=""/> </div> 
+    <!-- 网页预加载图 网页背景图 -->
+
+    <div id="header" class="header"> 
+        <table style="width:100%;">
+            <tr> 
+                <td class="header_title" id="Td1" > 
+                    电子班牌系统--紧急通知
+                </td>
+                <td class="header_date">
+                    <span id="date_day" class="datafont">2017年12月13日</span><br />
+                    <span id="date_clock" class="datafont">14:45 </span>
+                    <span id="date_week" class="datafont" onclick="DoClock()"> 星期一</span> 
+                </td>
+                <td class="header_weather">
+                    <table class="class_rs">
+                        <tr>
+                            <td> 
+                                <span id="weather_current"></span> 
+                            </td>
+                            <td>
+                                <img id="weather_icon" src="../../images/days/qing.png" style="width:60px;height:60px;"/>  
+                            </td>
+                        </tr>
+                    </table>  
+                </td>
+            </tr>
+        </table> 
+    </div>
+    <hr style="margin-top: 5em; margin-bottom: 2em;" />  
+
+    <div id="main" class="main"> 
+         <div>
+             <center><h1 id="header_title">紧急通知</h1></center>
+             <p id="content_p" class="content_p">  
+                   
+             </p>
+             <div id="content_footer" style="text-align:right;padding-right:2em;">
+                 <!--2017年09月13日  -->
+             </div>
+         </div> 
+    </div>
+
+    <script> 
+        $(document).ready(function () {
+            $(".header_title").html(schoolmc + "--紧急通知");
+            setInterval("DoClock()", 1000);
+            get_weather(); 
+            var objurl = searchToObject();
+            //getJMinfo(4, 2);
+            getJMinfo(objurl.id, objurl.tid);
+             
+        });
+
+        function getJMinfo(id, t) { 
+            var strurl = "";
+            if (t == 1) { strurl = serverip + "/bpxt/bpxt/bpxtapi/GetDSPlay_json"; }
+            else { strurl = serverip + "/bpxt/bpxt/bpxtapi/GetLSPlay_json"; }
+
+            $.jsonp({
+                url: strurl,
+                callback: "callback", data: { id: id, schoolid: schoolid },
+                success: function (data) { 
+                    $("#header_title").text(data.Title);
+                    $("#content_p").html(data.NRMC);
+                    var datr = ChangeDateFormat(data.AddTime);
+                    $("#content_footer").html(datr + "   " + data.FBBM);
+                },
+                complete: function (xOptions, textStatus) { },
+                error: function (xOptions, textStatus) { }
+            });
+        }
+
+    </script>
+</body>
+</html>

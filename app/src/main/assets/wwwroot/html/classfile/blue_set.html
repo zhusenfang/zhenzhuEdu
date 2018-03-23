@@ -1,0 +1,427 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title></title>  
+    <link href="../../css/bootstrap.css" rel="stylesheet" />
+    <link href="../../css/animate.min.css" rel="stylesheet" /> 
+    <link href="../../dist/css/swiper.css" rel="stylesheet" />
+    <link href="../../css/blue.css" rel="stylesheet" />
+     
+    <script src="../../js/jquery-1.8.3-min.js"></script> 
+    <script src="../../js/common.js"></script> 
+    <script src="../../dist/js/swiper.min.js"></script> 
+    <script src="../../js/jquery.jsonp-2.1.4.min.js"></script> 
+    <style> 
+     #main { margin-top: 5em; }
+        
+    .swiper-container-v {
+        width: 100%; 
+        padding-top: 0; 
+        padding-bottom: 0; 
+        margin: 0; 
+        height: 42em; 
+        overflow:hidden; 
+    }
+    .swiper-wrapper {width:100%;}
+    .swiper-container-h
+    ,.swiper-container-r
+    ,.swiper-container-ry
+    ,.swiper-container-hd
+    ,.swiper-container-cg
+    ,.swiper-container-qd
+    {
+        width: 100%; 
+        max-width:80em;
+        padding-top: 0; 
+        padding-bottom: 0; 
+        margin: 0; 
+        height: 42em; 
+        overflow:hidden; 
+    } 
+
+    .swiper-container2 .swiper-slide {
+        border-radius: 0em;
+        padding: 1em;
+        overflow: hidden;
+        background: none;
+        text-align: left; 
+        width: 100%; 
+        height: 35em; 
+    }
+
+    .swiper-slide {
+        border-radius: 0em; 
+        overflow: hidden;
+        background: none;
+        text-align: left; 
+        width: 100%; 
+        height: 42em;  
+    }
+
+   .swiper-pagination-custom {
+        bottom: 10px;
+        left: 0;
+        width: 100%;
+        background-color: #E0DCDC;
+        height: 2em;
+        line-height: 2em;
+        text-align: left;
+        padding-left: 1em;
+        }
+
+   .swiper-pagination {
+        position: relative; 
+    }
+        #swiper-pagination-h {   bottom: 2em;
+        }
+    #swiper-pagination-h .swiper-pagination-bullet {  
+        width: 20px;
+        height: 20px; 
+        text-align: center;
+        line-height: 20px;
+        font-size: 12px;
+        color:#000;
+        opacity: 1;
+        background: rgba(0,0,0,0.2);
+    } 
+    #swiper-pagination-h
+    .swiper-pagination-bullet-active {
+        color:#fff;
+        background: #007aff;
+    }
+
+    .swiper-pagination-bullet {  
+        width: 100%; 
+        height: 2em;
+        border-radius: 0;
+        display: inline-block;
+        text-align: left;
+        line-height: 2em;
+        font-size: 2em;
+        color: #FFF;
+        opacity: 1;
+        font-family: hwkt;
+        background: none;
+    } 
+
+    .swiper-pagination-bullet-active {
+        color:#C3D82E;
+        background: #496974;
+    }
+
+        .leimg {
+            width:1em;
+            height:1em;
+            vertical-align: middle;
+            margin-right:0.5em;
+            margin-left:1em;
+        }
+
+
+        .class_jj {     width: 98%; }  
+        .jj_title {
+            width: 15%;
+            text-align:center;
+            background:red; 
+            font-family: hwkt;       
+            font-size: 2.5em;
+             font-weight: 700;
+            height: 3.6em; 
+            margin-bottom: 0.5em;
+            vertical-align: middle;   
+            background:url('../../images/lebg03.jpg')
+        }
+        .jj_content {  
+            width: 80%;  
+            font-size:2em;
+            padding-left:1em;
+            font-family: hwkt;      
+            height: 4.5em; 
+            margin-bottom: 0.5em; 
+            vertical-align: middle;   
+            background-color: rgba(193, 180, 180, 0.1); 
+        }
+
+
+        .class_cy { width: 100%;   } 
+        .class_cy li{
+            width: 6em;
+            height: 6em;
+            margin:1em; 
+            list-style:none;
+            text-align:center;
+            font-size: 1em;
+            font-family: hwkt;
+            float:left;
+        } 
+        .class_cy img{
+            border-radius: 100%;
+            width: 5em;
+            height: 5em; 
+        }
+
+
+        
+        .class_ry { width:100%;   }  
+        .ry_title {
+            width: 15%; 
+            height: 7.5em;
+            margin-bottom: 0.5em;
+            vertical-align: middle;    
+        }
+        .ry_content {  
+            width: 80%;  
+            font-size:1.5em;
+            padding-left:1em;
+            font-family: hwkt;  
+            vertical-align: top;  
+            color:#F7EAFF;
+            background-color: rgba(193, 180, 180, 0.1); 
+        }
+        .ry_t {    font-size: 1.3em;
+            color:#fff;
+        }
+         
+        table.hovertable {width: 98%; margin-top:2em; 
+	        color:#fff;
+            font-size: 1.4em;
+	        border-width: 1px;
+	        border-color: #fff;
+	        border-collapse: collapse;
+        }
+        table.hovertable th {
+            width: 20%;
+            height: 2em; 
+	        background-color:#2E5B6E;
+	        border-width: 1px;
+	        padding: 8px;
+            text-align:center;
+	        border-style: solid;
+	        border-color: #fff;
+        }
+        table.hovertable tr {
+	        background-color:none;
+        }
+        table.hovertable td {
+	        border-width: 1px;
+            text-align:center;
+	        padding: 8px;
+	        border-style: solid;
+	        border-color: #a9c6c9;
+        }
+        .buttonm { 
+            text-align: center;
+            font-size: 2.5em;
+            width: 20%;
+            border-radius: 10%;
+            margin: 1em;
+            height: 2em;
+            background: -moz-linear-gradient(top, #2E5C6E 0%, #112530 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2E5C6E), color-stop(100%,#112530));
+            background: -webkit-linear-gradient(top, #2E5C6E 0%,#112530 100%);
+            background: -o-linear-gradient(top, #2E5C6E 0%,#112530 100%);
+            background: -ms-linear-gradient(top, #2E5C6E 0%,#112530 100%);
+            background: linear-gradient(to bottom, #2E5C6E 0%,#112530 100%);
+            line-height: 2em;
+            font-family: hwkt;
+            background-color: #2A728E;
+
+        }
+</style> 
+</head>
+<body> 
+    <!-- 网页预加载图 网页背景图 -->
+    <div id="loading"><img style="width:40%;" src="../../images/loading.gif" /></div>  
+    <div id="bgdiv"><img src="../../images/class_bg.jpg" alt=""/> </div> 
+    <!-- 网页预加载图 网页背景图 -->
+
+    <div id="header" class="header"> 
+        <table style="width:100%;">
+            <tr> 
+                <td class="header_title" id="header_title" > 
+                    杭州市萧山第十一高级中学
+                </td>
+                <td class="header_date">
+                    <span id="date_day" class="datafont">2017年12月13日</span><br />
+                    <span id="date_clock" class="datafont">14:45 </span>
+                    <span id="date_week" class="datafont" onclick="DoClock()"> 星期一</span> 
+                </td>
+                <td class="header_weather">
+                    <table class="class_rs">
+                        <tr>
+                            <td> 
+                                <span id="weather_current"></span> 
+                            </td>
+                            <td>
+                                <img id="weather_icon" src="../../images/days/qing.png" style="width:60px;height:60px;"/>  
+                            </td>
+                        </tr>
+                    </table>  
+                </td>
+            </tr>
+        </table> 
+    </div>
+
+    <div id="main">       
+      <table  style="width:100%;vertical-align:top;">
+        <tr>
+            <td style="width:20%;vertical-align:top;padding: 1em;background:url('../../images/lebg01.jpg')">
+                <div id="swiper-pagination" class="swiper-pagination"></div> 
+            </td>
+            <td style=" vertical-align:top;    padding: 2em;background:url('../../images/lebg02.jpg')"> 
+                <div class="swiper-container swiper-container-v">
+                    <div class="swiper-wrapper"> 
+                        <div class="swiper-slide" title="服务器设置"> 
+                            <div style="height:2.5em;line-height:2.5em; width:100%;font-size:2em;border-bottom:1px #333 solid;">服务器设置</div> 
+                              <table class="hovertable">
+                                <tr>
+                                    <th>服务器：  </th>
+                                    <td>
+                                        <input id="serverip" value="" type="text" 
+                                            onkeypress="showKeyPress(event)"
+                                            class="swiper-no-swiping"  style="width:70%;color: #000;height:2em;"/> 
+                                    </td>
+                                </tr> 
+                            </table> 
+                            <center>
+                            <div class="buttonm" onclick="SetServerIP()"> 点我保存 </div> 
+                            </center>
+
+                        </div>
+                        <div class="swiper-slide" title="班级设置"> 
+                            <div style="height:2.5em;line-height:2.5em; width:100%;font-size:2em;border-bottom:1px #333 solid;">班级设置</div> 
+                              <table class="hovertable">
+                                <tr>
+                                    <th>年级：  </th>
+                                    <td>
+                                        <select id="nj" style="width: 60%;background-color: #487686;" onchange="changenj()"> 
+                                        </select> 
+                                    </td>
+                                    
+                                    <th>班级：  </th>
+                                    <td>
+                                        <select style="width: 60%;background-color: #487686;"  id="bj"> 
+                                        </select>  
+                                    </td>
+                                </tr> 
+                             </table> 
+                             <center>
+                             <div class="buttonm" onclick="SetToken()"> 点我保存 </div> 
+                             </center> 
+                        </div> 
+                        <!--<div class="swiper-slide" title="今日签到">Slide 8</div>--> 
+                    </div>
+                    <!-- Add Pagination -->
+                    <!-- Add Arrows -->
+                    <div class="swiper-scrollbar"></div>
+                  <!--  <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>-->
+                </div>
+
+            </td>
+        </tr>
+    </table>
+    </div>
+
+    <div id="footer" class="footer">
+     <ul class="leader">
+          <li><a href="blue_index.html">首页</a></li>
+          <li><a href="blue_class.html">班级</a></li>
+          <li><a href="blue_home.html">学校</a></li>
+          <li><a href="blue_kq.html">签到</a></li>
+          <li><a href="blue_stu.html">我的</a></li>
+          <li class="lactive">设置</li> 
+ 
+     </ul>
+    </div>
+      
+    <script> 
+        $(document).ready(function () {
+            $(".header_title").html(schoolmc);
+            setInterval("DoClock()", 1000);
+            get_weather();
+            $("#serverip").val(serverip);
+            getnj();
+
+            var swiper = new Swiper('.swiper-container-v', {
+                direction: 'vertical',
+
+                scrollbar: '.swiper-scrollbar',
+                scrollbarHide: false,
+                scrollbarDraggable: true,
+                noSwiping: true,
+                pagination: '#swiper-pagination',
+                uniqueNavElements: false,
+                paginationClickable: true,
+                paginationBulletRender: function (swiper, index, className) {
+                    return '<li id="le_' + index + '" class="' + className + '">'
+                        + '<img class="leimg" src="../../images/cindex/a' + index + '.png">'
+                        + swiper.slides[index].title + '</li>';
+                }
+            });
+
+            setTimeout(function () { $("#loading").hide(); }, 1000);
+        });
+         
+        function SetServerIP() {
+            var str_url = $("#serverip").val();
+            if (IsURL(str_url)) {
+                var serverip = ECPJS.setajax("serverip", str_url);
+                if (serverip == str_url) { 
+                    parent.checkSet();
+                }
+                else { alert("服务器地址配置失败！"); }
+            }
+            else { alert("请输入有效服务器地址！"); }
+        }
+
+        function SetToken() {
+            var nj = $("#nj").val();
+            var bj = $("#bj").val(); 
+            if (!(bj > 0)) { alert("请选择班级！"); } 
+            var njid = ECPJS.setajax("njid", nj);
+            var bjid = ECPJS.setajax("bjid", bj);
+        }
+          
+        function getnj() { 
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/Get_select_NJ",
+                callback: "callback", data: { schoolid: schoolid },
+                success: function (data) {
+                    $("#nj").empty();
+                    $("#nj").prepend(data); 
+                    $("#nj").val(njid); 
+                    changenj();
+                },
+                complete: function (xOptions, textStatus) { },
+                error: function (xOptions, textStatus) {   }
+            });
+        }
+          
+        function changenj() { 
+            var nj = $("#nj").val();
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/Get_select_BJ",
+                callback: "callback", data: { id: nj, schoolid: schoolid },
+                success: function (data) {
+                    $("#bj").empty();
+                    $("#bj").prepend(data);
+                    $("#bj").val(bjid);
+                },
+                complete: function (xOptions, textStatus) {  },
+                error: function (xOptions, textStatus) {   }
+            });
+        }
+    </script> 
+
+</body>
+</html>
+
+
+
+
+
+ 

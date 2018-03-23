@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title></title>  
+    <link href="../../css/bootstrap.css" rel="stylesheet" />
+    <link href="../../css/animate.min.css" rel="stylesheet" /> 
+    <link href="../../dist/css/swiper.css" rel="stylesheet" />
+    <link href="../../css/blue.css" rel="stylesheet" />
+     
+    <script src="../../js/jquery-1.8.3-min.js"></script> 
+    <script src="../../js/common.js"></script>  
+    <script src="../../js/jquery.jsonp-2.1.4.min.js"></script> 
+    <style>
+       #main { 
+             margin-top: 0px;
+             padding-top: 2em;
+             font-family: hwkt;
+             height: 14em;
+             text-align: center;
+             font-size: 3em;
+             border: 2px solid #333;
+             border-radius: 2%;  
+        }
+        select ,input{
+            text-transform: none;
+            width: 5em;
+            background: #3F7286;
+        }
+        option {
+            font-size: 0.5em;   
+        }
+    </style> 
+</head>
+<body> 
+    <!-- 网页预加载图 网页背景图 -->  
+    <div id="bgdiv"><img src="../../images/class_bg.jpg" alt=""/> </div> 
+    <!-- 网页预加载图 网页背景图 -->
+
+    <div id="header" class="header"> 
+        <table style="width:100%;">
+            <tr> 
+                <td class="header_title" id="header_title" > 
+                    电子班牌系统--班级设置
+                </td>
+                <td class="header_date">
+                    <span id="date_day" class="datafont">2017年12月13日</span><br />
+                    <span id="date_clock" class="datafont">14:45 </span>
+                    <span id="date_week" class="datafont" onclick="DoClock()"> 星期一</span> 
+                </td>
+                <td class="header_weather">
+                    <table class="class_rs">
+                        <tr>
+                            <td> 
+                                <span id="weather_current"></span> 
+                            </td>
+                            <td>
+                                <img id="weather_icon" src="../../images/days/qing.png" style="width:60px;height:60px;"/>  
+                            </td>
+                        </tr>
+                    </table>  
+                </td>
+            </tr>
+        </table> 
+    </div>
+    <hr style="margin-top: 5em; margin-bottom: 2em;" />  
+
+    <div id="main" class="main"> 
+            <div style="margin-top: 1%;">
+                <lable>班级：</lable>
+                <select id="nj" onchange="changenj()"> 
+                </select>
+                <select id="bj"> 
+                </select> 
+            </div>
+            <div style="margin-top: 1%;">
+                <lable>教室：</lable>
+                <select id="lf" onchange="changelf()"> 
+                </select>
+                <select id="js"> 
+                </select> 
+            </div>
+            <div style="margin-top: 4%;">
+                <input class="bluebutton" style="    background: #1F8E8E;    border-radius: 5%;" type="button" onclick="SetToken()" value="提  交"  />  
+            </div>
+    </div> 
+  
+    <script>
+        var xlh = "";
+        $(document).ready(function () {
+            setInterval("DoClock()", 1000);
+            get_weather();
+
+            get_nj();
+            get_lf();
+            xlh = ECPJS.getxlh(); 
+             
+        });
+
+        $(document).ready(function () { 
+            setInterval("DoClock()", 1000);
+            get_weather();
+
+            get_nj();
+            get_lf();
+
+        });
+
+        function SetToken() {
+            var nj = $("#nj").val();
+            var bj = $("#bj").val();
+            var js = $("#js").val();
+
+
+            if (!(bj > 0)) { alert("请选择班级！"); return false;}
+            //if (!(js > 0)) { alert("请选择教室！"); }
+
+
+            bjmc = $("#bj").find("option:selected").text();
+             
+            //njid = ECPJS.setvalue("njid", nj);
+            //bjmc = ECPJS.setvalue("bjmc", bjmc);
+            //bjid = ECPJS.settoken(bj, js);
+             
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/Set_NJ_Bind",
+                callback: "callback", data:
+                    {
+                        schoolid: schoolid,
+                        njid: nj, 
+                        xlh: xlh,
+                        pname: bjmc,
+                        bjids: bj,
+                    },
+                success: function (data) {
+                    if (data == "ok") { 
+                        njid = ECPJS.setvalue("njid", nj);
+                        bjmc = ECPJS.setvalue("bjmc", bjmc);
+                        bjid = ECPJS.settoken(bj, js); 
+                    }
+                    else { alert("绑定失败：" + xlh); }
+
+                },
+                complete: function (xOptions, textStatus) { },
+                error: function (xOptions, textStatus) { }
+            });
+
+        }
+        function get_lf() {
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/Get_select_LF",
+                callback: "callback", data: { schoolid: schoolid },
+                success: function (data) {
+                    $("#lf").empty();
+                    $("#lf").prepend(data);
+                    changelf();
+                },
+                complete: function (xOptions, textStatus) { },
+                error: function (xOptions, textStatus) { }
+            });
+        }
+        function get_nj() {
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/Get_select_NJ",
+                callback: "callback", data: { schoolid: schoolid },
+                success: function (data) {
+                    $("#nj").empty();
+                    $("#nj").prepend(data);
+                    changenj();
+                },
+                complete: function (xOptions, textStatus) { },
+                error: function (xOptions, textStatus) { }
+            });
+        }
+        function changelf() {
+            var lf = $("#lf").val();
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/Get_select_JS",
+                callback: "callback", data: { id: lf, schoolid: schoolid },
+                success: function (data) {
+                    $("#js").empty();
+                    $("#js").prepend(data);
+                },
+                complete: function (xOptions, textStatus) { },
+                error: function (xOptions, textStatus) { }
+            });
+
+        }
+        function changenj() {
+
+            var nj = $("#nj").val();
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/Get_select_BJ",
+                callback: "callback", data: { id: nj, schoolid: schoolid },
+                success: function (data) {
+                    $("#bj").empty();
+                    $("#bj").prepend(data);
+                },
+                complete: function (xOptions, textStatus) { },
+                error: function (xOptions, textStatus) { }
+            });
+        }
+
+    </script>
+</body>
+</html>

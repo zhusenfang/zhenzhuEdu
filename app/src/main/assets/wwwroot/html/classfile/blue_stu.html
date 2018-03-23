@@ -1,0 +1,559 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title></title>  
+    <link href="../../css/bootstrap.css" rel="stylesheet" />
+    <link href="../../css/animate.min.css" rel="stylesheet" /> 
+    <link href="../../dist/css/swiper.css" rel="stylesheet" />
+    <link href="../../css/blue.css" rel="stylesheet" />
+     
+    <script src="../../js/jquery-1.8.3-min.js"></script> 
+    <script src="../../js/common.js"></script> 
+    <script src="../../dist/js/swiper.min.js"></script> 
+    <script src="../../js/jquery.jsonp-2.1.4.min.js"></script> 
+    <style>
+     html, body { height:100%;width:100%;}
+     #main { margin-top: 5em;width:90%;height:70%; }
+     #loading {
+        width: 100%;
+        height: 100%;
+        vertical-align: middle;
+        text-align: center;
+        background: #224656;
+        position: fixed;
+        z-index: 400;
+        border: 0;
+        top: 0%;
+        font-size: 2em;
+        padding-left: 0;
+        padding-top: 0; 
+        left: 0%;
+        bottom: auto;
+        opacity: 0.9;
+        -ms-filter: "alpha(opacity=80)";
+        filter: alpha(opacity=80);
+    }  
+    .swiper-container-v {
+        width: 100%; 
+        padding-top: 0; 
+        padding-bottom: 0; 
+        margin: 0; 
+        height: 42em; 
+        overflow:hidden; 
+    }
+    .swiper-wrapper {width:100%;}
+    .swiper-container-h
+    ,.swiper-container-r
+    ,.swiper-container-ry
+    ,.swiper-container-hd
+    ,.swiper-container-cg
+    ,.swiper-container-qd
+    {
+        width: 100%; 
+        max-width:80em;
+        padding-top: 0; 
+        padding-bottom: 0; 
+        margin: 0; 
+        height: 42em; 
+        overflow:hidden; 
+    } 
+
+    .swiper-container2 .swiper-slide {
+        border-radius: 0em;
+        padding: 1em;
+        overflow: hidden;
+        background: none;
+        text-align: left; 
+        width: 100%; 
+        height: 35em; 
+    }
+
+    .swiper-slide {
+        border-radius: 0em; 
+        overflow: hidden;
+        background: none;
+        text-align: left; 
+        width: 100%; 
+        height: 42em;  
+    }
+
+   .swiper-pagination-custom {
+        bottom: 10px;
+        left: 0;
+        width: 100%;
+        background-color: #E0DCDC;
+        height: 2em;
+        line-height: 2em;
+        text-align: left;
+        padding-left: 1em;
+        }
+
+   .swiper-pagination {
+        position: relative; 
+    }
+        #swiper-pagination-h {   bottom: 2em;
+        }
+    #swiper-pagination-h .swiper-pagination-bullet {  
+        width: 20px;
+        height: 20px; 
+        text-align: center;
+        line-height: 20px;
+        font-size: 12px;
+        color:#000;
+        opacity: 1;
+        background: rgba(0,0,0,0.2);
+    } 
+    #swiper-pagination-h
+    .swiper-pagination-bullet-active {
+        color:#fff;
+        background: #007aff;
+    }
+
+    .swiper-pagination-bullet {  
+        width: 100%; 
+        height: 2em;
+        border-radius: 0;
+        display: inline-block;
+        text-align: left;
+        line-height: 2em;
+        font-size: 2em;
+        color: #FFF;
+        opacity: 1;
+        font-family: hwkt;
+        background: none;
+    } 
+
+    .swiper-pagination-bullet-active {
+        color:#C3D82E;
+        background: #496974;
+    }
+
+        .leimg {
+            width:1em;
+            height:1em;
+            vertical-align: middle;
+            margin-right:0.5em;
+            margin-left:1em;
+        }
+
+
+        .class_jj {     width: 98%; }  
+        .jj_title {
+            width: 15%;
+            text-align:center;
+            background:red; 
+            font-family: hwkt;       
+            font-size: 2.5em;
+             font-weight: 700;
+            height: 3.6em; 
+            margin-bottom: 0.5em;
+            vertical-align: middle;   
+            background:url('../../images/lebg03.jpg')
+        }
+        .jj_content {  
+            width: 80%;  
+            font-size:2em;
+            padding-left:1em;
+            font-family: hwkt;      
+            height: 4.5em; 
+            margin-bottom: 0.5em; 
+            vertical-align: middle;   
+            background-color: rgba(193, 180, 180, 0.1); 
+        }
+
+
+        .class_cy { width: 100%;   } 
+        .class_cy li{
+            width: 6em;
+            height: 6em;
+            margin:1em; 
+            list-style:none;
+            text-align:center;
+            font-size: 1em;
+            font-family: hwkt;
+            float:left;
+        } 
+        .class_cy img{
+            border-radius: 100%;
+            width: 5em;
+            height: 5em; 
+        }
+
+
+        
+        .class_ry { width:100%;   }  
+        .ry_title {
+            width: 15%; 
+            height: 7.5em;
+            margin-bottom: 0.5em;
+            vertical-align: middle;    
+        }
+        .ry_content {  
+            width: 80%;  
+            font-size:1.5em;
+            padding-left:1em;
+            font-family: hwkt;  
+            vertical-align: top;  
+            color:#F7EAFF;
+            background-color: rgba(193, 180, 180, 0.1); 
+        }
+        .ry_t {    font-size: 1.3em;
+            color:#fff;
+        }
+         
+        table.hovertable {width: 98%; margin-top:2em;
+	        font-size:11px;
+	        color:#fff;
+            font-size: 1.4em;
+	        border-width: 1px;
+	        border-color: #fff;
+	        border-collapse: collapse;
+        }
+        table.hovertable th {
+            width: 11%;
+            height: 2em; 
+	        background-color:#2E5B6E;
+	        border-width: 1px;
+	        padding: 8px;
+            text-align:center;
+	        border-style: solid;
+	        border-color: #fff;
+        }
+        table.hovertable tr {
+	        background-color:none;
+        }
+        table.hovertable td {
+	        border-width: 1px;
+            text-align:center;
+	        padding: 8px;
+	        border-style: solid;
+	        border-color: #a9c6c9;
+        }
+        .stu_info { width:70%;margin-left:15%;margin-top:2em;}
+        .stu_info th { 
+            font-size:2em;
+            text-align:right;
+            font-family: hwkt;  
+        }
+        .stu_info td { 
+            font-size:2em;
+            text-align:left;
+            font-family: hwkt;  
+        }
+</style> 
+</head>
+<body > 
+    <!-- 网页预加载图 网页背景图 -->
+   
+    <div id="bgdiv"><img src="../../images/class_bg.jpg" alt=""/> </div> 
+    <!-- 网页预加载图 网页背景图 -->
+
+    <div id="header" class="header"> 
+        <table style="width:100%;">
+            <tr> 
+                <td class="header_title" id="header_title" > 
+                    杭州市萧山第十一高级中学
+                </td>
+                <td class="header_date">
+                    <span id="date_day" class="datafont">2017年12月13日</span><br />
+                    <span id="date_clock" class="datafont">14:45 </span>
+                    <span id="date_week" class="datafont" onclick="DoClock()"> 星期一</span> 
+                </td>
+                <td class="header_weather">
+                    <table class="class_rs">
+                        <tr>
+                            <td> 
+                                <span id="weather_current"></span> 
+                            </td>
+                            <td>
+                                <img id="weather_icon" src="../../images/days/qing.png" style="width:60px;height:60px;"/>  
+                            </td>
+                        </tr>
+                    </table>  
+                </td>
+            </tr>
+        </table> 
+    </div>
+
+    <div id="main">  
+        <table style="width:100%;">
+           <tr>
+               <td style="height:40em;vertical-align:middle; ">
+                   <table style="width: 40%; margin-left: 30%;">
+                       <tr>
+                           <td  style="text-align:right;padding-right:1em;">
+                              <img src="../../images/checked.png" style="height:5em;width:5em;" />
+                           </td>
+                           <td  style="font-size: 2.5em;    font-family: hwkt;">
+                             <div id="msgtxt">请刷卡！</div>  
+                           </td>
+                       </tr> 
+                   </table>
+               </td>
+           </tr>
+       </table>
+
+      <!--<table  style="width:100%;vertical-align:top;">
+        <tr>
+            <td style="width:20%;vertical-align:top;padding: 1em;background:url('../../images/lebg01.jpg')">
+                <div id="swiper-pagination" class="swiper-pagination"></div> 
+            </td>
+            <td style=" vertical-align:top;    padding: 2em;background:url('../../images/lebg02.jpg')"> 
+                <div class="swiper-container swiper-container-v">
+                    <div class="swiper-wrapper"> 
+                        <div class="swiper-slide" title="学生信息">
+                            <div style="height:2.5em;line-height:2.5em; width:100%;font-size:2em;border-bottom:1px #333 solid;">学生信息</div>  
+                             <table class="stu_info" >
+                                 <tr>
+                                     <td  rowspan="3" colspan="2" style="text-align:center;">
+                                        <img style="width:5em;height:5em;border-radius: 100%;" src="../../images/a2.jpg" /> 
+                                     </td>
+                                     <th>姓名：</th><td>王家驹</td></tr>
+                                 <tr><th>性别：</th><td>男</td></tr>
+                                 <tr><th>学号：</th><td>201545421545</td></tr>
+                                 <tr><th>年级：</th><td>一年级</td><th>班级：</th><td>102班</td></tr>
+                                 <tr><th>民族：</th><td>汉</td><th>政治面貌：</th><td>团员</td></tr>
+                                 <tr><th>籍贯：</th><td>浙江</td><th>身份证：</th><td>3335845125432158155</td></tr>
+                                 <tr><th>监护人：</th><td>王一江</td><th>手机：</th><td>13336186313</td></tr>
+                                 <tr><th>家庭电话：</th><td>057512124124</td><th>健康状况：</th><td>健康</td></tr>
+                                 <tr><th>血型：</th><td>AB型</td><th>是否住校：</th><td>是</td></tr>
+
+  
+
+                             </table>
+                        </div>
+                        <div class="swiper-slide" title="考勤记录"> 
+                            <div style="height:2.5em;line-height:2.5em; width:100%;font-size:2em;border-bottom:1px #333 solid;">
+                                考勤记录<span style=" font-size:0.7em;">（2017-08-09至2017-09-09）</span></div> 
+                             <table class="hovertable">
+                                <tr><th>项目  </th><th>周一</th><th>周二</th><th>周三</th><th>周四</th><th>周五</th></tr>
+                                <tr><th>签到</th><td>7：45</td><td>7：45</td><td>7：45</td><td>7：45</td><td>7：45</td></tr>
+                                <tr><th>签退</th><td>7：45</td><td>7：45</td><td>7：45</td><td>7：45</td><td>7：45</td></tr> 
+                            </table>
+                        </div>
+                        <div class="swiper-slide" title="我的课表"> 
+                            <div style="height:2.5em;line-height:2.5em; width:100%;font-size:2em;border-bottom:1px #333 solid;">我的课表</div> 
+                            <table class="hovertable">
+                                <tr><th>节次  </th><th>周一</th><th>周二</th><th>周三</th><th>周四</th><th>周五</th></tr>
+                                <tr><th>第一节</th><td>语文</td><td>数学</td><td>化学</td><td>英语</td><td>物理</td></tr>
+                                <tr><th>第二节</th><td>语文</td><td>数学</td><td>化学</td><td>英语</td><td>物理</td></tr>
+                                <tr><th>第三节</th><td>语文</td><td>数学</td><td>化学</td><td>英语</td><td>物理</td></tr>
+                                <tr><th>第四节</th><td>语文</td><td>数学</td><td>化学</td><td>英语</td><td>物理</td></tr> 
+                                <tr><th>第一节</th><td>语文</td><td>数学</td><td>化学</td><td>英语</td><td>物理</td></tr>
+                                <tr><th>第二节</th><td>语文</td><td>数学</td><td>化学</td><td>英语</td><td>物理</td></tr>
+                                <tr><th>第三节</th><td>语文</td><td>数学</td><td>化学</td><td>英语</td><td>物理</td></tr>
+                            </table>
+                             
+                        </div>
+                    
+                    </div>
+                   
+                    <div class="swiper-scrollbar"></div>
+                 
+                </div>
+
+            </td>
+        </tr>
+    </table>-->
+    </div>
+
+    <div id="loading"  style="display:none;">
+        <table style="width:100%;height:100%;">
+        <tr>
+        <td style=" width:100%;height:100%; vertical-align:middle;text-align:center;">
+            请刷学生卡：  <span id="skh"></span>
+        </td>
+        </tr>
+        </table>
+    </div>  
+     
+    <div id="footer" class="footer">
+     <ul class="leader">
+          <li><a href="blue_index.html">首页</a></li>
+          <li><a href="blue_class.html">班级</a></li>
+          <li><a href="blue_home.html">学校</a></li>
+          <li><a href="blue_kq.html">签到</a></li>
+          <li class="lactive">我的</li>
+          <li><a href="blue_set.html">设置</a></li>
+     </ul>
+    </div>
+     
+    <div class="modal bs-example-modal-lg"  onclick="modalHide('#bigModal', '');" id="bigModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" onclick="modalHide('#bigModal', '');" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span><span  class="sr-only">Close</span></button>
+                <h4 class="modal-title">详细信息</h4>
+            </div>
+            <div class="modal-body" id="content">
+                 
+              <center><h1 id="main_title"> 标题</h1></center>
+              <p id="main_subtitle" style="width:100%;text-align:center;">
+                  副标题
+              </p>
+
+              <p id="main_content" style="margin: 0 0 10px;
+                        text-indent: 2em;
+                        padding: 0.5em 02em 0em 2em;font-size: 1.5em;
+                        line-height: 1.5em;"> 
+                 经国务院批准，现将2017年元旦、春节、清明节、劳动节、端午节、中秋节和国庆节放假调休日期的具体安排通知如下。
+　　                        一、元旦：1月1日放假，1月2日(星期一)补休。
+　　                        二、春节：1月27日至2月2日放假调休，共7天。1月22日(星期日)、2月4日(星期六)上班。
+　　                        三、清明节：4月2日至4日放假调休，共3天。4月1日(星期六)上班。
+　　                        四、劳动节：5月1日放假，与周末连休。
+　　                        五、端午节：5月28日至30日放假调休，共3天。5月27日(星期六)上班。
+　　                        六、中秋节、国庆节：10月1日至8日放假调休，共8天。9月30日(星期六)上班。
+　　                        节假日期间，各地区、各部门要妥善安排好值班和安全、保卫等工作，遇有重大突发事件，
+                         要按规定及时报告并妥善处置，确保人民群众祥和平安度过节日假期
+              </p>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        //animate.css动画触动一次方法
+        $.fn.extend({
+            animateCss: function (animationName) {
+                var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+                this.addClass('animated ' + animationName).one(animationEnd, function () {
+                    $(this).removeClass('animated ' + animationName);
+                });
+            }
+        });
+        /**
+         * 显示模态框方法
+         * @param targetModel 模态框选择器，jquery选择器
+         * @param animateName 弹出动作
+         * @ callback 回调方法
+         */
+        var modalShow = function (targetModel, animateName, callback) {
+            var animationIn = ["fadeInLeft"];
+            if (!animateName || animationIn.indexOf(animateName) == -1) {
+                console.log(animationIn.length);
+                var intRandom = Math.floor(Math.random() * animationIn.length);
+                animateName = animationIn[intRandom];
+            }
+            console.log(targetModel + " " + animateName);
+            $(targetModel).show().animateCss(animateName);
+            callback.call(this);
+        }
+        /**
+         * 隐藏模态框方法
+         * @param targetModel 模态框选择器，jquery选择器
+         * @param animateName 隐藏动作
+         * @ callback 回调方法
+         */
+        var modalHide = function (targetModel, animateName, callback) {
+            var animationOut = ["fadeOutRight"];
+            if (!animateName || animationOut.indexOf(animateName) == -1) {
+                console.log(animationOut.length);
+                var intRandom = Math.floor(Math.random() * animationOut.length);
+                animateName = animationOut[intRandom];
+            }
+            $(targetModel).children().click(function (e) { e.stopPropagation() });
+            $(targetModel).animateCss(animateName);
+            $(targetModel).delay(900).hide(1, function () {
+                $(this).removeClass('animated ' + animateName);
+            });
+            callback.call(this);
+        }
+
+        var modalDataInit = function (info) {
+
+        }
+
+
+    </script>
+
+    <script>
+
+        $(document).ready(function () {
+            $(".header_title").html(schoolmc);
+            setInterval("DoClock()", 1000);
+            get_weather();   
+           //document.onkeyup = showKeyUp;
+        });
+
+        //str = "";
+        //function showKeyUp(evt) {
+        //    if (evt.keyCode == 13) {
+        //        Sava_lesson_KQ(str);
+        //        $("#skh").html(str);
+        //        str = "";
+        //    }
+        //    else
+        //    {
+        //        str += String.fromCharCode(evt.keyCode);
+        //    }
+        //}
+
+        //function dointr() {
+        //    $("#xskh").focus();
+        //    ECPJS.closekeybord(); 
+        //}
+
+        function ReadCard(card) { Sava_lesson_KQ(card); }
+        
+        function OpenModel(id) {
+            $("#content").height(window.innerHeight - 300);
+            modalShow('#bigModal', '', modalDataInit(''));
+        }
+
+        function kqcg(id) { 
+            try { 
+                if (id == 2) { ECPJS.playurl("audio/kcwzd.wav"); }
+                else if (id == 3) { ECPJS.playurl("audio/bsxs.wav"); }
+                else if (id == 4) { ECPJS.playurl("audio/bdxsk.wav"); }
+                else { ECPJS.playurl("audio/kqok.wav"); } 
+            } catch (e) { } 
+        }
+
+        function Sava_lesson_KQ(khstr) {  
+               $.jsonp({
+                    url: serverip + "/bpxt/bpxt/bpxtapi/Get_blue_stu",
+                    callback: "callback", data: { xskh: khstr, schoolid: schoolid },
+                    success: function (data) {
+                        if (data == "系统错误：课程未找到") { kqcg(2); return; }
+                        //else if (data == "您不是该课程学生") { kqcg(3); return; }
+                        else if (data == "请绑定学生卡") { kqcg(4); return; }
+                        //alert(khstr);
+                        $("#main").html(data);
+
+                        var swiper = new Swiper('.swiper-container-v', {
+                            direction: 'vertical',
+
+                            scrollbar: '.swiper-scrollbar',
+                            scrollbarHide: false,
+                            scrollbarDraggable: true,
+
+                            pagination: '#swiper-pagination',
+                            uniqueNavElements: false,
+                            paginationClickable: true,
+                            //paginationBulletRender: function (swiper, index, className) {
+                            //    return '<span class="' + className + '">' + (index + 1) + '</span>';
+                            //}
+                            paginationBulletRender: function (swiper, index, className) {
+                                return '<li id="le_' + index + '" class="' + className + '">'
+                                    + '<img class="leimg" src="../../images/cindex/a' + index + '.png">'
+                                    + swiper.slides[index].title + '</li>';
+                            } 
+                        });
+                        setTimeout(function () { $("#loading").hide(); }, 1000);
+                        //$("#loading").toggle();
+                    },
+                    complete: function (xOptions, textStatus) {  },
+                    error: function (xOptions, textStatus) {   }
+                });
+            }
+    </script> 
+
+</body>
+</html>
+
+ 

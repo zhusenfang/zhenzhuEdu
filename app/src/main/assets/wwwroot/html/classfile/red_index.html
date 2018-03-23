@@ -1,0 +1,2094 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title> 
+    <link href="../../css/bootstrap.css" rel="stylesheet" />
+    <link href="../../css/animate.min.css" rel="stylesheet" /> 
+    <link href="../../dist/css/swiper.css" rel="stylesheet" />
+    <link href="../../css/blue.css" rel="stylesheet" />
+     
+    <script src="../../js/jquery-1.8.3-min.js"></script> 
+    <script src="../../js/common.js"></script> 
+    <script src="../../js/touchwipe.js"></script>
+    <script src="../../dist/js/swiper.min.js"></script> 
+    <script src="../../js/jquery.jsonp-2.1.4.min.js"></script> 
+     
+    
+     
+     <!-- 班级主页样式 -->
+    <style type="text/css">
+        .main_lt {
+            width: 50%;
+            height: 14em;
+            float: left;
+        }
+        
+        .main_lb {
+            width: 45%;
+            height: 20em;
+            float: left;
+            text-align: center;
+        }
+        .main_lt th {
+            width: 20%;
+            vertical-align: middle;
+        }
+
+        .main_rt {
+            width: 100%;    
+            height: 24em;
+            float: right;
+            padding-top: 1%;
+        }
+        
+        .main_rb {
+            width: 100%;
+            height:22.5em;
+            float: right;
+            padding-top: 1%;
+        }
+
+        .main_lb img {
+            width: 98%;
+            height: 100%;
+        }
+
+
+        .main_lt table {
+            height: 60%;
+            margin-top: 3%;
+        }
+
+        .right_tl {
+            width: 100%;
+            float: left;
+        }
+
+        .right_tr {
+            width: 100%;
+            float: left;
+        }
+        
+        .main_center .newul {
+            width: 100%;
+            height: 19.5em;
+            overflow: hidden;
+        }
+
+        .main_center .newul li {
+            width: 95%;
+            padding-left: 2%;
+            list-style: none;
+            overflow: hidden;
+            height: 1.8em;
+            line-height: 1.8em; 
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+        }
+
+        .ultitle {
+            height: 1.5em;
+            line-height: 1.5em;
+            margin-bottom: 0.5em;
+            border-bottom: 2px solid #7096A5;
+            font-size: 1.5em;
+            -moz-box-shadow: 4em -0.5em 1em 0em #214251 inset;
+            -webkit-box-shadow: 4em -0.5em 1em 0em #214251 inset;
+            box-shadow: 4em -0.5em 1em 0em #214251 inset;
+            border-top-left-radius: 0.5em;
+        }
+
+        .ultitle_name {
+            width: 5em;
+            text-align: center;
+            border-top-left-radius: 0.5em;
+            border-top-right-radius: 0.5em;
+            background: #294F5D;
+        }
+
+        .main_img {
+            font-family: "微软雅黑";
+            height: 100%;
+            width: 100%;
+            overflow-x: hidden;
+            
+            position: relative;
+        }
+
+        .img2 {
+                height: 10.2em;    
+                width: 13em;
+                float: left;
+                margin-top: 0.8em;
+                margin-left: 1.6em;
+                margin-bottom: 0.8em;
+                overflow: hidden;
+                position: relative;
+        }
+
+        .main_img img {
+            height: 100%;
+            width: 100%;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            position: relative;
+            z-index: 1;
+            transition-delay: 0s;
+            transition-duration: 1s;
+            transition-property: all;
+            transition-timing-function: ease;
+            /* Firefox 4 */
+            -moz-transition-delay: 0s;
+            -moz-transition-duration: 1s;
+            -moz-transition-property: all;
+            -moz-transition-timing-function: ease;
+            /* Safari 和 Chrome */
+            -webkit-transition-delay: 0s;
+            -webkit-transition-duration: 1s;
+            -webkit-transition-property: all;
+            -webkit-transition-timing-function: ease;
+            /* Opera */
+            -o-transition-delay: 0s;
+            -o-transition-duration: 1s;
+            -o-transition-property: all;
+            -o-transition-timing-function: ease;
+        }
+
+        .main_img .show {
+            background: rgba(0, 0, 0, 0.2);
+            height: 100%;
+            text-align: center;
+            left: 0;
+            opacity: 1;
+            filter: alpha(opacity=1);
+            position: absolute;
+            top: 0;
+            transition-delay: 0s;
+            transition-duration: 0.3s;
+            transition-property: opacity;
+            transition-timing-function: ease-in;
+            /* Firefox 4 */
+            -moz-transition-delay: 0s;
+            -moz-transition-duration: 0.3s;
+            -moz-transition-property: opacity;
+            -moz-transition-timing-function: ease-in;
+            /* Safari 和 Chrome */
+            -webkit-transition-delay: 0s;
+            -webkit-transition-duration: 0.3s;
+            -webkit-transition-property: opacity;
+            -webkit-transition-timing-function: ease-in;
+            /* Opera */
+            -o-transition-delay: 0s;
+            -o-transition-duration: 0.3s;
+            -o-transition-property: opacity;
+            -o-transition-timing-function: ease-in;
+            width: 100%;
+            z-index: 200;
+        }
+
+            .main_img .show .imgArea {
+                left: 38%;
+                bottom: 40%;
+                margin: -15px 0px 0px -40px;
+                opacity: 1;
+                position: absolute;
+                transition-delay: 0s;
+                transition-duration: 0.4s;
+                transition-property: all;
+                transition-timing-function: ease;
+                /* Firefox 4 */
+                -moz-transition-delay: 0s;
+                -moz-transition-duration: 0.4s;
+                -moz-transition-property: all;
+                -moz-transition-timing-function: ease;
+                /* Safari 和 Chrome */
+                -webkit-transition-delay: 0s;
+                -webkit-transition-duration: 0.4s;
+                -webkit-transition-property: all;
+                -webkit-transition-timing-function: ease;
+                /* Opera */
+                -o-transition-delay: 0s;
+                -o-transition-duration: 0.4s;
+                -o-transition-property: all;
+                -o-transition-timing-function: ease;
+            }
+
+                .main_img .show .imgArea a {
+                    color: rgba(255,255,255, 0.8);
+                    display: block;
+                    padding: 5px 12px;
+                    border: rgba(255,255,255, 0.6) 1px solid;
+                    border-radius: 1em;
+                    font-size: 2em;
+                }
+
+                    .main_img .show .imgArea a:hover {
+                        background: rgba(255,255,255, 0.7);
+                        color: rgba(0,0,0, 0.6);
+                    }
+
+        .main_img:hover .show {
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+
+            .main_img:hover .show .imgArea {
+                opacity: 1;
+                filter: alpha(opacity=100);
+                bottom: 40%;
+            }
+
+        .main_img:hover img {
+            transform: scale(1.2, 1.2);
+            -ms-transform: scale(1.2, 1.2); /* IE 9 */
+            -moz-transform: scale(1.2, 1.2); /* Firefox */
+            -webkit-transform: scale(1.2, 1.2); /* Safari 和 Chrome */
+            -o-transform: scale(1.2, 1.2); /* Opera */
+        }
+
+        
+    </style>
+
+    <style>
+        .modal-dialog {
+            width: 80%;
+            margin: 5% auto;
+            color: #333;
+            height: 80%;
+        }
+
+            .modal-dialog div {
+                height: auto;
+            }
+
+            .modal-dialog div,
+            .modal-dialog p,
+            .modal-dialog span,
+            .modal-dialog h1,
+            .modal-dialog a,
+            .modal-dialog li {
+                color: #000;
+                width: auto;
+            }
+        .modal-title {
+            font-size: 1.3em;
+            color:#fff;
+            font-family: hwkt; 
+        }
+        .close {
+            font-size: 35px;
+        }
+        .modal-header {
+            padding: 8px;
+            background: -moz-linear-gradient(top, #214251 0%, #407992 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#214251), color-stop(100%,#407992));
+            background: -webkit-linear-gradient(top, #214251 0%,#407992 100%);
+            background: -o-linear-gradient(top, #214251 0%,#407992 100%);
+            background: -ms-linear-gradient(top, #214251 0%,#407992 100%);
+            background: linear-gradient(to bottom, #214251 0%,#407992 100%);
+        }
+
+        .swiper-container {
+            width: 100%;
+            padding-top: 0px; 
+            padding-bottom: 0px; 
+        }
+        .imgfont {
+            height: 3em; 
+            color: #DCCFCF;
+            width: 95%;
+            padding-top: 10px;
+            margin: auto;
+            font-size: 0.8em;
+            font-family: hwkt;
+        }
+    </style>
+     
+     <!-- 通用样式 -->
+    <style>
+        a, a:hover {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            color: #57308C;
+            overflow: hidden;
+        }
+
+        .header_date {
+            font-size: 1.2em;
+            width: 180px;
+            vertical-align: middle;
+            padding-right: 0px;
+            text-align: center;
+        }
+
+        .footer {
+            position: fixed;
+            text-align: center;
+            z-index: 4;
+            width: 100%;
+            bottom: 0.5em;
+            height: 2.2em;
+            line-height: 2.2em;
+            font-size: 1.8em;
+            font-family: hwkt;
+        }
+        
+        .leader {
+            width: 38em;
+            margin-left: 4.5em;
+        }
+
+        .leader .lactive {
+            font-weight: 700;
+            /*color: #57308C;*/
+            border-bottom: 2px #8D69C0 solid;
+        }
+
+        .leader li {
+            cursor: pointer;
+            text-decoration: none;
+            /*color: #57308C;*/
+            font-weight: 700; 
+            list-style: none;
+            float: left;
+            text-align: center;
+            width: 12%;
+        }
+         
+        hr {
+            margin-top: 2em;
+            margin-bottom: 0.5em;
+            border-top: 2px solid #916CC5;
+        }
+
+        #header td {
+            vertical-align: middle;
+        }
+        
+        #main {
+            margin-top: 0px;
+            font-size: 1.5em;
+            font-family: hwkt;   
+            height: 70.4em;
+            width: 100%;
+            margin-left: 0;
+            background: rgba(236,231,221,0.5);
+            overflow: hidden;   
+        }
+
+        #contain {
+            width: 98%;
+            height:34em;
+            margin: auto;
+        }
+
+        .ultitle {
+            color: #fff;
+        }
+         
+        
+        .classpage { 
+            width: 100%;
+            height: 34.4em; 
+            background: rgba(236,231,221,0.3);
+            /*display: none;*/
+            z-index: 3000;
+            /*position: fixed;*/
+            overflow: hidden; 
+        }    
+
+         #loading { 
+              padding: 0px; 
+              text-align: center;
+         }
+
+          #loading img {
+                width: 40em;
+                height: 40em; 
+                margin-top: 10em;
+                text-align: center;
+         }
+    </style>
+
+    <style>
+
+        .leimg {
+            width: 1em;
+            height: 1em;
+            vertical-align: middle;
+            margin-right: 0.3em;
+            margin-left: 0.3em;
+        }
+        
+        .class_jj {     width: 98%; }  
+        .jj_title {
+            width: 15%;
+            text-align:center;
+            background:red; 
+            font-family: hwkt;       
+            font-size: 2.5em;
+             font-weight: 700;
+            height: 3.6em; 
+            margin-bottom: 0.5em;
+            vertical-align: middle;   
+            background:url('../../images/lebg03.jpg')
+        }
+        .jj_content {  
+            width: 80%;  
+            font-size:2em;
+            padding-left:1em;
+            font-family: hwkt;      
+            height: 4.5em; 
+            margin-bottom: 0.5em; 
+            vertical-align: middle;   
+            background-color: rgba(193, 180, 180, 0.1); 
+        }
+
+
+        .class_cy { width: 100%;   } 
+        .class_cy li{
+            width: 6em;
+            height: 6em;
+            margin:1em; 
+            list-style:none;
+            text-align:center;
+            font-size: 1em;
+            font-family: hwkt;
+            float:left;
+        } 
+        .class_cy img{
+            border-radius: 100%;
+            width: 5em;
+            height: 5em; 
+        }
+
+
+        
+        .class_ry { width:100%;   }  
+        .ry_title {
+            width: 15%; 
+            height: 7.5em;
+            margin-bottom: 0.5em;
+            vertical-align: middle;    
+        }
+        .ry_content {  
+            width: 80%;  
+            font-size:1.5em;
+            padding-left:1em;
+            font-family: hwkt;  
+            vertical-align: top;  
+            color:#F7EAFF;
+            background-color: rgba(193, 180, 180, 0.1); 
+        }
+        .ry_t {    font-size: 1.3em;
+            color:#fff;
+        }
+         
+        table.hovertable {
+            width: 98%;
+            margin-top:0.5em;
+	        font-size:11px;
+	        color:#fff;
+            font-size: 1em;
+	        border-width: 1px;
+	        border-color: #fff;
+	        border-collapse: collapse;
+        }
+        table.hovertable th {
+            width: 11%;
+            height: 2em; 
+	        background-color:#2E5B6E;
+	        border-width: 1px;
+	        padding: 8px;
+            text-align:center;
+	        border-style: solid;
+	        border-color: #fff;
+        }
+        table.hovertable tr {
+	        background-color:none;
+        }
+        table.hovertable td {
+	        border-width: 1px;
+            text-align:center;
+	        padding: 8px;color: #333;
+	        border-style: solid;
+	        border-color: #a9c6c9;
+        }
+        .stu_info { width:100%; margin-top:2em;}
+        .stu_info th { 
+            font-size:1.5em;
+            text-align:right;
+            font-family: hwkt;  
+            font-weight:700;
+        }
+        .stu_info td { 
+            font-size:1.5em;
+            text-align:left;
+            font-family: hwkt;  
+        }
+        .stutitle {
+            height: 1.5em;
+            line-height: 1.5em;
+            width: 100%;
+            font-size: 1.5em;
+            border-bottom: 2px #AF95C5 solid;
+        } 
+
+
+    </style>
+
+    <!-- 课表样式 -->
+    <style type="text/css"> 
+        .class_left {
+                width: 70%;
+                margin: 0 2% 0 2%;
+                color: #FBF5F5;
+                border-radius: 10px;
+                background: rgba(38,131,0,0.4);
+                text-align: center;
+                height: 67em;
+                float: left;
+        } 
+        .class_right {
+            width: 25%;
+            height: 67em;
+            float: left;
+            color: #F7F7F7;
+            background: rgba(38,131,0,0.4);
+            border-radius: 10px; 
+        }
+          
+        .tzgg {
+            width: 100%;
+            height: 16em;
+            background: #48707F;
+            border-radius: 10px;
+        }
+
+        .bjxx {
+            width: 100%;
+            margin-top: 15px;
+            height: 16.3em;
+            background: #48707F;
+            border-radius: 10px;
+        }
+        
+        .gg_title {    
+            width: 100%;
+            font-size: 2.5em;
+            height: 1.8em;
+            text-align: center;
+            line-height: 1.8em;
+            border-bottom: 3px solid #916CC5;
+            color: #fff;
+        }
+
+
+        .ulgg {
+            padding: 15px;
+        }
+
+        .ulgg li {
+            font-size: 0.8em;
+            font-family: hwkt;
+            list-style: none;
+            height: 1.2em;
+            line-height: 1.2em;
+            width: 19em;
+            overflow-x: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+
+        #curless {
+            padding: 10px;
+        }
+
+        #curless table {
+            width: 100%;
+        }
+
+        #curless td {
+            text-align: center;
+        }
+
+        #curless .ltd {
+            width: 40%;
+            text-align: right;
+            padding-right: 15px;
+        }
+
+        #curless .rtd {
+            width: 60%;
+            text-align: left;
+            /*padding-left: 15px;*/
+        }
+
+        .tkq {
+            text-align: center;
+            padding-bottom: 10px;
+        }
+
+
+        #stulist {
+            padding: 10px 50px 10px 50px;
+            overflow: auto;
+            height: 65em;
+        }
+
+            #stulist li {
+                width: 170px;
+                max-width: 170px;
+                text-align: left;
+                float: left;
+                font-family: serif;
+                font-size: 0.8em;
+                margin-left: 15px;
+                margin-top: 10px;
+                list-style: none;
+                vertical-align: bottom;
+            }
+
+        .wd img {
+            vertical-align: bottom;
+            width: 1.1em;
+            height: 1.1em;
+        }
+
+        .yd img {
+            vertical-align: bottom;
+            width: 1.1em;
+            height: 1.1em;
+        }
+    </style>
+
+    
+
+    <style>
+
+         
+         
+.center{text-align: center;}
+/*iscroll*/
+.wrapper {position:relative;z-index:1;width:100%; overflow:hidden;}
+.scroller {position:absolute;z-index:1;-webkit-tap-highlight-color:rgba(0,0,0,0);width:100%;-webkit-transform:translateZ(0);-moz-transform:translateZ(0);-ms-transform:translateZ(0);-o-transform:translateZ(0);transform:translateZ(0);-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;-o-text-size-adjust:none;text-size-adjust:none;}
+.scroller {color:#060606; font-size:1.2rem; line-height:1.8; text-align:justify}
+    
+.wrapper1{ background-repeat: no-repeat, no-repeat; background-position: center 3%, center bottom; background-size: 100% auto, cover;} 
+.ls{width:93%; display: block; padding:0 0 4% 0; margin:auto; overflow: hidden; display: none; line-height:1.4;}
+.ls1{background-color: #cecece; color:#fff; font-size:1.1rem; padding:1% 2%; border-radius: 6px 6px 4px 4px; display:inline;}
+.ls:nth-child(1), .ls:nth-child(2){display: block} 
+.lshow{-webkit-animation: lshow .5s forwards; display: block; opacity: 0}
+@-webkit-keyframes lshow {
+    0% {opacity: 0;}
+	100% {opacity: 1;}
+}
+.headimg{width: 3em; height: 3em; border-radius: 10px;}
+.ls-left .headimg{float: left; margin-right:3%;}
+.ls-right .headimg{float: right; margin-left:3%;}
+.kuang{width:auto; max-width:70%; min-width:10%; box-sizing: border-box; padding: 12.5px; background-color: #fff; position: relative; border:1px solid rgba(211,211,211,.5); border-radius: 5px; text-align:justify; font-size:1.3rem;}
+.myword{background-color: #a1e75a}
+
+.ls{width:93%; display: block; padding:0 0 4% 0; margin:auto; overflow: hidden; display: none; line-height:1.4;}.ls{width:93%; display: block; padding:0 0 4% 0; margin:auto; overflow: hidden; display: none; line-height:1.4;}
+.ls1{background-color: #cecece; color:#fff; font-size:1.1rem; padding:1% 2%; border-radius: 6px 6px 4px 4px; display:inline;}
+.ls:nth-child(1), .ls:nth-child(2){display: block}
+.lmy{display: block;}
+.lshow{-webkit-animation: lshow .5s forwards; display: block; opacity: 0}
+.ls1{background-color: #cecece; color:#fff; font-size:1.1rem; padding:1% 2%; border-radius: 6px 6px 4px 4px; display:inline;}
+.ls:nth-child(1), .ls:nth-child(2){display: block}
+.lmy{display: block;}
+.lshow{-webkit-animation: lshow .5s forwards; display: block; opacity: 0}
+.ls:nth-child(1), .ls:nth-child(2){display: block}
+.lmy{display: block;}
+.lshow{-webkit-animation: lshow .5s forwards; display: block; opacity: 0}
+
+.ls-left .kuang{float: left}
+.ls-right .kuang{float: right}
+.san{position: absolute; left:-6px; top:10px; overflow: hidden; width:10px; height:10px; background-color: #fff;  border-left:1px solid rgba(211,211,211,.5); border-bottom:1px solid rgba(211,211,211,.5); -webkit-transform:rotate(45deg);}
+.myword .san{background-color: #a1e75a; left:auto; right:-6px; border-left:0; border-bottom:0; border-right:1px solid rgba(211,211,211,.5); border-top:1px solid rgba(211,211,211,.5);}
+.qimg{max-width:100%; display: block;}
+.qimg1{width:100px;}
+.qimg2{width:35%; float: left; margin-right:2.5%;}
+.blue{color:#0190d5;}
+.gray{color:#6f6f6f;}
+.gx .gray{font-size:1.2rem; margin-top: -3px; float: left;}
+.over{width:100%;}
+    
+    </style>
+    
+    <!-- 滑动样式 -->
+    <style>
+        /*.swiper-slide { 
+            height: 34em; 
+        }*/
+        
+        .swiper-pagination-bullet { 
+            height: 0.2em; 
+            margin-left: 5px;
+            /* margin-top: 2em; */
+            display: inline-block;
+            border-radius: 10px;    
+            background: rgba(87,48,140,0.5);
+            opacity: 1;
+        }
+        .swiper-pagination-bullet-active {
+            color: #698212;
+            background: rgba(105,140,0,0.5);
+        } 
+        #swiper-container-v {
+            width: 100%; 
+            padding-top: 0; 
+            padding-bottom: 0; 
+            margin: 0;  
+            overflow:hidden;  
+            border-radius: 0em;  
+            background: none;
+            text-align: left;  
+            height: 34em;  
+        } 
+
+        #swiper-container-v   .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 100%;
+            height: 34em; 
+            overflow: hidden;
+        }
+            
+        #swiper-paginationv {
+            position: relative; 
+        }
+
+        #swiper-paginationv  .swiper-pagination-custom {
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            background-color: #E0DCDC;
+            height: 2em;
+            line-height: 2em;
+            text-align: left;
+            padding-left: 1em;
+        }
+      
+        #swiper-paginationv .swiper-pagination-bullet {  
+            width: 100%; 
+            height: 2em;
+            border-radius: 0;
+            display: inline-block;
+            text-align: left;
+            line-height: 2em;
+            font-size: 1.4em;
+            color: #FFF;
+            opacity: 1;
+            font-family: hwkt;
+            background: none;
+        } 
+
+         #swiper-paginationv .swiper-pagination-bullet-active {
+            color: #C3D82E;
+            background: rgba(105,140,0,0.5);
+        } 
+          
+        .swiper-container-x {
+            width: 100%;  
+            height: 100%; 
+            overflow:hidden; 
+        }
+         .swiper-container-x .swiper-slide { 
+            height:100%; 
+        }
+
+
+
+        .swiper-container-y .swiper-pagination-bullet{ 
+            margin: 10px 5px;
+            height: 0.8em;
+            width: 0.8em;
+        }
+    </style>
+
+    <style>
+        #baseset {    
+            display: none;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            background:#6cabbd;
+            height: 100%;
+            z-index: 401;
+        }
+        #setBox li {
+            height: 4em;
+            line-height: 4em;
+            font-size: 2em;
+            text-align: center;
+            border-bottom: 1px solid #fff;
+        }
+        #baseset .bluebutton {
+                width: 4em;
+                height: 2em;background: #1F8E8E;border-radius: 5%; 
+        }
+        #bjids li {
+            float: left;
+            margin-left: 1em;
+            margin-top:0.3em; 
+            font-size: 0.7em;
+            list-style: none;
+            height: 2em;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <!-- 网页预加载图 网页背景图 --> 
+    <div id="loading">   
+        <img  src="../../images/loading.gif" /> 
+        <div style="position:absolute;top:1%;width:100%;text-align:center;">
+        <input class="bluebutton" type="button" style="  width: 4em;
+                height: 2em;background: #1F8E8E;border-radius: 5%; "  onclick="BaseSet()" value="基础设置"  />  
+        </div> 
+    </div>  
+    <div id="bgdiv"> <img src="../../images/fgbg.jpg" alt="" /> </div>  
+
+    <div id="header" class="header" style="top:1.5em; color: #57308C;">
+        <table style="width: 100%;">
+            <tr>
+                 <td class="header_title" id="header_title"  >  
+                    <span id="njmc"></span> 
+                    <span id="partname">班级主页</span> 
+                </td>
+                <td class="header_date">
+                    <span id="date_day" class="datafont">2017年12月13日</span><br />
+                    <span id="date_clock" class="datafont">14:45 </span>
+                    <span id="date_week" class="datafont" onclick="DoClock()">星期一</span>
+                </td>
+                <td class="header_weather">
+                    <table class="class_rs">
+                        <tr>
+                            <td>
+                                <span id="weather_current"></span>
+                            </td>
+                            <td>
+                               &nbsp;&nbsp;&nbsp; 
+                              <img id="weather_icon" src="../../images/days/qing.png" onclick="BaseSet()" style="width: 60px; height: 60px;" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <hr/>   
+
+    <div id="main"> </div>
+      
+    <div id="footer" class="footer">
+         <ul id="leader" class="leader" id="meunlist">
+              <li id="pagezy" class="lactive">班级主页</li>
+              <li id="pagexc" >班级相册</li>
+              <li id="pagesp" >班级视频</li>
+              <li id="pagecx" >学生查询</li> 
+              <!--<li id="pagejs" >教师查询</li>--> 
+              <li id="pagekq" >上课考勤</li> 
+              <!--<li id="pagehd" >家校互动</li>-->
+              <!--<li id="pageqd" >签到考勤</li>-->
+              <!--<li id="pagezb" >走班考勤</li>-->
+              <li id="pagebx" >公物报修</li>
+         </ul>
+    </div>
+      
+    <div class="modal bs-example-modal-lg"  onclick="modalHide('#bigModal', '');" id="bigModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" onclick="modalHide('#bigModal', '');" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span><span  class="sr-only">Close</span></button>
+                <h4 class="modal-title">详细信息</h4>
+            </div>
+            <div class="modal-body" id="content">
+                 
+              <center><h1 id="main_title"> 标题</h1></center>
+              <p id="main_subtitle" style="width:100%;text-align:center;">
+                  副标题
+              </p>
+
+              <p id="main_content" style="margin: 0 0 10px;
+                        text-indent: 2em;
+                        padding: 0.5em 02em 0em 2em;font-size: 1.5em;
+                        line-height: 1.5em;"> 
+                内容
+              </p>
+
+            </div>
+        </div>
+    </div> 
+    </div> 
+           
+    <script>
+        //animate.css动画触动一次方法
+        $.fn.extend({
+            animateCss: function (animationName) {
+                var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+                this.addClass('animated ' + animationName).one(animationEnd, function () {
+                    $(this).removeClass('animated ' + animationName);
+                });
+            }
+        });
+        /**
+         * 显示模态框方法
+         * @param targetModel 模态框选择器，jquery选择器
+         * @param animateName 弹出动作
+         * @ callback 回调方法
+         */
+        var modalShow = function (targetModel, animateName, callback) {
+            var animationIn = ["fadeInLeft"];
+            if (!animateName || animationIn.indexOf(animateName) == -1) {
+                console.log(animationIn.length);
+                var intRandom = Math.floor(Math.random() * animationIn.length);
+                animateName = animationIn[intRandom];
+            }
+            console.log(targetModel + " " + animateName);
+            $(targetModel).show().animateCss(animateName);
+            callback.call(this);
+        }
+        /**
+         * 隐藏模态框方法
+         * @param targetModel 模态框选择器，jquery选择器
+         * @param animateName 隐藏动作
+         * @ callback 回调方法
+         */
+        var modalHide = function (targetModel, animateName, callback) {
+            var animationOut = [animateName];
+
+            if (!animateName || animationOut.indexOf(animateName) == -1) {
+                console.log(animationOut.length);
+                var intRandom = Math.floor(Math.random() * animationOut.length);
+                animateName = animationOut[intRandom];
+            }
+            $(targetModel).children().click(function (e) { e.stopPropagation() });
+            $(targetModel).animateCss(animateName);
+            $(targetModel).delay(900).hide(1, function () {
+                $(this).removeClass('animated ' + animateName);
+            });
+            callback.call(this);
+        }
+
+        var modalDataInit = function (info) {
+
+        }
+
+        $('#bigModal').touchwipe({
+            wipeLeft: function () {
+                modalHide('#bigModal', 'fadeOutLeft');
+            },
+            wipeRight: function () {
+                modalHide('#bigModal', 'fadeOutRight');
+            },
+            preventDefaultEvents: false
+        });
+        </script>
+     
+    <div id="teakq" style="display:none;position: fixed;z-index: 3700;width: 100%;background: rgba(33, 25, 25, 0.5);height: 100%;top: 0px;left: 0px;">
+        <div style="   
+                font-size: 2em;
+                width: 30em;
+                margin: auto;
+                margin-top: 20%;
+                background: #FFF;
+                border-radius: 10px;
+                border: 5px double #962D2D;
+                height: 8em;
+                text-align: center;
+                padding-top: 2em;
+                color: #5B8C25;
+                font-weight: 700;">
+             现在不是该课程考勤时间,若要强制考勤,<br />
+             请任课教师刷卡验证...
+            <div onclick="$('#teakq').hide();"
+                 style="    height: 1.8em;
+                        line-height: 1.8em;
+                        width: 5em;
+                        margin: auto;
+                        margin-top: 2em;
+                        background: #354C0F;
+                        color: #fff;
+                        border-radius: 10px;">
+                返回
+            </div>
+        </div> 
+    </div>
+
+    <div id="baseset">
+        <div class="stutitle" style="background: #4a9e58;height:3em;line-height:3em"> 设置  <span onclick="GetOutSet();" style="float: right; margin-right: 0.5em;">[退出]</span> 
+        </div>   
+        <div id="setlogin" style="padding-top: 30%; text-align:center;font-size: 2em;">
+            <div style="margin:auto; text-align:center;">
+                <lable>请输入密码：</lable>
+                <input type="password" id="syspwd" />
+            </div>
+            <div style="margin-top: 4%;">
+                <input class="bluebutton" type="button"  onclick="StartSysSet()" value="提  交"  />  
+            </div> 
+        </div>
+        <div id="setBox" style="display:none; height:100%;"> 
+            <div style="width:20%;float:left;height:100%;background:#539fa2;">
+                <ul>
+                    <li onclick="setind(1)">服务器地址</li>
+                    <li onclick="setind(5)">学校选择</li>
+                <!--    <li onclick="setind(2)">班牌类型</li>-->
+                    <li onclick="setind(3)">年级/班级</li>
+                    <li onclick="setind(4)">全屏设置</li>
+                </ul>
+            </div>
+            <div style="width:80%; float:right; text-align:center; height:100%; font-size: 2em; padding-top: 30%;">
+                <div id="setserverip">
+                    <div>
+                        <lable>服务器地址：</lable>
+                        <input type="text" id="serverip" style="width: 15em;" value=""  />
+                    </div>
+                    <div style="margin-top: 4%;">
+                        <input class="bluebutton" type="button"   onclick="SetServerIP()" value="提  交"  />  
+                    </div>
+                </div>
+
+                <div id="setbindtype" style="display:none;">
+                    <div style="margin-top: 1%;">
+                            <lable>类型：</lable>
+                            <select id="bptype"  style="width: 5em;"> 
+                                <option value="1">班级屏</option>
+                                <option value="2">年级屏</option>
+                                <option value="3">校级屏</option>
+                            </select> 
+                        </div> 
+                    <div style="margin-top: 4%;">
+                    <input class="bluebutton" type="button"  onclick="SetBindType()" value="提  交"  />  
+                    </div>
+                </div>
+                <div id="setbindschool" style="display:none;">
+                   <div style="margin-top: 1%;">
+                        <lable>学校：</lable> 
+                        <select id="schoolid"> 
+                        </select> 
+                    </div>  
+                    <div style="margin-top: 4%;">
+                    <input class="bluebutton" type="button"  onclick="SetBindSchool()" value="提  交"  />  
+                    </div>
+                </div>
+
+                <div id="setbindgrade" style="display:none;">
+                     <div style="margin-top: 1%;">
+                        <lable>Android序列号：</lable>
+                        <span id="xlh"></span> 
+                     </div>  
+                     <div style="margin-top: 1%;">
+                        <lable>年级：</lable>
+                        <select id="nj" name="nj" style="width: 5em;" onchange="get_bjx()">  </select> 
+
+                     </div> 
+                     <div style="margin-top: 4%;">
+                        <ul id="bjids" style="width: 80%;
+                            height: 4em;
+                            margin: auto;"> 
+                        </ul>  
+                     </div>
+                     <div style="margin-top: 4%;">
+                        <input type="hidden" id="pname" value=""  />
+                        <input class="bluebutton" type="button" onclick="SetBindGrade()" value="提  交"  />  
+                     </div>
+                </div>
+                
+                <div id="setbindclass" style="display:none;">
+                    <div style="margin-top: 1%;">
+                        <lable>班级：</lable>
+                        <select id="clanj" style="width: 5em;" onchange="changenj()"> 
+                        </select>
+                        <select style="width: 5em;" id="bj"> 
+                        </select> 
+                    </div>
+                    <div style="margin-top: 1%;">
+                        <lable>教室：</lable>
+                        <select id="lf" style="width: 5em;" onchange="changelf()"> 
+                        </select>
+                        <select style="width: 5em;" id="js"> 
+                        </select> 
+                    </div>
+                    <div style="margin-top: 4%;">
+                        <input class="bluebutton" type="button" onclick="SetBindClass()" value="提  交"  />  
+                    </div> 
+                </div>
+
+                <div id="setbindqp" style="display:none;">
+                    <div style="margin-top: 4%;">
+                        <input class="bluebutton"  type="button" onclick="SetFullScreen(1)" value="设为全屏"  />  
+                        <input class="bluebutton" type="button"  onclick="SetFullScreen(0)" value="退出全屏"  />  
+                    </div> 
+                </div>
+            </div>
+        </div>
+         
+        <script>
+            function BaseSet() {  $("#baseset").show(); }
+            function GetOutSet() {
+                $("#baseset").hide();
+                location.reload();
+            }
+
+
+            function SetFullScreen(id) {
+                ECPJS.setscreen(id);
+                alert("配置成功,重新应用后生效！");
+                return false;
+            }
+
+            function StartSysSet()
+            {
+                var pwds = $("#syspwd").val();
+                if (pwds == "391725346") {
+                    $("#setBox").show();
+                    setind(1);
+                    $("#setlogin").hide();
+                }
+                else {
+                    alert("密码错误！");
+                }
+            }
+             
+            function setind(id) {
+                if (id == 1) { 
+                    $("#setserverip").show();
+                    $("#setbindtype").hide();
+                    $("#setbindgrade").hide();
+                    $("#setbindclass").hide();
+                    $("#setbindschool").hide(); 
+                    $("#setbindqp").hide(); 
+                    $("#serverip").val(serverip); 
+                }
+                else if (id == 2) {
+                    $("#setserverip").hide();
+                    $("#setbindtype").show();
+                    $("#setbindgrade").hide();
+                    $("#setbindclass").hide();
+                    $("#setbindqp").hide();
+                    $("#setbindschool").hide(); 
+                    $("#bptype").val(bptype);
+                      
+                }
+                else if (id == 3) { 
+                    $("#setserverip").hide();
+                    $("#setbindtype").hide();
+                    $("#setbindqp").hide(); 
+                    $("#setbindgrade").hide();
+                    $("#setbindclass").hide();
+                    $("#setbindschool").hide(); 
+                    if (bptype == 1) { $("#setbindclass").show(); get_nj(); get_lf(); }
+                    else if (bptype == 2) { $("#setbindgrade").show(); get_grade(); }
+                     
+                   
+                    
+                }
+                else if (id == 4) { 
+                    $("#setserverip").hide();
+                    $("#setbindtype").hide();
+                    $("#setbindgrade").hide();
+                    $("#setbindclass").hide();
+                    $("#setbindschool").hide();
+                    $("#setbindqp").show(); 
+                }
+                else if (id == 5) { 
+                    $("#setserverip").hide();
+                    $("#setbindtype").hide();
+                    $("#setbindgrade").hide();
+                    $("#setbindclass").hide();
+                    $("#setbindqp").hide();
+                    $("#setbindschool").show();
+                    get_school();
+                }
+            }
+
+
+            function get_lf() {
+                $.jsonp({
+                    url: serverip + "/bpxt/bpxt/bpxtapi/Get_select_LF",
+                    callback: "callback", data: { schoolid: schoolid },
+                    success: function (data) {
+                        $("#lf").empty();
+                        $("#lf").prepend(data);
+                        changelf();
+                    },
+                    complete: function (xOptions, textStatus) { },
+                    error: function (xOptions, textStatus) { }
+                });
+            }
+            function get_nj() {
+                $.jsonp({
+                    url: serverip + "/bpxt/bpxt/bpxtapi/Get_select_NJ",
+                    callback: "callback", data: { schoolid: schoolid },
+                    success: function (data) {
+                        $("#clanj").empty();
+                        $("#clanj").prepend(data); 
+                        changenj();
+                    },
+                    complete: function (xOptions, textStatus) { },
+                    error: function (xOptions, textStatus) { }
+                });
+            }
+
+            function get_grade() {
+                $.jsonp({
+                    url: serverip + "/bpxt/bpxt/bpxtapi/Get_select_NJ",
+                    callback: "callback", data: { schoolid: schoolid },
+                    success: function (data) {
+                        $("#nj").empty();
+                        $("#nj").prepend(data);
+
+                        get_bjx();
+                        var namex = $("#nj").find("option:selected").text();
+                        $("#pname").val(namex);
+                    },
+                    complete: function (xOptions, textStatus) { },
+                    error: function (xOptions, textStatus) { }
+                });
+            }
+
+            function get_bjx() {
+                var nj = $("#nj").val();
+                $.jsonp({
+                    url: serverip + "/bpxt/bpxt/bpxtapi/Get_NJBJ_Json",
+                    callback: "callback", data: { njid: nj, schoolid: schoolid },
+                    success: function (data) {
+                        $("#bjids").html("");
+                        for (i = 0; i < data.length; i++) {
+                            $("#bjids").append("<li><input type='checkbox'  checked='checked' value='" + data[i].ID + "' name='bjids'/>" + data[i].Name + "</li>");
+                        }
+                    },
+                    complete: function (xOptions, textStatus) { },
+                    error: function (xOptions, textStatus) { }
+                });
+            }
+            function get_school() {
+                $.jsonp({
+                    url: serverip + "/bpxt/bpxt/bpxtapi/Get_select_XX",
+                    callback: "callback", data: {},
+                    success: function (data) {
+                        $("#schoolid").empty();
+                        $("#schoolid").prepend(data);
+                        $("#schoolid").val(schoolid);
+                    },
+                    complete: function (xOptions, textStatus) { },
+                    error: function (xOptions, textStatus) { }
+                });
+            }
+
+            function changelf() {
+                var lf = $("#lf").val();
+                $.jsonp({
+                    url: serverip + "/bpxt/bpxt/bpxtapi/Get_select_JS",
+                    callback: "callback", data: { id: lf, schoolid: schoolid },
+                    success: function (data) {
+                        $("#js").empty();
+                        $("#js").prepend(data);
+                    },
+                    complete: function (xOptions, textStatus) { },
+                    error: function (xOptions, textStatus) { }
+                });
+
+            }
+            function changenj() {
+
+                var nj = $("#clanj").val();
+                $.jsonp({
+                    url: serverip + "/bpxt/bpxt/bpxtapi/Get_select_BJ",
+                    callback: "callback", data: { id: nj, schoolid: schoolid },
+                    success: function (data) {
+                        $("#bj").empty();
+                        $("#bj").prepend(data);
+                    },
+                    complete: function (xOptions, textStatus) { },
+                    error: function (xOptions, textStatus) { }
+                });
+            }
+
+
+            function SetServerIP() {
+                var str_url = $("#serverip").val();
+                if (IsURL(str_url)) {
+                    serverip = ECPJS.setajax("serverip", str_url);
+                    alert("服务器地址配置成功！"); 
+                }
+                else { alert("请输入有效服务器地址！"); }
+            }
+
+            function SetBindType() {
+                var bplx = $("#bptype").val();
+                if (!(bplx > 0)) { alert("请选择类型！"); }
+                bplx = ECPJS.setajax("bplx", bplx);
+
+                alert("配置成功！");
+            }
+
+            function SetBindGrade() {
+                var nj = $("#nj").val();
+                if (!(nj > 0)) { alert("请选择年级！"); }
+
+                var bjids = "";  
+                $("input:checkbox[name='bjids']:checked").each(function () {
+                    bjids += $(this).val() + ",";
+                }); 
+
+                var pname = $("#pname").val();
+                $.jsonp({
+                    url: serverip + "/bpxt/bpxt/bpxtapi/Set_NJ_Bind",
+                    callback: "callback", data:
+                        {
+                            schoolid: schoolid,
+                            njid: nj,
+                            xlh: xlh,
+                            pname: pname,
+                            bjids: bjids,
+                        },
+                    success: function (data) {
+                        if (data == "ok") {
+                            njid = ECPJS.setajax("njid", nj);
+                            alert("配置成功！");
+                        }
+                        else { alert("绑定失败：" + xlh); }
+                   
+                    },
+                    complete: function (xOptions, textStatus) { },
+                    error: function (xOptions, textStatus) { }
+                });
+
+            }
+
+            function SetBindClass() {
+                var nj = $("#clanj").val();
+                var bj = $("#bj").val();
+                var js = $("#js").val(); 
+                if (!(bj > 0)) { alert("请选择班级！"); return false; } 
+                 
+                bjmc = $("#bj").find("option:selected").text();
+                 
+                $.jsonp({
+                    url: serverip + "/bpxt/bpxt/bpxtapi/Set_NJ_Bind",
+                    callback: "callback", data:
+                        {
+                            schoolid: schoolid,
+                            njid: nj,
+                            xlh: xlh,
+                            pname: bjmc,
+                            bjids: bj,
+                        },
+                    success: function (data) {
+                        if (data == "ok") {
+                            njid = ECPJS.setajax("njid", nj);
+                            bjmc = ECPJS.setajax("bjmc", bjmc);
+                            bjid = ECPJS.setajax("bjid", bj);
+                            jsid = ECPJS.setajax("jsid", jsid);
+                            alert("配置成功！");
+                        }
+                        else { alert("绑定失败：" + xlh); }
+
+                    },
+                    complete: function (xOptions, textStatus) { },
+                    error: function (xOptions, textStatus) { }
+                });
+
+            }
+
+            function SetBindSchool() {
+                var bj = $("#schoolid").val();
+                if (!(bj > 0)) { alert("请选择学校！"); }
+                schoolid = ECPJS.setajax("schoolid", bj);
+                alert("配置成功！"); 
+            }
+
+        </script>
+    </div>
+     
+    <!--公用方法-->
+    <script>  
+        var timerhd;
+        var xxcount = 0;
+        var stukh = "";
+        var flag = false;
+        var cur_less_id = 0;
+        var jskh = "";
+        var mySwiper1 = null;
+        var mySwiper2 = null;
+        var ylfalg = 0; 
+        var khhstr = "";
+        var comSwiper;
+
+        var sider_zy = 0;//主页
+        var sider_xc = 1;//相册
+        var sider_sp = 2;//视频
+        var sider_cx = 3;//查询
+        var sider_kq = 4;//考勤
+        var sider_hd = 5;//互动
+        var sider_qd = 6;//签到 
+        var sider_js = 7;//教师
+        var sider_bx = 8;//报修
+
+
+        function showKeyUp(evt) { 
+            if (document.activeElement.id == "wxcontent") {
+            }
+            else { 
+                if (evt.keyCode == 13) {
+                    ReadCard(khhstr);
+                    khhstr = "";
+                }
+                else {
+                    khhstr += String.fromCharCode(evt.keyCode);
+                }
+            }
+        }
+
+        $(document).ready(function () {
+            setInterval(function () { checkpage(); }, 20000);
+            setInterval("DoClock()", 1000);
+            get_weather(); 
+            var objurl = searchToObject();
+
+            if (objurl.schoolid > 0) { schoolid = objurl.schoolid; }
+            if (objurl.schoolmc != null) { bjmc = objurl.schoolmc; }
+            if (objurl.bjid > 0) { bjid = objurl.bjid; ylfalg = 1; }
+             
+            $("#njmc").text(bjmc) 
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/Get_red_indexv",
+                callback: "callback", data: { bjid: bjid, schoolid: schoolid, xlh: xlh, ylfalg: ylfalg },
+                success: function (data) { 
+                    $("#main").html(data);  
+                    comSwiper = new Swiper('.swiper-container-x', {
+                        pagination: '#leader',
+                        paginationClickable: true, 
+                        paginationBulletRender: function (swiper, index, className) {
+                            return '<li  class="' + className + '"> ' + swiper.slides[index].title + ' </li>';
+                        }
+                    });
+
+                    var swipery = new Swiper('.swiper-container-y', {
+                        pagination: '.swiper-pagination-y',
+                        effect: 'cube',
+                        grabCursor: true,
+                        //autoplay: 3000,
+                        paginationClickable: true, 
+                        cube: {
+                            shadow: true,
+                            slideShadows: true,
+                            shadowOffset: 20,
+                            shadowScale: 0.94
+                        }
+                    });
+
+                    mySwiper1 = new Swiper('.swiper-container', {
+                        pagination: '#mypagination',
+                        nextButton: '.swiper-button-next',
+                        prevButton: '.swiper-button-prev',
+                        paginationClickable: true,
+                        spaceBetween: 30,
+                        centeredSlides: true,
+                        loop: true,
+                        //  autoplay: 2500,
+                        autoplayDisableOnInteraction: true, 
+                    });
+
+
+                    setTimeout(function () { $("#loading").hide(); }, 500);
+                    setInterval(function () { checklesson(); }, 60000);
+                   
+                    document.onkeyup = showKeyUp;
+                    //AjaxGetGLR();
+                },
+                complete: function (xOptions, textStatus) { $("#msg").main("服务器连接失败！"); },
+                error: function (xOptions, textStatus) { $("#msg").main("服务器连接失败！"); }
+            });
+             
+        });
+         
+
+        function checkpage()
+        {
+            if ($("#loading").is(":visible")) {  location.reload();  } 
+            try {
+                var date = new Date();
+                var mit = date.getMinutes();
+                if (mit % 10 == 0) {
+                    ECPJS.checkvesion();
+                }
+            } catch (x) { }   
+        }
+
+        function ReadCard(card) {  
+            try{
+                if (sider_zy == comSwiper.activeIndex) {
+                    Do_Teacher_kq(card);
+                }
+                else if (sider_xc == comSwiper.activeIndex) {//班级主页 
+                
+                }
+                else if (sider_sp == comSwiper.activeIndex) {//班级相册
+
+                }
+                else if (sider_cx == comSwiper.activeIndex) {//学生信息查询
+                    $("#stukh").text(card);
+                    GetStudent(card);
+                }
+                else if (sider_kq == comSwiper.activeIndex) {//上课考勤
+                    if ($("#kqpage").is(":visible")) {
+                        Sava_stu_lesson(card);
+                    }
+                    else if ($("#teakq").is(":visible")) {
+                        $.jsonp({
+                            url: serverip + "/bpxt/bpxt/bpxtapi/Check_Teacher_Lesson",
+                            callback: "callback", data: { jskh: card, kbid: cur_less_id, schoolid: schoolid },
+                            success: function (data) {
+                                if (data == "ok") {
+                                    $("#teakq").hide();
+                                    startkqtemp(cur_less_id);
+                                }
+                                else {
+                                    ECPJS.playmp("bdjsk"); return false;
+                                }
+                            },
+                            complete: function (xOptions, textStatus) { },
+                            error: function (xOptions, textStatus) { }
+                        });
+
+                    }
+                }
+                else if (sider_bx == comSwiper.activeIndex) {//公物报修
+
+                }
+                else if (sider_qd == comSwiper.activeIndex) {//签到 
+                    $("#wdkh").text(card);
+                    Sava_lesson_KQ(card);
+                }
+                else if (sider_js == comSwiper.activeIndex) {//教师查询 
+                    $("#teakh").text(card);
+                    GetTeacher(card);
+                }
+                else if (sider_hd == comSwiper.activeIndex) {//家校互动  
+                    $("#hdkh").text(card);
+                    GetHuDong(card);
+                } 
+            }
+            catch (x) {   }
+        }
+
+
+        function getBase64Image(img) {
+            var canvas = document.createElement("canvas");
+            canvas.width = img.width;
+            canvas.height = img.height;
+
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0, img.width, img.height);
+            var ext = img.src.substring(img.src.lastIndexOf(".") + 1).toLowerCase();
+            var dataURL = canvas.toDataURL("image/" + ext);
+            return dataURL;
+        }
+         
+        function ReadImage(imagepath)
+        {
+            $("#placeimg").attr("src", "file://"+imagepath);
+
+            //alert(imagepath); 
+            //var img = "file://" + imagepath;
+            //var image = new Image();
+            //image.crossOrigin = '';
+            //image.src = img;
+            //image.onload = function () {
+            //    var base64 = getBase64Image(image);  
+            //    $.post(serverip + "/bpxt/bpxt/bpxtapi/UpFiles_img", { data: base64 }, function (data) { });
+            //    //console.log(base64);
+            //}
+        }
+
+
+        function OpenClass() { 
+            if (mySwiper1 != null) { return false;}
+        }
+
+
+        //新闻弹窗显示
+        function Showdetails(id, type) {
+            var url = serverip + "/bpxt/bpxt/bpxtapi/Get_HD_Details";
+            $.jsonp({
+                url: url,
+                callback: "callback", data: { id: id, type: type, schoolid: schoolid },
+                success: function (data) {
+                    $("#content").html(data);
+                    $("#content img").each(function () {
+                        imgurl = $(this).attr("src");
+                        if (imgurl.indexOf("http:") == -1) {
+                            $(this).attr("src", serverip + imgurl);
+                        }
+                    });
+                    $("#content").height(window.innerHeight - 300);
+                    modalShow('#bigModal', '', modalDataInit(''));
+                },
+                complete: function (xOptions, textStatus) { $("#content").text("服务器连接失败！"); },
+                error: function (xOptions, textStatus) { $("#content").text("服务器连接失败！"); }
+            });
+        }
+
+        function getNowFormatDate() {
+            var date = new Date();
+            var seperator1 = "-";
+            var seperator2 = ":";
+            var month = date.getMonth() + 1;
+            var strDate = date.getDate();
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+            if (strDate >= 0 && strDate <= 9) {
+                strDate = "0" + strDate;
+            }
+            var currentdate = date.getHours() + seperator2 + date.getMinutes()
+                    + seperator2 + date.getSeconds();
+            return currentdate;
+        }
+
+
+
+    </script>
+
+    <!--教师考勤-->
+    <script> 
+        //学生签到
+        function Do_Teacher_kq(khstr) {  
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/Do_Teacher_kq",
+                callback: "callback", data: { xlh: xlh, jskh: khstr, schoolid: schoolid },
+                success: function (data) { 
+                        if (data.indexOf("考勤成功") != -1) {
+                            ECPJS.playmp("kqok");
+                            ECPJS.showtoast(data,"gou");
+                        }
+                        else if (data.indexOf("请绑定教师卡") != -1) {
+                            ECPJS.playmp("bdjsk");
+                            ECPJS.showtoast(data, "cha");
+                        }
+                        else if (data.indexOf("请先绑定账户") != -1) {
+                            ECPJS.playmp("bdzh");
+                            ECPJS.showtoast(data, "cha");
+                        }
+                        else if (data.indexOf("暂未设置考勤项目") != -1) {
+                            ECPJS.playmp("wskxm");
+                            ECPJS.showtoast(data, "cha");
+                        }
+                        else if (data.indexOf("现在不是考勤时间") != -1) {
+                            ECPJS.playmp("bsksj");
+                            ECPJS.showtoast(data, "cha");
+                        }
+                        else if (data.indexOf("qd") != -1)
+                        {
+                            ECPJS.playmp("kqok");
+                            ECPJS.takephoto(data);
+                        }
+                },
+                complete: function (xOptions, textStatus) { },
+                error: function (xOptions, textStatus) { }
+            });
+        } 
+    </script>
+
+    <!--查询学生个人信息-->
+    <script> 
+        //查询学生个人信息
+        function GetStudent(khstr) { 
+            stukh = khstr;
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/Get_red_stuv",
+                callback: "callback", data: { xskh: khstr, schoolid: schoolid },
+                success: function (data) {
+                    if (data == "请绑定学生卡")  { ECPJS.playmp("bdxsk"); return false; }
+
+                    $("#stupage").html(data); 
+                    mySwiper2 = new Swiper('#swiper-container-v', {
+                        direction: 'vertical', 
+                        pagination: '#swiper-paginationv',
+                        uniqueNavElements: true,
+                        paginationClickable: true,
+                        paginationBulletRender: function (swiper, index, className) {
+                            return '<li id="le_' + index + '" class="' + className + '">'
+                                + '<img class="leimg" src="../../images/cindex/a' + index + '.png">'
+                                + swiper.slides[index].title + '</li>';
+                        }
+                    });
+
+
+                     
+                },
+                complete: function (xOptions, textStatus) { },
+                error: function (xOptions, textStatus) { }
+            });
+
+        }
+        //退出个人信息查询
+        function GetOutStu() {
+            var htmlstr =
+                '<table style="width: 100%;">                                                                  ' +
+                ' <tr>                                                                                         ' +
+                '     <td style="height: 34em; vertical-align: middle;">                                       ' +
+                '         <table style="width: 60%; margin: auto;">                                            ' +
+                '             <tr>                                                                             ' +
+                '                 <td style="text-align: right; padding-right: 1em;">                          ' +
+                '                     <img src="../../images/stuinfo.png" style="height: 5em; width: 5em;" />  ' +
+                '                 </td>                                                                        ' +
+                '                 <td style="font-size: 2.5em; font-family: hwkt;">                            ' +
+                '                     <div >学生信息查询</div>                                                 ' +
+                '                 </td>                                                                        ' +
+                '             </tr>                                                                            ' +
+                '             <tr>                                                                             ' +
+                '                 <td style="text-align: right; font-size:1.5em; padding-right: 1em;">请刷卡:  ' +
+                '                 </td>                                                                        ' +
+                '                 <td style="font-size: 1.5em; font-family: hwkt;">                            ' +
+                '                     &nbsp;<span id="stukh"></span>                                           ' +
+                '                 </td>                                                                        ' +
+                '             </tr>                                                                            ' +
+                '         </table>                                                                             ' +
+                '     </td>                                                                                    ' +
+                ' </tr>                                                                                        ' +
+                '</table>                                                                                      ';
+             
+            $("#stupage").html(htmlstr);
+        }
+         
+        //退出个人信息查询
+        function GetOutHD() {
+            var htmlstr =
+                '<table style="width: 100%;">                                                                      ' +
+                '   <tr>                                                                                           ' +
+                '       <td style="height: 34em; vertical-align: middle;">                                         ' +
+                '           <table style="width: 40%; margin-left: 30%;">                                          ' +
+                '               <tr>                                                                               ' +
+                '                   <td style="text-align: right; padding-right: 1em;">                            ' +
+                '                       <img src="../../images/stuinfo.png" style="height: 5em; width: 5em;" />    ' +
+                '                   </td>                                                                          ' +
+                '                   <td style="font-size: 2.5em; font-family: hwkt;">                              ' +
+                '                       <div >家校互动</div>                                                       ' +
+                '                   </td>                                                                          ' +
+                '               </tr>                                                                              ' +
+                '               <tr>                                                                               ' +
+                '                   <td style="text-align: right; font-size:1.5em; padding-right: 1em;">请刷卡:    ' +
+                '                   </td>                                                                          ' +
+                '                   <td style="font-size: 1.5em; font-family: hwkt;">                              ' +
+                '                       &nbsp;<span id="hdkh"></span>                                              ' +
+                '                   </td>                                                                          ' +
+                '               </tr>                                                                              ' +
+                '           </table>                                                                               ' +
+                '       </td>                                                                                      ' +
+                '   </tr>                                                                                          ' +
+                '</table>                                                                                          ';
+             
+            $("#hudongpage").html(htmlstr);
+            clearInterval(timerhd);
+        }
+
+
+
+        //学生签到
+        function Sava_lesson_KQ(khstr) {
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/Get_blue_kq",
+                callback: "callback", data: { xskh: khstr, schoolid: schoolid },
+                success: function (data) {
+                    $("#msgtxt").html(data);
+                    $("#qdsj").text(getNowFormatDate());
+                    if (data.indexOf("考勤成功") != -1) {
+                        ECPJS.playmp("kqok");
+                    }
+                },
+                complete: function (xOptions, textStatus) { },
+                error: function (xOptions, textStatus) { }
+            });
+        }
+         
+        function OpenVedio(url) {
+            window.location.href = '../common/url_vedio.html?url=' + url; 
+        } 
+
+        //获取教师上课信息
+        function GetLesson() { 
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/Get_tea_lesson",
+                callback: "callback", data: { kh: jskh, jsid: jsid, schoolid: schoolid },
+                success: function (data) {
+                    if (data == "请绑定教师卡") { ECPJS.playmp("bdjsk"); return false; }
+                    $("#kbpage").html(data);
+                },
+                complete: function (xOptions, textStatus) { },
+                error: function (xOptions, textStatus) { }
+            });
+
+        }
+
+
+        function startkq(id,kssj,jssj,weekid)
+        {
+            cur_less_id = id;  
+            var d = new Date(); 
+            var curt = d.getHours() * 60 + d.getMinutes(); 
+            if (kssj <= curt && jssj >= curt && d.getDay() == weekid) {
+                startkqtemp(id);
+            }
+            else
+            {
+                $("#teakq").show();  
+            }   
+        }
+
+        function startkqtemp(id) {
+            cur_less_id = id;
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/Get_lesson_start",
+                callback: "callback", data: { kbid: id, schoolid: schoolid },
+                success: function (data) { 
+                    $("#kqpage").html(data);
+                    $("#kqpage").show();
+                    $("#selectpage").hide();
+                },
+                complete: function (xOptions, textStatus) { },
+                error: function (xOptions, textStatus) { }
+            }); 
+        }
+
+         
+        //保存考勤结果
+        function Sava_stu_lesson(khstr) { 
+            $("#kqkh").text(khstr);
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/Sava_lesson_KQ",
+                callback: "callback", data: { pkjgid: cur_less_id, token: khstr, schoolid: schoolid },
+                success: function (data) { 
+                    if (data == -1) { ECPJS.playmp("bdzh"); }
+                    else if (data == -2) { ECPJS.playmp("kcwzd"); }
+                    else if (data == -3) { ECPJS.playmp("bsxs"); }
+                    else if (data == -4) { ECPJS.playmp("bsrkjs"); }
+                    else if(data > 0){
+                        //$("#kqkh").text(khstr + "，考勤成功！"); 
+                        startkqtemp(cur_less_id);
+                        ECPJS.playmp("kqok"); 
+                        ECPJS.takephoto("skkq" + data);
+                    }
+                    else if (data.indexOf("jsskkq") > -1) { 
+                            ECPJS.playmp("kqok");
+                            startkqtemp(cur_less_id);
+                            ECPJS.takephoto(data);
+                    }
+                    
+                },
+                complete: function (xOptions, textStatus) { },
+                error: function (xOptions, textStatus) { }
+            });
+        }
+
+        function StopKQ()
+        { 
+            $("#kqpage").hide();
+            $("#selectpage").show();
+        } 
+        
+        function AjaxGetGLR() {
+            var url = serverip + "/bpxt/bpxt/bpxtapi/AjaxGetGLROption";
+
+            var tmpID = document.getElementById("GWLXID").value;
+
+            $.jsonp({
+                url: url,
+                callback: "callback", data: { lxid: tmpID, schoolid: schoolid },
+                success: function (data) { 
+                    $("#GLRID").empty(); //先清空
+                    $("#GLRID").prepend(data); //再加载  
+                },
+                complete: function (xOptions, textStatus) { },
+                error: function (xOptions, textStatus) { }
+            });
+             
+        }
+
+        function SaveBX()
+        {
+            var url = serverip + "/bpxt/bpxt/bpxtapi/SaveGWBX"; 
+            var sbbm  = bjmc; 
+            var gzms  =  $("#GZMS").val();
+            var glrid = $("#GLRID").val();
+            var lxid = $("#GWLXID").val();
+            if (!(lxid>0)) { alert("请选择公物类型！！"); return false; }
+            if (!(gzms.length > 0)) { alert("请填写故障信息！"); return false;}
+
+            $.jsonp({
+                url: url,
+                callback: "callback", data: {
+                    sbbm: sbbm,
+                    gzms: gzms,
+                    glrid: glrid,
+                    lxid: lxid,
+                    schoolid: schoolid
+                },
+                success: function (data) { 
+                    alert(data); 
+                },
+                complete: function (xOptions, textStatus) { },
+                error: function (xOptions, textStatus) { }
+            });  
+        }
+         
+    </script>
+    
+    <!--微信消息-->
+    <script>
+         //获取微信消息
+         function getxxxlist() {
+             $.jsonp({
+                 url: serverip + "/bpxt/bpxt/bpxtapi/Get_Wxxx_List",
+                 callback: "callback", data: { bjid: bjid, schoolid: schoolid },
+                 success: function (data) {
+                     var htmlstr = "";
+                     for (var i = 0; i < data.length; i++) {
+                         htmlstr += ' <li>' + data[i].JZXM + ' ：' + data[i].Content + '</li> ';
+                     }
+                     $("#gundong").html(htmlstr);
+
+                 },
+                 complete: function (xOptions, textStatus) { },
+                 error: function (xOptions, textStatus) { }
+             });
+         }
+
+         
+
+         function GetHuDong(khstr) {
+             stukh = khstr;
+             $.jsonp({
+                 url: serverip + "/bpxt/bpxt/bpxtapi/Get_red_jxhd_v",
+                 callback: "callback", data: { xskh: khstr, schoolid: schoolid },
+                 success: function (data) {
+                     if (data == "系统错误：课程未找到") { ECPJS.playmp("kcwzd"); return; }
+                     else if (data == "请绑定学生卡") { ECPJS.playmp("bdxsk"); return; }
+                     $("#hudongpage").html(data);
+
+                     xxcount = $('.kuang').length;
+                     $('#stuwxboxgun').scrollTop($('#stuwxboxgun')[0].scrollHeight);
+                     timerhd = setInterval(function () { getstuwx(); }, 10000);
+                 },
+                 complete: function (xOptions, textStatus) { },
+                 error: function (xOptions, textStatus) { }
+             });
+
+         }
+
+
+         function SendWX() {
+             wxcontent = $("#wxcontent").val(); 
+             $.jsonp({
+                 url:  serverip + "/bpxt/bpxt/bpxtapi/Do_wxapi_send",
+                 callback: "callback", data: { xskh: stukh,wxcontent:wxcontent, schoolid: schoolid },
+                 success: function (data) { 
+                     if (data == "发送成功")
+                     {
+                         $("#wxcontent").val("");
+                         getstuwx();
+                     }
+                     else { alert(data); }
+                     
+                 },
+                 complete: function (xOptions, textStatus) { },
+                 error: function (xOptions, textStatus) { }
+             });
+
+         }
+
+
+         function getstuwx() { 
+             if (stukh.length > 0)
+             $.jsonp({
+                 url: serverip + "/bpxt/bpxt/bpxtapi/Get_stu_Wxxx",
+                 callback: "callback", data: { xskh: stukh, schoolid: schoolid },
+                 success: function (data) { 
+                     if (xxcount < data.length) {
+                         xxcount = data.length;
+                         var htmlstr = ' <div style="height:1em;">  </div>';
+                         for (var i = 0; i < data.length; i++) { 
+                             if (data[i].SendType == 0) {
+                                 htmlstr += '<div class="ls ls-left lshow">                      ' +
+                                 '<img  class="headimg" src="../../images/fgbg.jpg">  ' +
+                                 '<div class="kuang" style="padding: 12.5px;">        ' +
+                                 data[i].Content +
+                                 '<div class="san"></div>                             ' +
+                                 '</div>                                              ' +
+                                 '</div>                                              ';
+                             }
+                             else {
+
+                                 htmlstr += '<div class="ls lshow ls-right">                      ' +
+                                 '<img  class="headimg" src="../../images/fgbg.jpg">  ' +
+                                 '<div class="kuang myword" style="padding: 12.5px;">        ' +
+                                 data[i].Content +
+                                 '<div class="san"></div>                             ' +
+                                 '</div>                                              ' +
+                                 '</div>                                              ';
+                             }
+                         }
+                         $("#stuwxbox").html(htmlstr);
+                         $('#stuwxboxgun').scrollTop($('#stuwxboxgun')[0].scrollHeight);
+                     }
+
+                 },
+                 complete: function (xOptions, textStatus) { },
+                 error: function (xOptions, textStatus) { }
+             });
+         }
+
+         function checklesson()
+         {
+             var myDate = new Date();
+             var w = myDate.getDay();
+             var h = myDate.getHours();       //获取当前小时数(0-23)
+             var m = myDate.getMinutes();     //获取当前分钟数(0-59)
+             var flag = true;
+             var dt = ((w * 10000) + (h * 60) + m);
+             $('.lessonclock').each(function (i){
+                 var start = $(this).attr("start");
+                 var end = $(this).attr("end");
+                 var kcid = $(this).attr("kcid");
+                 if (dt >= start && dt <= end)
+                 {
+                     flag = false;
+                     if (sider_kq != comSwiper.activeIndex && m == (start - (w * 10000))%60)
+                     {
+                         comSwiper.slideTo(sider_kq, 1000, false);
+                     }
+
+                     if (kcid != cur_less_id || !$("#kqpage").is(":visible"))
+                     {
+                         $(this).click();
+                     } 
+                 } 
+             });
+             if (flag && $("#kqpage").is(":visible")) { StopKQ; comSwiper.slideTo(sider_zy, 1000, false); } 
+            
+         }
+
+
+     </script>
+      
+</body>
+</html>

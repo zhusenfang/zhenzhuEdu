@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title></title>  
+    <link href="../../css/bootstrap.css" rel="stylesheet" />
+    <link href="../../css/animate.min.css" rel="stylesheet" /> 
+    <link href="../../dist/css/swiper.css" rel="stylesheet" />
+    <link href="../../css/blue.css" rel="stylesheet" />
+     
+    <script src="../../js/jquery-1.8.3-min.js"></script> 
+    <script src="../../js/common.js"></script> 
+    <script src="../../dist/js/swiper.min.js"></script> 
+    <script src="../../js/jquery.jsonp-2.1.4.min.js"></script> 
+    <style> 
+     #main { margin-top: 7em; background: url('../../images/lebg03.png');}  
+</style> 
+</head>
+<body> 
+    <!-- 网页预加载图 网页背景图 -->  
+    <div id="bgdiv"><img src="../../images/class_bg.jpg" alt=""/> </div> 
+    <!-- 网页预加载图 网页背景图 -->
+
+    <div id="header" class="header"> 
+        <table style="width:100%;">
+            <tr> 
+                <td class="header_title" id="header_title" > 
+                    杭州市萧山第十一高级中学
+                </td>
+                <td class="header_date">
+                    <span id="date_day" class="datafont">2017年12月13日</span><br />
+                    <span id="date_clock" class="datafont">14:45 </span>
+                    <span id="date_week" class="datafont" onclick="DoClock()"> 星期一</span> 
+                </td>
+                <td class="header_weather">
+                    <table class="class_rs">
+                        <tr>
+                            <td> 
+                                <span id="weather_current"></span> 
+                            </td>
+                            <td>
+                                <img id="weather_icon" src="../../images/days/qing.png" style="width:60px;height:60px;"/>  
+                            </td>
+                        </tr>
+                    </table>  
+                </td>
+            </tr>
+        </table> 
+    </div>
+
+    <div id="main">       
+       <table style="width:100%;">
+           <tr>
+               <td style="height:40em;vertical-align:middle; ">
+                   <table style="width: 40%; margin-left: 30%;">
+                       <tr>
+                           <td rowspan="2" style="text-align:right;padding-right:1em;">
+                              <img src="../../images/checked.png" style="height:5em;width:5em;" />
+                           </td>
+                           <td  style="font-size: 2.5em;    font-family: hwkt;">
+                             <div id="msgtxt">考勤时间！</div>  
+                           </td>
+                       </tr>
+                       <tr>
+                           <td style="font-size: 1.5em;    font-family: hwkt;">签到时间: <span id="qdsj"></span></td>
+                       </tr>
+                       <tr>
+                            <td  style="text-align:right;font-size: 2.5em; padding-right:1em;">
+                            卡号:
+                           </td>
+                           <td  style="font-size: 1.5em;    font-family: hwkt;">
+                             <div id="Div1"> <span id="wdkh"></span></div>  
+                           </td> 
+                       </tr>
+                   </table>
+               </td>
+           </tr>
+       </table>
+    </div>
+
+    <div id="footer" class="footer">
+     <ul class="leader">
+          <li><a href="blue_index.html">首页</a></li>
+          <li><a href="blue_class.html">班级</a></li>
+          <li><a href="blue_home.html">学校</a></li>
+          <li class="lactive">签到</li>
+          <li><a href="blue_stu.html">我的</a></li>
+          <li><a href="blue_set.html">设置</a></li>
+     </ul>
+    </div>
+     
+     
+     
+     
+    <script> 
+        $(document).ready(function () {
+            $(".header_title").html(schoolmc);
+            setInterval("DoClock()", 1000);
+            get_weather();
+            //document.onkeyup = showKeyUp;
+        });
+
+        //str = "";
+        //function showKeyUp(evt) {
+        //    if (evt.keyCode == 13) {
+        //        Sava_lesson_KQ(str); 
+        //        str = "";
+        //    }
+        //    else {
+        //        str += String.fromCharCode(evt.keyCode);
+        //    }
+        //}
+         
+        function ReadCard(card) {
+            Sava_lesson_KQ(card);
+            $("#wdkh").text(card);
+        }
+
+        function Sava_lesson_KQ(khstr) { 
+            $.jsonp({
+                url: serverip + "/bpxt/bpxt/bpxtapi/Get_blue_kq",
+                callback: "callback", data: { xskh: khstr, schoolid: schoolid },
+                success: function (data) { 
+                    $("#msgtxt").html(data);
+                    $("#qdsj").text(getNowFormatDate());
+                    if (data.indexOf("考勤成功") != -1) { 
+                        ECPJS.playmp("kqok");
+                    }
+                },
+                complete: function (xOptions, textStatus) {   },
+                error: function (xOptions, textStatus) {   }
+            });
+        }
+
+        function getNowFormatDate() {
+            var date = new Date();
+            var seperator1 = "-";
+            var seperator2 = ":";
+            var month = date.getMonth() + 1;
+            var strDate = date.getDate();
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+            if (strDate >= 0 && strDate <= 9) {
+                strDate = "0" + strDate;
+            }
+            var currentdate =  date.getHours() + seperator2 + date.getMinutes()
+                    + seperator2 + date.getSeconds();
+            return currentdate;
+        }
+    </script> 
+
+</body>
+</html>
+
+ 
